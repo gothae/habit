@@ -68,7 +68,6 @@
         this.classList.toggle('active');
 
         var dropdownContents = this.querySelectorAll('div a');
-        dropdownContents.style.display = 'none';
         dropdownContents.forEach(element => {
           if(element.style.display === "block"){
             element.style.display = "none";
