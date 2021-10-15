@@ -60,20 +60,26 @@
   window.addEventListener('load', navbarlinksActive)
   onscroll(document, navbarlinksActive)
 
-  // // Navbar Dropmenu activate
-  // const dropMenuActive = () => {
-  //   let dropMenuMain = select('#navbar .drop-menu-main',true);
-  //   for(let i=0; i<dropMenuMain.length; i++){
-  //     dropMenuMain[i].addEventListener('click',function(){
-  //       // var children = Array.prototype.slice.call(this.children).slice(1);
-  //       var children = Array.from(this.children).slice(1);
-  //       for(let j=0; j<children.length; j++){
-  //         children[i].display = 'none';
-  //       }
-  //     })
-  //   }
-  // }
-  // window.addEventListener('load',dropMenuActive);
+  // Navbar Dropmenu activate
+  const dropMenuActive = () => {
+    let dropdownBtn = select('#navbar .dropdown-btn',true);
+    for(let i=0; i<dropdownBtn.length; i++){
+      dropdownBtn[i].addEventListener('click',function(){
+        this.classList.toggle('active');
+
+        var dropdownContents = this.querySelectorAll('div a');
+        dropdownContents.style.display = 'none';
+        dropdownContents.forEach(element => {
+          if(element.style.display === "block"){
+            element.style.display = "none";
+          }else{
+            element.style.display = "block";
+          }
+        })
+      })
+    }
+  }
+  window.addEventListener('load',dropMenuActive);
 
   /**
    * Scrolls to an element with header offset
