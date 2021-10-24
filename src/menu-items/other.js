@@ -1,29 +1,31 @@
 // assets
-import { IconBrandChrome, IconHelp } from '@tabler/icons';
+import { IconUser, IconLogout } from '@tabler/icons';
 
 // constant
-const icons = { IconBrandChrome, IconHelp };
+const icons = { IconUser, IconLogout };
 
 // ==============================|| SAMPLE PAGE & DOCUMENTATION MENU ITEMS ||============================== //
 
 const other = {
-    id: 'sample-docs-roadmap',
+    // id: 'sample-docs-roadmap',
+    id: 'my-page',
+    title: '내정보',
     type: 'group',
     children: [
         {
-            id: 'sample-page',
-            title: 'Sample Page',
+            id: 'edit-myinfo',
+            title: '개인 정보 수정',
             type: 'item',
-            url: '/sample-page',
-            icon: icons.IconBrandChrome,
+            url: '/edit/user',
+            icon: icons.IconUser,
             breadcrumbs: false
         },
         {
-            id: 'documentation',
-            title: 'Documentation',
+            id: 'logout',
+            title: '로그아웃',
             type: 'item',
-            url: 'https://codedthemes.gitbook.io/berry/',
-            icon: icons.IconHelp,
+            url: '/free/pages/login/login3',
+            icon: icons.IconLogout,
             external: true,
             target: true
         }

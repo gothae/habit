@@ -13,30 +13,30 @@ const icons = {
 
 const utilities = {
     id: 'utilities',
-    title: 'Utilities',
+    title: '식단 관리',
     type: 'group',
     children: [
         {
-            id: 'util-typography',
-            title: 'Typography',
+            id: 'diet-weekly',
+            title: '주간 식단 관리',
             type: 'item',
-            url: '/utils/util-typography',
+            url: '/diet/week',
             icon: icons.IconTypography,
             breadcrumbs: false
         },
         {
-            id: 'util-color',
-            title: 'Color',
+            id: 'diet-monthly',
+            title: '월간 식단 관리',
             type: 'item',
-            url: '/utils/util-color',
+            url: '/diet/month',
             icon: icons.IconPalette,
             breadcrumbs: false
         },
         {
-            id: 'util-shadow',
-            title: 'Shadow',
+            id: 'diet-solution',
+            title: '솔루션 모아보기 ',
             type: 'item',
-            url: '/utils/util-shadow',
+            url: '/diet/solution',
             icon: icons.IconShadow,
             breadcrumbs: false
         },

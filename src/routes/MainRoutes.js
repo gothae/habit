@@ -32,15 +32,15 @@ const MainRoutes = {
             element: <DashboardDefault />
         },
         {
-            path: '/utils/util-typography',
+            path: '/diet/week',
             element: <UtilsTypography />
         },
         {
-            path: '/utils/util-color',
+            path: '/diet/month',
             element: <UtilsColor />
         },
         {
-            path: '/utils/util-shadow',
+            path: '/diet/solution',
             element: <UtilsShadow />
         },
         {
@@ -52,7 +52,7 @@ const MainRoutes = {
             element: <UtilsMaterialIcons />
         },
         {
-            path: '/sample-page',
+            path: '/edit/user',
             element: <SamplePage />
         }
     ]
