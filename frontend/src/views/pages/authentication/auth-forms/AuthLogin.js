@@ -233,7 +233,7 @@ const FirebaseLogin = ({ ...others }) => {
                                     variant="contained"
                                     color="secondary"
                                 >
-                                    Sign in
+                                    로그인
                                 </Button>
                             </AnimateButton>
                         </Box>

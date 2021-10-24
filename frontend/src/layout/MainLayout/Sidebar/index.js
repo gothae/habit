@@ -10,7 +10,7 @@ import { BrowserView, MobileView } from 'react-device-detect';
 
 // project imports
 import MenuList from './MenuList';
-import LogoSection from '../LogoSection';
+import HomeSection from '../HomeSection';
 import MenuCard from './MenuCard';
 import { drawerWidth } from 'store/constant';
 
@@ -24,7 +24,7 @@ const Sidebar = ({ drawerOpen, drawerToggle, window }) => {
         <>
             <Box sx={{ display: { xs: 'block', md: 'none' } }}>
                 <Box sx={{ display: 'flex', p: 2, mx: 'auto' }}>
-                    <LogoSection />
+                    <HomeSection />
                 </Box>
             </Box>
             <BrowserView>

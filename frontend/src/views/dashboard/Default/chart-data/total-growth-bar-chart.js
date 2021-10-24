@@ -32,6 +32,7 @@ const chartData = {
                 columnWidth: '50%'
             }
         },
+        // x축 값
         xaxis: {
             type: 'category',
             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -65,6 +66,7 @@ const chartData = {
             show: true
         }
     },
+    // 각 데이터마다 x축에 맞게 값 넣기
     series: [
         {
             name: 'Investment',

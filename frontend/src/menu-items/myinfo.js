@@ -6,9 +6,9 @@ const icons = { IconUser, IconLogout };
 
 // ==============================|| SAMPLE PAGE & DOCUMENTATION MENU ITEMS ||============================== //
 
-const other = {
+const myinfo = {
     // id: 'sample-docs-roadmap',
-    id: 'my-page',
+    id: 'myinfo',
     title: '내정보',
     type: 'group',
     children: [
@@ -32,4 +32,4 @@ const other = {
     ]
 };
 
-export default other;
+export default myinfo;

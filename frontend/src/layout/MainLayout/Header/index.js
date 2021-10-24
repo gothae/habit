@@ -5,9 +5,8 @@ import { useTheme } from '@mui/material/styles';
 import { Avatar, Box, ButtonBase } from '@mui/material';
 
 // project imports
-import LogoSection from '../LogoSection';
+import HomeSection from '../HomeSection';
 import SearchSection from './SearchSection';
-import ProfileSection from './ProfileSection';
 import NotificationSection from './NotificationSection';
 
 // assets
@@ -31,7 +30,7 @@ const Header = ({ handleLeftDrawerToggle }) => {
                 }}
             >
                 <Box component="span" sx={{ display: { xs: 'none', md: 'block' }, flexGrow: 1 }}>
-                    <LogoSection />
+                    <HomeSection />
                 </Box>
                 <ButtonBase sx={{ borderRadius: '12px', overflow: 'hidden' }}>
                     <Avatar
@@ -62,7 +61,6 @@ const Header = ({ handleLeftDrawerToggle }) => {
 
             {/* notification & profile */}
             <NotificationSection />
-            <ProfileSection />
         </>
     );
 };

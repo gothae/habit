@@ -9,10 +9,10 @@ const icons = {
     IconWindmill
 };
 
-// ==============================|| UTILITIES MENU ITEMS ||============================== //
+// ==============================|| diet MENU ITEMS ||============================== //
 
-const utilities = {
-    id: 'utilities',
+const diet = {
+    id: 'diet',
     title: '식단 관리',
     type: 'group',
     children: [
@@ -65,4 +65,4 @@ const utilities = {
     ]
 };
 
-export default utilities;
+export default diet;
