@@ -1,4 +1,4 @@
-from flask import Flask, send_from_directory
+from flask import Flask, send_from_directory, request
 from flask_restful import Api, Resource, reqparse
 from flask_cors import CORS
 # react는 포트 3000 flask는 5000써서 나는 API오류제거 위함
