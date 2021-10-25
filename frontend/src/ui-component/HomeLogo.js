@@ -23,15 +23,15 @@ const Home = () => {
          */
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="icon icon-tabler icon-tabler-home"
+            className="icon icon-tabler icon-tabler-home"
             width="50"
             height="50"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="#00abfb"
             fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
         >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <polyline points="5 12 3 12 12 3 21 12 19 12" />
