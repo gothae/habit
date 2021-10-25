@@ -21,6 +21,6 @@ def ab():
 
 if __name__ == '__main__':
     api.add_resource(ApiHandler, '/flask/hello')
-    api.add_resource(ApiHandler, '/db/test')
+    # api.add_resource(ApiHandler, '/db/test')
     app.run(debug=True)
     # asd
