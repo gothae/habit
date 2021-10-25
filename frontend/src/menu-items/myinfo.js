@@ -27,6 +27,7 @@ const myinfo = {
             url: '/free/pages/login/login3',
             icon: icons.IconLogout,
             external: true,
+            // external => 새창 여는 거
             target: true
         }
     ]
