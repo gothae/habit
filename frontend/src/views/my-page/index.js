@@ -17,11 +17,8 @@ const SamplePage = () => {
     //     </Typography>
     // </MainCard>
     const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    return (
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-            <Grid></Grid>
-        </Grid>
-    );
+    // 행렬식으로 card 정렬되게 바꿔야함
+    return arr.map((item) => <DietCard key={item} xs={4} />);
 };
 
 export default SamplePage;
