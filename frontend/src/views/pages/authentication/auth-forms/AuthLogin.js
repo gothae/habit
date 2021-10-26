@@ -82,6 +82,7 @@ const FirebaseLogin = ({ ...others }) => {
                         if (scriptedRef.current) {
                             setStatus({ success: true });
                             setSubmitting(false);
+                            console.log(values);
                         }
                     } catch (err) {
                         console.error(err);

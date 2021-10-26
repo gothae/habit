@@ -33,10 +33,12 @@ import { strengthColor, strengthIndicator } from 'utils/password-strength';
 // assets
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import axios from 'axios';
 
 // ===========================|| FIREBASE - REGISTER ||=========================== //
 
 const FirebaseRegister = ({ ...others }) => {
+    const apiURL = 'http://localhost:5000';
     const theme = useTheme();
     const scriptedRef = useScriptRef();
     const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
@@ -46,6 +48,28 @@ const FirebaseRegister = ({ ...others }) => {
 
     const [strength, setStrength] = useState(0);
     const [level, setLevel] = useState();
+
+    const [userFname, setUserFname] = useState();
+    const [userLname, setUserLname] = useState();
+    const [userEmail, setUserEmail] = useState();
+    const [userPassword, setUserPassword] = useState();
+
+    const login = () => {
+        const user = {
+            fname: userFname,
+            lname: userLname,
+            email: userEmail,
+            password: userPassword
+        };
+        axios
+            .post(`${apiURL}/pages/register`, { user })
+            .then((res) => {
+                console.log('res', res);
+            })
+            .catch((err) => {
+                console.log('error', err);
+            });
+    };
 
     const handleClickShowPassword = () => {
         setShowPassword(!showPassword);
@@ -93,7 +117,11 @@ const FirebaseRegister = ({ ...others }) => {
                             setStatus({ success: true });
                             setSubmitting(false);
                             // {fname, lname, email, password, submit:null} 인 객체로 values가 전달된다
-                            console.log(values);
+                            setUserFname(values.fname);
+                            setUserLname(values.lname);
+                            setUserEmail(values.email);
+                            setUserPassword(values.password);
+                            login();
                         }
                     } catch (err) {
                         console.error(err);
