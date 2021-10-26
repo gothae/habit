@@ -1,9 +1,8 @@
 from flask import Flask, send_from_directory, request
-from flask_restful import Api, Resource, reqparse
+from flask_restful import Api, reqparse
 from flask_cors import CORS
-from sqlalchemy import create_engine, text
 # react는 포트 3000 flask는 5000써서 나는 API오류제거 위함
-from APIHandler import ApiHandler
+from sqlalchemy import create_engine, text
 
 app = Flask(__name__, static_url_path='', static_folder='./frontend/public')
 app.config.from_pyfile('config.py')
@@ -19,8 +18,10 @@ def ab():
     return send_from_directory(app.static_folder,'index.html')
 # /frontend/public 에서 index.html
 
+@app.route('/test')
+def test():
+    a = 'test'
+    return a
+
 if __name__ == '__main__':
-    api.add_resource(ApiHandler, '/flask/hello')
-    # api.add_resource(ApiHandler, '/db/test')
     app.run(debug=True)
-    # asd

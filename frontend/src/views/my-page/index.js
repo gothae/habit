@@ -8,6 +8,8 @@ import { useEffect } from 'react';
 import DietCard from 'views/dashboard/Default/DietCard';
 // ==============================|| SAMPLE PAGE ||============================== //
 
+const apiURL = 'http://localhost:5000';
+
 const SamplePage = () => {
     // <MainCard title="Sample Card">
     //     <Typography variant="body2">
@@ -20,12 +22,12 @@ const SamplePage = () => {
     const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     useEffect(() => {
         axios
-            .get('http:/localhost:5000/db/test')
+            .get(`${apiURL}/test`)
             .then((response) => {
-                console.log('db connected', response);
+                console.log('connected', response);
             })
             .catch((error) => {
-                console.log('db fail', error);
+                console.log('fail', error);
             });
     });
     // 행렬식으로 card 정렬되게 바꿔야함
