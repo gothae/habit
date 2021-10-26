@@ -18,16 +18,16 @@ import { useEffect } from 'react';
 const App = () => {
     const customization = useSelector((state) => state.customization);
 
-    useEffect(() => {
-        axios
-            .get('http://localhost:5000/flask/hello')
-            .then((response) => {
-                console.log('success', response);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }, []);
+    // useEffect(() => {
+    //     axios
+    //         .get('http://localhost:5000/flask/hello')
+    //         .then((response) => {
+    //             console.log('success', response);
+    //         })
+    //         .catch((error) => {
+    //             console.log(error);
+    //         });
+    // }, []);
     return (
         <StyledEngineProvider injectFirst>
             <ThemeProvider theme={themes(customization)}>

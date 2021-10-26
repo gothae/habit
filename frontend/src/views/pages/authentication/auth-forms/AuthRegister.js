@@ -77,6 +77,8 @@ const FirebaseRegister = ({ ...others }) => {
 
             <Formik
                 initialValues={{
+                    fname: '',
+                    lname: '',
                     email: '',
                     password: '',
                     submit: null
@@ -90,6 +92,8 @@ const FirebaseRegister = ({ ...others }) => {
                         if (scriptedRef.current) {
                             setStatus({ success: true });
                             setSubmitting(false);
+                            // {fname, lname, email, password, submit:null} 인 객체로 values가 전달된다
+                            console.log(values);
                         }
                     } catch (err) {
                         console.error(err);
@@ -110,8 +114,11 @@ const FirebaseRegister = ({ ...others }) => {
                                     fullWidth
                                     label="First Name"
                                     margin="normal"
+                                    value={values.fname}
                                     name="fname"
                                     type="text"
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     defaultValue=""
                                     sx={{ ...theme.typography.customInput }}
                                 />
@@ -121,8 +128,11 @@ const FirebaseRegister = ({ ...others }) => {
                                     fullWidth
                                     label="Last Name"
                                     margin="normal"
+                                    value={values.lname}
                                     name="lname"
                                     type="text"
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     defaultValue=""
                                     sx={{ ...theme.typography.customInput }}
                                 />
@@ -201,6 +211,7 @@ const FirebaseRegister = ({ ...others }) => {
                                         <Grid item>
                                             <Typography variant="subtitle1" fontSize="0.75rem">
                                                 {level?.label}
+                                                {/* Weak, Poor, Normal, Good */}
                                             </Typography>
                                         </Grid>
                                     </Grid>
@@ -225,7 +236,7 @@ const FirebaseRegister = ({ ...others }) => {
                                     variant="contained"
                                     color="secondary"
                                 >
-                                    Sign up
+                                    회원 가입
                                 </Button>
                             </AnimateButton>
                         </Box>
