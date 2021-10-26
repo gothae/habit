@@ -27,11 +27,6 @@ const Register = () => {
                         <Grid item sx={{ m: { xs: 1, sm: 3 }, mb: 0 }}>
                             <AuthCardWrapper>
                                 <Grid container spacing={2} alignItems="center" justifyContent="center">
-                                    <Grid item sx={{ mb: 3 }}>
-                                        <Link to="#">
-                                            <Home />
-                                        </Link>
-                                    </Grid>
                                     <Grid item xs={12}>
                                         <Grid
                                             container
@@ -46,7 +41,7 @@ const Register = () => {
                                                         gutterBottom
                                                         variant={matchDownSM ? 'h3' : 'h2'}
                                                     >
-                                                        Sign up
+                                                        회원 가입
                                                     </Typography>
                                                     <Typography
                                                         variant="caption"
@@ -59,17 +54,19 @@ const Register = () => {
                                             </Grid>
                                         </Grid>
                                     </Grid>
+                                    {/* 실제 회원가입 */}
                                     <Grid item xs={12}>
                                         <AuthRegister />
                                     </Grid>
                                     <Grid item xs={12}>
                                         <Divider />
                                     </Grid>
+
                                     <Grid item xs={12}>
                                         <Grid item container direction="column" alignItems="center" xs={12}>
                                             <Typography
                                                 component={Link}
-                                                to="/pages/login/login3"
+                                                to="/pages/login"
                                                 variant="subtitle1"
                                                 sx={{ textDecoration: 'none' }}
                                             >

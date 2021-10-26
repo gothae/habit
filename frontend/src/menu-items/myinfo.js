@@ -24,7 +24,7 @@ const myinfo = {
             id: 'logout',
             title: '로그아웃',
             type: 'item',
-            url: '/free/pages/login/login3',
+            url: '/pages/login',
             icon: icons.IconLogout,
             external: true,
             // external => 새창 여는 거
