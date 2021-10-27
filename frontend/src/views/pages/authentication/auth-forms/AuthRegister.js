@@ -54,8 +54,8 @@ const FirebaseRegister = ({ ...others }) => {
     const [userEmail, setUserEmail] = useState();
     const [userPassword, setUserPassword] = useState();
 
-    const login = () => {
-        const user = {
+    const register = () => {
+        let user = {
             fname: userFname,
             lname: userLname,
             email: userEmail,
@@ -65,6 +65,7 @@ const FirebaseRegister = ({ ...others }) => {
             .post(`${apiURL}/pages/register`, { user })
             .then((res) => {
                 console.log('res', res);
+                // res가 server에서 retrun한 값을 받음
             })
             .catch((err) => {
                 console.log('error', err);
@@ -121,7 +122,7 @@ const FirebaseRegister = ({ ...others }) => {
                             setUserLname(values.lname);
                             setUserEmail(values.email);
                             setUserPassword(values.password);
-                            login();
+                            register();
                         }
                     } catch (err) {
                         console.error(err);

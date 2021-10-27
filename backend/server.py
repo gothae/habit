@@ -23,12 +23,12 @@ def test():
     a = 'test'
     return a
 
-@app.route('/pages/signup', methods=['GET','POST'])
+@app.route('/pages/register', methods=['GET','POST'])
 def signup():
     if request.method == "POST":
         return 'sfad'
-    # else:
-    #     return 'fail'
+    else:
+        return 'fail'
 
 if __name__ == '__main__':
     app.run(debug=True)
