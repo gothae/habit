@@ -79,12 +79,17 @@ select * from patient;
 create table query(
    query_id varchar(100) not null,
    patient_id varchar(20) not null unique,
+   patient_name varchar(20) not null,
+   age int not null unique,
+   weight float not null unique,
+   height float not null unique,
+   birth_date char(8) not null,
    question_01 varchar(100) not null,
    question_02 varchar(100) not null,
    question_03 varchar(100) not null,
    question_04 varchar(100) not null,
    question_05 varchar(100) not null,
-   foreign key(patient_id) references patient(patient_id),
+   foreign key(patient_id,patient_name, age, weight, height, birth_date) references patient(patient_id, patient_name, age, weight, height,birth_date),
    primary key(query_id,patient_id)
 );
 
