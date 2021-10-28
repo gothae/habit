@@ -26,7 +26,7 @@ const myinfo = {
             type: 'item',
             url: '/pages/login',
             icon: icons.IconLogout,
-            external: true,
+            // external: true,
             // external => 새창 여는 거
             target: true
         }

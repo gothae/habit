@@ -41,6 +41,7 @@
     },
     "scripts": {
         "start": "react-scripts start",
+        "start-api": "cd ../backend && venv/scripts/flask run --no-debugger",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
@@ -83,5 +84,6 @@
         "eslint-plugin-react-hooks": "4.0.8",
         "prettier": "^2.2.1",
         "sass": "^1.42.1"
-    }
+    },
+    "proxy": "http://localhost:5000"
 }

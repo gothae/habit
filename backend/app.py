@@ -26,9 +26,10 @@ def test():
 @app.route('/pages/register', methods=['GET','POST'])
 def signup():
     if request.method == "POST":
-        return 'sfad'
+        # print(request)
+        return 'asdf'
     else:
-        return 'fail'
+        return send_from_directory(app.static_folder,'index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
