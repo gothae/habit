@@ -87,7 +87,7 @@ const FirebaseRegister = ({ ...others }) => {
     };
 
     useEffect(() => {
-        changePassword('123456');
+        // changePassword('123456');
     }, []);
 
     return (
