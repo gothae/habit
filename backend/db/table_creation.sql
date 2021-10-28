@@ -2,14 +2,15 @@ create table Patient(
    patient_id varchar(20) not null unique,
    patient_pw varchar(20) not null,
    patient_name varchar(20) not null,
-   age int not null unique,
-   weight float not null unique,
-   height float not null unique,
+   age int not null,
+   weight float not null,
+   height float not null,
    birth_date char(8) not null,
+   gender varchar(7) not null,
    illness varchar(20),
    medicine varchar(20),
    phone_number varchar(13),
-   primary key(patient_id, patient_name, age, weight, height, birth_date)
+   primary key(patient_id, patient_name, age, weight, height, birth_date, gender)
 );
 
 -- create table query(
@@ -29,9 +30,13 @@ create table nutrient(
    carbohydrate float not null,
    protein float not null,
    fat float not null,
+   calories float not null,
+   sodium float not null,
+   calcium float not null,
+   vitamin_c float not null,
    food_detection varchar(80) not null,
    foreign key(food_detection) references diet(food_detection),
-   primary key(carbohydrate, protein, fat)
+   primary key(carbohydrate, protein, fat, calories)
 );
 
 -- create table food_standard(
@@ -71,8 +76,8 @@ create table save_diet(
 --    phone_number varchar(13)
 -- );
 
-insert into patient values('sh98','1234','신현호',24,80,176,'19981125','no','no','01048807780');
-insert into patient values('james','2345','James',21,72,174,'19981125','no','no','01012345678');
+insert into patient values('sh98','1234','신현호',24,80,176,'19981125','male','no','no','01048807780');
+insert into patient values('james','2345','James',21,72,174,'19981125','male','no','no','01012345678');
 select * from patient;
 
 -- 질문이 5개라 가정
@@ -84,13 +89,21 @@ create table query(
    weight float not null unique,
    height float not null unique,
    birth_date char(8) not null,
+   gender varchar(7) not null,
    question_01 varchar(100) not null,
    question_02 varchar(100) not null,
    question_03 varchar(100) not null,
    question_04 varchar(100) not null,
    question_05 varchar(100) not null,
-   foreign key(patient_id,patient_name, age, weight, height, birth_date) references patient(patient_id, patient_name, age, weight, height,birth_date),
+   foreign key(patient_id,patient_name, age, weight, height, birth_date,gender) references patient(patient_id, patient_name, age, weight, height,birth_date,gender),
    primary key(query_id,patient_id)
 );
 
+create table doctor(
+   doctor_id varchar(20) not null unique primary key,
+   patient_id varchar(20) not null unique,
+   doctor_name varchar(20) not null,
+   dept varchar(20) not null,
+   foreign key(patient_id) references patient(patient_id)
+   );
 
