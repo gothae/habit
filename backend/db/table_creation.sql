@@ -22,8 +22,7 @@ create table diet(
    food_detection varchar(80) not null primary key,
    diet_time datetime default current_timestamp on update current_timestamp,
    diet_photo mediumblob not null,
-   amount varchar(20),
-   calories float
+   amount varchar(20)
 );
 
 create table nutrient(
