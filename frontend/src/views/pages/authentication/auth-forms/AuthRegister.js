@@ -38,7 +38,7 @@ import axios from 'axios';
 // ===========================|| FIREBASE - REGISTER ||=========================== //
 
 const FirebaseRegister = ({ ...others }) => {
-    const apiURL = 'http://localhost:5000';
+    const apiURL = 'http://localhost:3000';
     const theme = useTheme();
     const scriptedRef = useScriptRef();
     const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
