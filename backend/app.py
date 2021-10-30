@@ -16,7 +16,7 @@ app.database = database
 @app.route('/pages/register', methods=['GET','POST'])
 def signup():
     if request.method == "POST":
-        user = request.get_json()
+        user = request.get_data()
         return user
     else:
         return send_from_directory(app.static_folder,'index.html')
