@@ -21,5 +21,13 @@ def signup():
     else:
         return send_from_directory(app.static_folder,'index.html')
 
+@app.route('/pages/login', methods=['GET','POST'])
+def login():
+    if request.method == "POST":
+        user = request.get_data()
+        return user
+    else:
+        return 'get'
+
 if __name__ == '__main__':
     app.run(debug=True)

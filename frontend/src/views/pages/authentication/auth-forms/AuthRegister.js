@@ -39,7 +39,6 @@ const FirebaseRegister = ({ ...others }) => {
     const apiURL = 'http://localhost:3000';
     const theme = useTheme();
     const scriptedRef = useScriptRef();
-    const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
     const [showPassword, setShowPassword] = useState(false);
 
     const [strength, setStrength] = useState(0);
@@ -83,6 +82,11 @@ const FirebaseRegister = ({ ...others }) => {
         // changePassword('123456');
     }, []);
 
+    const validationSchema = Yup.object({
+        name: Yup.string().required('이름을 입력하세요'),
+        email: Yup.string().email('Must be a valid email').required('이메일을 입력하세요'),
+        password: Yup.string().required('패스워드를 입력하세요')
+    });
     return (
         <>
             <Grid container direction="column" justifyContent="center" spacing={2}>
@@ -100,10 +104,7 @@ const FirebaseRegister = ({ ...others }) => {
                     password: '',
                     submit: null
                 }}
-                validationSchema={Yup.object().shape({
-                    email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
-                    password: Yup.string().max(255).required('Password is required')
-                })}
+                validationSchema={validationSchema}
                 onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                     try {
                         if (scriptedRef.current) {
@@ -127,21 +128,6 @@ const FirebaseRegister = ({ ...others }) => {
                         handleSubmit();
                     }}
                 >
-                    {/* <Grid container spacing={matchDownSM ? 0 : 2}>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                fullWidth
-                                label="Name"
-                                margin="normal"
-                                value={userName}
-                                name="name"
-                                type="text"
-                                onChange={({ target }) => setUserName(target.value)}
-                                // defaultValue=""
-                                sx={{ ...theme.typography.customInput }}
-                            />
-                        </Grid>
-                    </Grid> */}
                     <FormControl fullWidth sx={{ ...theme.typography.customInput }}>
                         <InputLabel htmlFor="outlined-adornment-name-register">Username</InputLabel>
                         <OutlinedInput
