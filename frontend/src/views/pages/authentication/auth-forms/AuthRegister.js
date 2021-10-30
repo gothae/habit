@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 // material-ui
@@ -7,7 +6,6 @@ import { useTheme } from '@mui/material/styles';
 import {
     Box,
     Button,
-    Checkbox,
     FormControl,
     FormControlLabel,
     FormHelperText,
@@ -42,9 +40,7 @@ const FirebaseRegister = ({ ...others }) => {
     const theme = useTheme();
     const scriptedRef = useScriptRef();
     const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
-    const customization = useSelector((state) => state.customization);
     const [showPassword, setShowPassword] = useState(false);
-    const [checked, setChecked] = useState(true);
 
     const [strength, setStrength] = useState(0);
     const [level, setLevel] = useState();
@@ -55,7 +51,7 @@ const FirebaseRegister = ({ ...others }) => {
     const [userPassword, setUserPassword] = useState();
 
     const register = () => {
-        let user = {
+        const user = {
             fname: userFname,
             lname: userLname,
             email: userEmail,
@@ -65,7 +61,6 @@ const FirebaseRegister = ({ ...others }) => {
             .post(`${apiURL}/pages/register`, { user })
             .then((res) => {
                 console.log('res', res);
-                // res가 server에서 retrun한 값을 받음
             })
             .catch((err) => {
                 console.log('error', err);
