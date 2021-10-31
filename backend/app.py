@@ -13,23 +13,21 @@ api = Api(app)
 database = create_engine(app.config['DB_URL'], encoding = 'utf-8')
 app.database = database
 
-@app.route('/')
-def ab():
-    return send_from_directory(app.static_folder,'index.html')
-# /frontend/public 에서 index.html
-
-@app.route('/test')
-def test():
-    a = 'test'
-    return a
-
 @app.route('/pages/register', methods=['GET','POST'])
 def signup():
     if request.method == "POST":
-        # print(request)
-        return 'asdf'
+        user = request.get_data()
+        return user
     else:
         return send_from_directory(app.static_folder,'index.html')
+
+@app.route('/pages/login', methods=['GET','POST'])
+def login():
+    if request.method == "POST":
+        user = request.get_data()
+        return user
+    else:
+        return 'get'
 
 if __name__ == '__main__':
     app.run(debug=True)
