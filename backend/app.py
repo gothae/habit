@@ -7,6 +7,7 @@ from sqlalchemy import create_engine, text
 import sqlalchemy
 from werkzeug.utils import redirect
 from flask.helpers import url_for
+from models import Patient
 
 app = Flask(__name__, static_url_path='', static_folder='./frontend/public')
 app.config.from_pyfile('config.py')
@@ -37,6 +38,7 @@ def login():
                 return
         except:
             return 'Dont login'
+
 @app.route('pages/register',methods=['GET','POST'])
 def register():
     if request.method == 'POST':
