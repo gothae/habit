@@ -13,11 +13,6 @@ create table Patient(
    primary key(patient_id, patient_name, age, weight, height, birth_date, gender)
 );
 
--- create table query(
---    query_id varchar(20) not null primary key,
---    query_date datetime default current_timestamp on update current_timestamp
--- );
-
 create table diet(
    food_detection varchar(80) not null primary key,
    diet_time datetime default current_timestamp on update current_timestamp,
@@ -38,22 +33,13 @@ create table nutrient(
    primary key(carbohydrate, protein, fat, calories)
 );
 
--- create table food_standard(
---    carbo_over boolean not null,
---    protein_over boolean not null,
---    fat_over boolean not null,
---    carbohydrate float not null,
---    protein float not null,
---    fat float not null,
---    foreign key(carbohydrate, protein, fat) references nutrient(carbohydrate, protein, fat),
---    primary key(carbo_over, protein_over, fat_over)
--- );
 
 create table simple_solution(
    simple_sol varchar(40) not null,
   
    primary key(simple_sol)
 );
+
 
 create table save_diet(
    diet_id varchar(20) not null,
@@ -62,31 +48,21 @@ create table save_diet(
    primary key(diet_id)
 );
 
--- create table Patient(
---    patient_id varchar(20) not null primary key,
---    patient_pw varchar(20) not null,
---    patient_name varchar(20) not null,
---    age int not null,
---    weight float not null,
---    height float not null,
---    birth_date char(8) not null,
---    illness varchar(20),
---    medicine varchar(20),
---    phone_number varchar(13)
--- );
+
 
 insert into patient values('sh98','1234','신현호',24,80,176,'19981125','male','no','no','01048807780');
 insert into patient values('james','2345','James',21,72,174,'19981125','male','no','no','01012345678');
 select * from patient;
 
+
 -- 질문이 5개라 가정
-create table query(
-   query_id varchar(100) not null,
+create table query_patient(
+   query_id varchar(20) not null unique primary key,
    patient_id varchar(20) not null unique,
    patient_name varchar(20) not null,
-   age int not null unique,
-   weight float not null unique,
-   height float not null unique,
+   age int not null,
+   weight float not null,
+   height float not null,
    birth_date char(8) not null,
    gender varchar(7) not null,
    question_01 varchar(100) not null,
@@ -94,9 +70,11 @@ create table query(
    question_03 varchar(100) not null,
    question_04 varchar(100) not null,
    question_05 varchar(100) not null,
-   foreign key(patient_id,patient_name, age, weight, height, birth_date,gender) references patient(patient_id, patient_name, age, weight, height,birth_date,gender),
-   primary key(query_id,patient_id)
+   foreign key(patient_id, patient_name,age, weight, height, birth_date,gender) references patient(patient_id, patient_name,age, weight, height,birth_date,gender)
 );
+
+alter table query_patient add foreign key(patient_id) references patient_register(patient_id);
+alter table query_patient add constraint query_patient_ibfk_2 foreign key(patient_name) references patient_register(patient_name);
 
 create table doctor(
    doctor_id varchar(20) not null unique primary key,
@@ -105,4 +83,9 @@ create table doctor(
    dept varchar(20) not null,
    foreign key(patient_id) references patient(patient_id)
    );
+   
+   
 
+insert into doctor values('dr_lee','sh98','이길동','정형외과');
+insert into doctor values('dr_kim','james','김길동','내과');
+select * from doctor;
