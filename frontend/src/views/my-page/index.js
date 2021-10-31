@@ -1,37 +1,73 @@
 // material-ui
-import { Typography, Grid } from '@mui/material';
+import { Typography, Grid, Divider, Button } from '@mui/material';
 import axios from 'axios';
 import { useEffect } from 'react';
+import MainCard from 'ui-component/cards/MainCard';
 
 // project imports
-// import MainCard from 'ui-component/cards/MainCard';
 import DietCard from 'views/dashboard/Default/DietCard';
 // ==============================|| SAMPLE PAGE ||============================== //
 
-const apiURL = 'http://localhost:5000';
+const apiURL = 'http://localhost:3000';
 
-const SamplePage = () => {
-    // <MainCard title="Sample Card">
-    //     <Typography variant="body2">
-    //         Lorem ipsum dolor sit amen, consenter nipissing eli, sed do elusion tempos incident ut laborers et doolie magna alissa. Ut enif
-    //         ad minim venice, quin nostrum exercitation illampu laborings nisi ut liquid ex ea commons construal. Duos aube grue dolor in
-    //         reprehended in voltage veil esse colum doolie eu fujian bulla parian. Exceptive sin ocean cuspidate non president, sunk in culpa
-    //         qui officiate descent molls anim id est labours.
-    //     </Typography>
-    // </MainCard>
-    const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    useEffect(() => {
-        axios
-            .get(`${apiURL}/test`)
-            .then((response) => {
-                console.log('connected', response);
-            })
-            .catch((error) => {
-                console.log('fail', error);
-            });
-    });
-    // 행렬식으로 card 정렬되게 바꿔야함
-    return arr.map((item) => <DietCard key={item} xs={4} />);
+const MyPage = () => {
+    return (
+        <MainCard title="환자 개인정보">
+            <Grid container spacing={3}>
+                <Grid item xs={6}>
+                    <Typography variant="subtitle2">이름</Typography>
+                </Grid>
+                <Grid item xs={6}>
+                    <Typography variant="body2">고태희</Typography>
+                </Grid>
+                <Divider />
+
+                <Grid item xs={6}>
+                    <Typography variant="subtitle2">생년월일</Typography>
+                </Grid>
+                <Grid item xs={6}>
+                    <Typography variant="body2">1996년 12월 30일</Typography>
+                </Grid>
+                <Divider />
+                <Grid item xs={6}>
+                    <Typography variant="subtitle2">성별</Typography>
+                </Grid>
+                <Grid item xs={6}>
+                    <Typography variant="body2">남</Typography>
+                </Grid>
+                <Divider />
+                <Grid item xs={6}>
+                    <Typography variant="subtitle2">연락처</Typography>
+                </Grid>
+                <Grid item xs={6}>
+                    <Typography variant="body2">010-9444-7027</Typography>
+                </Grid>
+                <Divider />
+                <Grid item xs={6}>
+                    <Typography variant="subtitle2">이메일</Typography>
+                </Grid>
+                <Grid item xs={6}>
+                    <Typography variant="body2">koxogml@naver.com</Typography>
+                </Grid>
+                <Divider />
+                <Grid item xs={6}>
+                    <Typography variant="subtitle2">특이사항</Typography>
+                </Grid>
+                <Grid item xs={6}>
+                    <Typography variant="body2">
+                        <ul>
+                            <li>특이사항 1</li>
+                            <li>특이사항 2</li>
+                        </ul>
+                    </Typography>
+                </Grid>
+                <Divider />
+            </Grid>
+            <Button variant="contained" align="right">
+                수정하기
+            </Button>
+        </MainCard>
+    );
 };
 
-export default SamplePage;
+export default MyPage;
