@@ -42,12 +42,12 @@ def login():
 @app.route('/pages/register',methods=['GET','POST'])
 def register():
     if request.method == 'POST':
-        # new_patient = Patient(patient_id = request.form['patient_id'],patient_name=request.form['patient_name'],
-        # patient_pw = request.form['patient_pw'],patietn_email = request.form['patient_email'])
+        new_patient = Patient(patient_id = request.form['patient_id'],patient_name=request.form['patient_name'],
+        patient_pw = request.form['patient_pw'],patietn_email = request.form['patient_email'])
         
-        # db.session.add(new_patient)
-        # db.session.commit()
-        # return render_template('login.html')
+        db.session.add(new_patient)
+        db.session.commit()
+        return render_template('login.html')
         user = request.get_data()
         return user
     else:

@@ -20,6 +20,8 @@
         "apexcharts": "^3.26.1",
         "axios": "^0.23.0",
         "clsx": "^1.1.1",
+        "date-fns": "^2.25.0",
+        "dayjs": "^1.10.7",
         "formik": "^2.2.6",
         "framer-motion": "^4.1.13",
         "history": "^5.0.0",
