@@ -25,14 +25,6 @@ const diet = {
             breadcrumbs: false
         },
         {
-            id: 'diet-monthly',
-            title: '월간 식단 관리',
-            type: 'item',
-            url: '/diet/month',
-            icon: icons.IconPalette,
-            breadcrumbs: false
-        },
-        {
             id: 'diet-solution',
             title: '솔루션 모아보기 ',
             type: 'item',
