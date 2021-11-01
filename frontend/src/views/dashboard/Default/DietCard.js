@@ -9,7 +9,7 @@ const DietCard = ({ isLoading }) => {
                 <SkeletonDietCard />
             ) : (
                 <Card sx={{ p: 2.25 }}>
-                    <CardMedia component="img" height="100" image="\assets\images\dietImageSample.jpeg" alt="식단 사진" />
+                    <CardMedia component="img" height="100" image="/src/assets/images/dietImageSample.jpeg" alt="식단 사진" />
                     <CardContent>
                         <Typography component="h4">10월 25일</Typography>
                     </CardContent>
