@@ -1,9 +1,9 @@
 # class Patient(db.Model):
 #     __tablename__ = 'patient_register'
-#     patient_id = db.Column(db.varchar(20),unique=True,primary_key=True)
-#     patient_pw = db.Column(db.varchar(20),primary_key=True)
-#     patient_name = db.Column(db.varchar(20),primary_key = True)
-#     patient_email = db.Column(db.varchar(30), unique = True)
+#     patient_id = db.Column(db.String(20),unique=True,primary_key=True)
+#     patient_pw = db.Column(db.String(20),primary_key=True)
+#     patient_name = db.Column(db.String(20),primary_key = True)
+#     patient_email = db.Column(db.String(30), unique = True)
     
 
 #     def __init__(self,patient_name,patient_pw):
@@ -15,17 +15,17 @@ db = SQLAlchemy()
 
 class Patient(db.Model):
     __tablename__ = 'patient'
-    patient_id = db.Column(db.varchar(20), unique =True, primary_key = True,nullable = False)
-    patient_pw = db.Column(db.varchar(20), nullable = False)
-    patient_name = db.Column(db.varchar(20), nullable=False)
-    age = db.Column(db.int, nullable = False)
-    weight = db.Column(db.float, nullable = False)
-    height = db.Column(db.float, nullable = False)
-    birth_date = db.Column(db.char, nullable = False)
-    gender  = db.Column(db.varchar(7),nullable = False)
-    illness = db.Column(db.varchar(20),nullable = True)
-    medicine = db.Column(db.varchar(20),nullable = True)
-    phone_number = db.Column(db.varchar(13),nullable = False)
+    patient_id = db.Column(db.String(20), unique =True, primary_key = True,nullable = False)
+    patient_pw = db.Column(db.String(20), nullable = False)
+    patient_name = db.Column(db.String(20), nullable=False)
+    age = db.Column(db.Integer, nullable = False)
+    weight = db.Column(db.Float, nullable = False)
+    height = db.Column(db.Float, nullable = False)
+    birth_date = db.Column(db.String(10), nullable = False)
+    gender  = db.Column(db.String(7),nullable = False)
+    illness = db.Column(db.String(20),nullable = True)
+    medicine = db.Column(db.String(20),nullable = True)
+    phone_number = db.Column(db.String(13),nullable = False)
 
     def __init__(self,patient_id,patient_pw,patient_name, age, weight, height, birth_date, gender, illness, medicine, phone_number):
         self.patient_id = patient_id

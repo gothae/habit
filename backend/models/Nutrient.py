@@ -10,7 +10,7 @@ db = SQLAlchemy()
 #    sodium float not null,
 #    calcium float not null,
 #    vitamin_c float not null,
-#    food_detection varchar(80) not null,
+#    food_detection String(80) not null,
 #    foreign key(food_detection) references diet(food_detection),
 #    primary key(carbohydrate, protein, fat, calories)
 # );
@@ -25,7 +25,7 @@ class Nutrient(db.model):
     sodium = db.Column(db.float, nullable = False)
     calcium = db.Column(db.float, nullable = False)
     vitamin_c = db.Column(db.float, nullable = False)
-    food_detection = db.Column(db.varchar(80),db.ForeignKey('diet.food_detection'),nullable = False)
+    food_detection = db.Column(db.String(80),db.ForeignKey('diet.food_detection'),nullable = False)
 
     def __init__(self, carbohydrate, protein, fat, calories, sodium, calcium, vitamin_c, food_detection):
         self.carbohydrate = carbohydrate

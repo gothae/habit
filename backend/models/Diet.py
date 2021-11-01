@@ -4,10 +4,10 @@ db = SQLAlchemy()
 
 class Diet(db.model):
     __tablename__ = 'diet'
-    food_detection = db.Column(db.varchar(80), nullable = False, primary_key = True)
-    diet_time = db.Column(db.datetime)
+    food_detection = db.Column(db.String(80), nullable = False, primary_key = True)
+    diet_time = db.Column(db.String)
     diet_photo = db.Column(db.mediumblob, nullable = False)
-    amount = db.Column(db.varchar(20))
+    amount = db.Column(db.String(20))
 
     def __init__(self, food_detection, diet_time, diet_photo, amount):
         self.food_detection = food_detection

@@ -18,7 +18,7 @@ const diet = {
     children: [
         {
             id: 'diet-weekly',
-            title: '주간 식단 관리',
+            title: '식단 모아보기',
             type: 'item',
             url: '/diet/week',
             icon: icons.IconTypography,
