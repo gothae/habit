@@ -5,14 +5,14 @@ import DietCard from 'views/dashboard/Default/DietCard';
 
 const apiURL = 'http://localhost:3000';
 
-const DietWeek = () => {
+const DietWeek = (value) => {
     const arr = [1, 2, 3, 4, 5, 6, 7];
     return (
         <>
             <Grid container spacing={3}>
                 {arr.map((item) => (
                     <Grid item xs={4} key={item}>
-                        <DietCard />
+                        <DietCard value={value} />
                     </Grid>
                 ))}
             </Grid>

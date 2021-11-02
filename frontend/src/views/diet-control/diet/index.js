@@ -17,7 +17,7 @@ const Diet = () => {
     };
 
     return (
-        <Grid>
+        <Grid container>
             <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <DesktopDatePicker
                     id="datePicker"
@@ -50,7 +50,7 @@ const Diet = () => {
             >
                 1주일
             </Button>
-            <Grid item> {week ? <DietWeek /> : <div />} </Grid>
+            <Grid item> {week ? <DietWeek value={value} /> : <div />} </Grid>
         </Grid>
     );
 };
