@@ -17,10 +17,10 @@ const diet = {
     type: 'group',
     children: [
         {
-            id: 'diet-weekly',
+            id: 'diet',
             title: '식단 모아보기',
             type: 'item',
-            url: '/diet/week',
+            url: '/diet',
             icon: icons.IconTypography,
             breadcrumbs: false
         },

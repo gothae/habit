@@ -1,23 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import {
-    Box,
-    Button,
-    FormControl,
-    FormControlLabel,
-    FormHelperText,
-    Grid,
-    IconButton,
-    InputAdornment,
-    InputLabel,
-    OutlinedInput,
-    TextField,
-    Typography,
-    useMediaQuery
-} from '@mui/material';
+import { Box, Button, FormControl, Grid, IconButton, InputAdornment, InputLabel, OutlinedInput, Typography } from '@mui/material';
 
 // third party
 import * as Yup from 'yup';
@@ -35,7 +20,7 @@ import axios from 'axios';
 
 // ===========================|| FIREBASE - REGISTER ||=========================== //
 
-const FirebaseRegister = ({ ...others }) => {
+const FirebaseRegister = () => {
     const apiURL = 'http://localhost:3000';
     const theme = useTheme();
     const scriptedRef = useScriptRef();
