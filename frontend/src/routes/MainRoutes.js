@@ -12,7 +12,7 @@ const Diet = Loadable(lazy(() => import('views/diet-control/diet/index')));
 const UtilsShadow = Loadable(lazy(() => import('views/diet-control/Shadow')));
 const UtilsMaterialIcons = Loadable(lazy(() => import('views/diet-control/MaterialIcons')));
 const UtilsTablerIcons = Loadable(lazy(() => import('views/diet-control/TablerIcons')));
-
+const Day = Loadable(lazy(() => import('views/diet-control/diet/Day')));
 // sample page routing
 const Mypage = Loadable(lazy(() => import('views/my-page')));
 
@@ -45,6 +45,10 @@ const MainRoutes = {
         {
             path: '/edit/user',
             element: <Mypage />
+        },
+        {
+            path: '/diet',
+            element: <Day />
         }
     ]
 };

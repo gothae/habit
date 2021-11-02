@@ -2,6 +2,7 @@ import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@
 import React from 'react';
 import SkeletonDietCard from 'ui-component/cards/Skeleton/DietCard';
 import { m } from 'store/constant';
+import { Link } from 'react-router-dom';
 
 const DietCard = ({ isLoading, value }) => {
     const d = value['value'].toString();
@@ -18,9 +19,11 @@ const DietCard = ({ isLoading, value }) => {
                         <Typography component="h4">{`${m[month]}월 ${date}일`}</Typography>
                     </CardContent>
                     <CardActions>
-                        <Button variant="contained" size="medium">
-                            솔루션
-                        </Button>
+                        <Link to="/diet/solution">
+                            <Button variant="contained" size="medium">
+                                솔루션
+                            </Button>
+                        </Link>
                     </CardActions>
                 </Card>
             )}

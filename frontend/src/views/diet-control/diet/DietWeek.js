@@ -6,7 +6,9 @@ import DietCard from 'views/dashboard/Default/DietCard';
 const apiURL = 'http://localhost:3000';
 
 const DietWeek = (value) => {
+    const d = value['value'].toString();
     const arr = [1, 2, 3, 4, 5, 6, 7];
+
     return (
         <>
             <Grid container spacing={3}>

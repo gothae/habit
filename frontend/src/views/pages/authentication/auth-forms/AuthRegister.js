@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -184,9 +185,11 @@ const FirebaseRegister = () => {
 
                     <Box sx={{ mt: 2 }}>
                         <AnimateButton>
-                            <Button disableElevation fullWidth size="large" type="submit" variant="contained" color="secondary">
-                                회원 가입
-                            </Button>
+                            <Link to="/">
+                                <Button disableElevation fullWidth size="large" type="submit" variant="contained" color="secondary">
+                                    회원 가입
+                                </Button>
+                            </Link>
                         </AnimateButton>
                     </Box>
                 </form>

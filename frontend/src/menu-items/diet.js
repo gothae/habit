@@ -34,20 +34,20 @@ const diet = {
         },
         {
             id: 'icons',
-            title: 'Icons',
+            title: '환자 정보',
             type: 'collapse',
             icon: icons.IconWindmill,
             children: [
                 {
                     id: 'tabler-icons',
-                    title: 'Tabler Icons',
+                    title: '환자 목록',
                     type: 'item',
                     url: '/icons/tabler-icons',
                     breadcrumbs: false
                 },
                 {
                     id: 'material-icons',
-                    title: 'Material Icons',
+                    title: '환자 식단 다운로드',
                     type: 'item',
                     url: '/icons/material-icons',
                     breadcrumbs: false

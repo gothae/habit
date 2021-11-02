@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-datepicker": "^4.3.0",
+    "react-flatpickr": "^3.10.7"
+  }
+}
