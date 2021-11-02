@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { lazy, useState } from 'react';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { Grid } from '@mui/material';
 import DietWeek from './DietWeek';
+import DietDay from './DietDay';
 
 const Diet = () => {
     const [value, setValue] = useState(new Date(Date.now()));
@@ -50,7 +51,12 @@ const Diet = () => {
             >
                 1주일
             </Button>
-            <Grid item> {week ? <DietWeek value={value} /> : <div />} </Grid>
+            <Grid container mt={3}>
+                {week ? <DietWeek value={value} /> : <div />}
+            </Grid>
+            <Grid container mt={3}>
+                {day ? <DietDay value={value} /> : <div />}
+            </Grid>
         </Grid>
     );
 };
