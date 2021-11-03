@@ -8,15 +8,16 @@ import {
     Button,
     FormControl,
     FormControlLabel,
+    FormLabel,
     FormHelperText,
     Grid,
     IconButton,
     InputAdornment,
     InputLabel,
     OutlinedInput,
-    TextField,
     Typography,
-    useMediaQuery
+    Radio,
+    RadioGroup
 } from '@mui/material';
 
 // third party
@@ -35,7 +36,7 @@ import axios from 'axios';
 
 // ===========================|| FIREBASE - REGISTER ||=========================== //
 
-const FirebaseRegister = ({ ...others }) => {
+const AuthRegister = ({ ...others }) => {
     const apiURL = 'http://localhost:3000';
     const theme = useTheme();
     const scriptedRef = useScriptRef();
@@ -47,6 +48,10 @@ const FirebaseRegister = ({ ...others }) => {
     const [userName, setUserName] = useState('');
     const [userEmail, setUserEmail] = useState('');
     const [userPassword, setUserPassword] = useState('');
+    const [userWeight, setUserWeight] = useState('');
+    const [userHeight, setUserHeight] = useState('');
+    const [userGender, setUserGender] = useState('');
+    const [userPhoneNum, setUserPhoneNum] = useState('');
 
     const handleSubmit = () => {
         const user = {
@@ -196,7 +201,56 @@ const FirebaseRegister = ({ ...others }) => {
                             </Box>
                         </FormControl>
                     )}
+                    <FormControl component="fieldset">
+                        <FormLabel component="legend">성별</FormLabel>
+                        <RadioGroup row aria-label="gender" name="row-radio-buttons-group">
+                            <FormControlLabel value="female" control={<Radio />} label="여자" />
+                            <FormControlLabel value="male" control={<Radio />} label="남자" />
+                        </RadioGroup>
+                    </FormControl>
 
+                    <input type="date" />
+                    <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+                        <OutlinedInput
+                            id="outlined-adornment-weight"
+                            value={userWeight}
+                            onChange={(e) => {
+                                setUserWeight(e.target.value);
+                            }}
+                            endAdornment={<InputAdornment position="end">kg</InputAdornment>}
+                            aria-describedby="outlined-weight-helper-text"
+                            inputProps={{
+                                'aria-label': 'weight'
+                            }}
+                        />
+                        <FormHelperText id="outlined-weight-helper-text">몸무게</FormHelperText>
+                    </FormControl>
+                    <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+                        <OutlinedInput
+                            id="outlined-adornment-height"
+                            value={userHeight}
+                            onChange={(e) => {
+                                setUserHeight(e.target.value);
+                            }}
+                            endAdornment={<InputAdornment position="end">cm</InputAdornment>}
+                            aria-describedby="outlined-height-helper-text"
+                            inputProps={{
+                                'aria-label': 'height'
+                            }}
+                        />
+                        <FormHelperText id="outlined-weight-helper-text">키</FormHelperText>
+                    </FormControl>
+                    <FormControl fullWidth sx={{ ...theme.typography.customInput }}>
+                        <InputLabel htmlFor="outlined-adornment-phoneNum-register">Phone Num</InputLabel>
+                        <OutlinedInput
+                            id="outlined-adornment-phoneNum-register"
+                            type="phoneNum"
+                            value={userPhoneNum}
+                            name="phoneNum"
+                            onChange={({ target }) => setUserPhoneNum(target.value)}
+                            inputProps={{}}
+                        />
+                    </FormControl>
                     <Box sx={{ mt: 2 }}>
                         <AnimateButton>
                             <Button disableElevation fullWidth size="large" type="submit" variant="contained" color="secondary">
@@ -210,4 +264,4 @@ const FirebaseRegister = ({ ...others }) => {
     );
 };
 
-export default FirebaseRegister;
+export default AuthRegister;
