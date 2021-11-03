@@ -1,8 +1,12 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
 import React from 'react';
 import SkeletonDietCard from 'ui-component/cards/Skeleton/DietCard';
+import { m } from 'store/constant';
 
-const DietCard = ({ isLoading }) => {
+const DietCard = ({ isLoading, value }) => {
+    const d = value.toString();
+    const date = d.slice(8, 10);
+    const month = d.slice(4, 7);
     return (
         <div>
             {isLoading ? (
@@ -11,7 +15,7 @@ const DietCard = ({ isLoading }) => {
                 <Card sx={{ p: 2.25 }}>
                     <CardMedia component="img" height="100" image="/src/assets/images/dietImageSample.jpeg" alt="식단 사진" />
                     <CardContent>
-                        <Typography component="h4">10월 25일</Typography>
+                        <Typography component="h4">{`${m[month]}월 ${date}일`}</Typography>
                     </CardContent>
                     <CardActions>
                         <Button variant="contained" size="medium">

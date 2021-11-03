@@ -20,7 +20,7 @@ const diet = {
             id: 'diet-weekly',
             title: '식단 모아보기',
             type: 'item',
-            url: '/diet/week',
+            url: '/diet',
             icon: icons.IconTypography,
             breadcrumbs: false
         },

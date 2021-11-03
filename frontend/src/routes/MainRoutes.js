@@ -8,7 +8,7 @@ import Loadable from 'ui-component/Loadable';
 const DashboardDefault = Loadable(lazy(() => import('views/dashboard/Default')));
 
 // utilities routing
-const DietWeek = Loadable(lazy(() => import('views/diet/DietWeek')));
+const Diet = Loadable(lazy(() => import('views/diet/DietControl/index')));
 const UtilsShadow = Loadable(lazy(() => import('views/diet/Shadow')));
 const UtilsMaterialIcons = Loadable(lazy(() => import('views/diet/MaterialIcons')));
 const UtilsTablerIcons = Loadable(lazy(() => import('views/diet/TablerIcons')));
@@ -27,8 +27,8 @@ const MainRoutes = {
             element: <DashboardDefault />
         },
         {
-            path: '/diet/week',
-            element: <DietWeek />
+            path: '/diet',
+            element: <Diet />
         },
         {
             path: '/diet/solution',
