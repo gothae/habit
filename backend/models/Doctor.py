@@ -18,7 +18,7 @@ db = SQLAlchemy()
 class Doctor(db.model):
     __tablename__ = 'doctor'
     doctor_id = db.Column(db.String(20), nullable = False, primary_key = True, unique = True)
-    patient_id = db.Column(db.String(20),db.ForeignKey('patient.patient_id'),nullable = False, unique = True)
+    patient_id = db.Column(db.String(20),db.ForeignKey('register.patient_id'),nullable = False, unique = True)
     doctor_name = db.Column(db.String(20),nullable = False)
     dept = db.Column(db.String(20),nullable = False)
 

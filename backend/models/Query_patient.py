@@ -22,7 +22,7 @@ db = SQLAlchemy()
 class Query_patient(db.model):
     __tablename__ = 'query_patient'
     query_id = db.Column(db.String(20),nullable = False, unique = True, primary_key = True)
-    patient_id = db.Column(db.String(20),db.ForeignKey('patient.patient_id'),nullable = False, unique = True)
+    patient_id = db.Column(db.String(20),db.ForeignKey('register.patient_id'),nullable = False, unique = True)
     question_01 = db.Column(db.String(100), nullable = False)
     question_02 = db.Column(db.String(100), nullable = False)
     question_03 = db.Column(db.String(100), nullable = False)
