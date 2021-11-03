@@ -49,6 +49,7 @@ import json
 @app.route('/pages/register',methods=['GET','POST'])
 def register():
     if request.method == 'POST':
+
         user = request.get_json()
         email = user['user']['email']
         name = user['user']['name']
@@ -58,6 +59,8 @@ def register():
         new_register = Register(patient_id = email, patient_name = name, patient_pw = pw)
     
         print(new_register)
+
+        
         return user
         
     
