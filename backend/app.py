@@ -18,7 +18,7 @@ CORS(app)
 
 @app.route('/')
 def test():
-    return 'asd'
+    return render_template('index.html')
 
 @app.route('/pages/login',methods = ['GET','POST'])
 def login():
@@ -62,7 +62,7 @@ def register():
         db.session.commit()
         return user
     else:
-        return render_template('register.html')
+        return redirect(url_for('/pages/register'))
 
 @app.route('/logout')
 def logout():
