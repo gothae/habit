@@ -2,34 +2,23 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-class Register(db.Model):
-    __tablename__ = 'register'
-    patient_id = db.Column(db.String(20), unique =True, primary_key = True)
-    patient_name = db.Column(db.String(20))
-    patient_pw = db.Column(db.String(20))
-
-    def __init__(self, patient_id, patient_name, patient_pw):
-        self.patient_id = patient_id
-        self.patient_name = patient_name
-        self.patient_pw = patient_pw
-
 class Diet(db.Model):
     __tablename__ = 'diet'
     food_detection = db.Column(db.String(80), nullable = False, primary_key = True)
     diet_time = db.Column(db.String)
-    #diet_photo = db.Column(db.mediumblob, nullable = False)
+    diet_photo = db.Column(db.BLOB, nullable = False)
     amount = db.Column(db.String(20))
 
-    def __init__(self, food_detection, diet_time,  amount):
+    def __init__(self, food_detection, diet_time, diet_photo,amount):
         self.food_detection = food_detection
         self.diet_time = diet_time
-        #self.diet_photo = diet_photo
+        self.diet_photo = diet_photo
         self.amount = amount
 
 class Doctor(db.Model):
     __tablename__ = 'doctor'
     doctor_id = db.Column(db.String(20), nullable = False, primary_key = True, unique = True)
-    patient_id = db.Column(db.String(20),db.ForeignKey('register.patient_id'),nullable = False, unique = True)
+    patient_id = db.Column(db.String(20),db.ForeignKey('patient.patient_id'),nullable = False, unique = True)
     doctor_name = db.Column(db.String(20),nullable = False)
     dept = db.Column(db.String(20),nullable = False)
 
@@ -63,7 +52,9 @@ class Nutrient(db.Model):
 
 class Patient(db.Model):
     __tablename__ = 'patient'
-    patient_id = db.Column(db.String(20), db.ForeignKey('register.patient_id'), unique =True, primary_key = True,nullable = False)
+    patient_id = db.Column(db.String(20), unique =True, primary_key = True,nullable = False)
+    patient_name = db.Column(db.String(20))
+    patient_pw = db.Column(db.String(20))
     age = db.Column(db.Integer, nullable = False)
     weight = db.Column(db.Float, nullable = False)
     height = db.Column(db.Float, nullable = False)
@@ -73,8 +64,10 @@ class Patient(db.Model):
     medicine = db.Column(db.String(20),nullable = True)
     phone_number = db.Column(db.String(13),nullable = False)
 
-    def __init__(self,patient_id, age, weight, height, birth_date, gender, illness, medicine, phone_number):
+    def __init__(self,patient_id, patient_name, patient_pw,age, weight, height, birth_date, gender, illness, medicine, phone_number):
         self.patient_id = patient_id
+        self.patient_name = patient_name
+        self.patient_pw = patient_pw
         self.age= age
         self.weight = weight
         self.height = height
@@ -87,18 +80,18 @@ class Patient(db.Model):
 class Save_diet(db.Model):
     __tablename__ = 'save_diet'
     diet_id = db.Column(db.String(20), nullable = False, primary_key = True)
-    #save_diet_photo = db.Column(db.mediumblob, nullable = False)
+    save_diet_photo = db.Column(db.BLOB, nullable = False)
     photo_time  = db.Column(db.String)
 
-    def __init__(self, diet_id,photo_time):
+    def __init__(self, diet_id,save_diet_photo,photo_time):
         self.diet_id = diet_id
-        #self.save_diet_photo = save_diet_photo
+        self.save_diet_photo = save_diet_photo
         self.photo_time = photo_time
 
 class Query_patient(db.Model):
     __tablename__ = 'query_patient'
     query_id = db.Column(db.String(20),nullable = False, unique = True, primary_key = True)
-    patient_id = db.Column(db.String(20),db.ForeignKey('register.patient_id'),nullable = False, unique = True)
+    patient_id = db.Column(db.String(20),db.ForeignKey('patient.patient_id'),nullable = False, unique = True)
     question_01 = db.Column(db.String(100), nullable = False)
     question_02 = db.Column(db.String(100), nullable = False)
     question_03 = db.Column(db.String(100), nullable = False)
