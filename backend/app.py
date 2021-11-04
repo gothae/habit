@@ -7,12 +7,14 @@ from flask_cors.core import serialize_option, serialize_options
 # react는 포트 3000 flask는 5000써서 나는 API오류제거 위함
 from sqlalchemy import create_engine, text
 import sqlalchemy
+from sqlalchemy.sql.expression import null
 from werkzeug.utils import redirect
 from flask.helpers import url_for
 from models import db, Patient
 from logging import FileHandler,WARNING
 
 app = Flask(__name__, static_url_path='', static_folder='./frontend/public')
+CORS(app)
 
 @app.route('/')
 def test():
@@ -42,7 +44,7 @@ def login():
 def register():
     if request.method == 'POST':
 
-        user = request.get_json['user']
+        user = request.get_json()['user']
         patient_id = user['email']
         age = user['age']
         name = user['name']
@@ -53,9 +55,10 @@ def register():
         gender = user['gender']
         phone_number = user['phone_number']
 
-        new_register = Patient(email, name, pw)
+        new_patient = Patient(patient_id,name, pw, age, weight, height, birth_date, gender, illness=null, medicine=null ,phone_number=phone_number)
+        print(new_patient)
 
-        db.session.add(new_register)
+        db.session.add(new_patient)
         db.session.commit()
         return user
     else:
