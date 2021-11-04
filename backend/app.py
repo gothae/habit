@@ -9,7 +9,7 @@ from sqlalchemy import create_engine, text
 import sqlalchemy
 from sqlalchemy.sql.expression import null
 from werkzeug.utils import redirect
-from flask.helpers import url_for
+from flask.helpers import flash, url_for
 from models import db, Patient
 from logging import FileHandler,WARNING
 
@@ -25,20 +25,21 @@ def login():
     if request.method == 'GET':
         return render_template('login.html')
     else:
-        # id  = request.form['patient_id']
-        name = request.form['name']
-        pw = request.form['password']
-        # email = request.form['patient_eail']
-
-        try:
-            data = Patient.query.filter_by(patient_name = name, patient_pw = pw).first()
-            if data:
-                session['logged in'] = True
-                return redirect(url_for('/dashboard/default'))
-            else:
-                return
-        except:
-            return 'Dont login'
+        userEmail = request.get_json()['userEmail']
+        userPassword = request.get_json()['userPassword']        
+        return 'test'
+        # try:
+        #     patient = Patient().query.filter_by(patient_email = userEmail).first()
+        #     if !patient:
+                # flash('존재하지 않는 아이디입니다')
+            # else:
+                # if user.patient_pw == userPassword
+                # session['patient_id'] = patient.patient_id
+                # else:
+                # flash('비밀번호가 맞지 않습니다')
+            # return '수도코드'
+        # except:
+        #     return 'Dont login'
 
 @app.route('/pages/register',methods=['GET','POST'])
 def register():
