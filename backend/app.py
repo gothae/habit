@@ -9,7 +9,7 @@ from sqlalchemy import create_engine, text
 import sqlalchemy
 from werkzeug.utils import redirect
 from flask.helpers import url_for
-from models import db, Register
+from models import db, Patient
 from logging import FileHandler,WARNING
 
 app = Flask(__name__, static_url_path='', static_folder='./frontend/public')
@@ -29,7 +29,7 @@ def login():
         # email = request.form['patient_eail']
 
         try:
-            data = Register.query.filter_by(patient_name = name, patient_pw = pw).first()
+            data = Patient.query.filter_by(patient_name = name, patient_pw = pw).first()
             if data:
                 session['logged in'] = True
                 return redirect(url_for('/dashboard/default'))
@@ -42,11 +42,18 @@ def login():
 def register():
     if request.method == 'POST':
 
-        user = request.get_json()
-        email = user['user']['email']
-        name = user['user']['name']
-        pw = user['user']['password']
-        new_register = Register(email, name, pw)
+        user = request.get_json['user']
+        patient_id = user['email']
+        age = user['age']
+        name = user['name']
+        pw = user['password']
+        weight = user['weight']
+        height = user['height']
+        birth_date = user['birth_date']
+        gender = user['gender']
+        phone_number = user['phone_number']
+
+        new_register = Patient(email, name, pw)
 
         db.session.add(new_register)
         db.session.commit()

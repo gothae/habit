@@ -15,10 +15,14 @@ import {
     InputAdornment,
     InputLabel,
     OutlinedInput,
+    TextField,
     Typography,
     Radio,
     RadioGroup
 } from '@mui/material';
+import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
 
 // third party
 import * as Yup from 'yup';
@@ -52,12 +56,20 @@ const AuthRegister = ({ ...others }) => {
     const [userHeight, setUserHeight] = useState('');
     const [userGender, setUserGender] = useState('');
     const [userPhoneNum, setUserPhoneNum] = useState('');
+    const [userBirthDate, setuserBirthDate] = useState('');
+    const [userAge, setUserAge] = useState(0);
 
     const handleSubmit = () => {
         const user = {
-            name: userName,
             email: userEmail,
-            password: userPassword
+            name: userName,
+            password: userPassword,
+            weight: userWeight,
+            height: userHeight,
+            birth_date: userBirthDate,
+            gender: userGender,
+            age: userAge,
+            phone_number: userPhoneNum
         };
         axios
             .post(`${apiURL}/pages/register`, { user })
@@ -67,6 +79,13 @@ const AuthRegister = ({ ...others }) => {
             .catch((err) => {
                 console.log('error', err);
             });
+    };
+    const handleDate = (newDate) => {
+        const year = newDate.toString().slice(11, 15);
+        const month = newDate.toString().slice(4, 7);
+        const day = newDate.toString().slice(9, 10);
+        setUserAge(2021 - parseInt(year) + 1);
+        setuserBirthDate(`${year}/${month}/${day}`);
     };
 
     const handleClickShowPassword = () => {
@@ -204,13 +223,36 @@ const AuthRegister = ({ ...others }) => {
                     <FormControl component="fieldset">
                         <FormLabel component="legend">성별</FormLabel>
                         <RadioGroup row aria-label="gender" name="row-radio-buttons-group">
-                            <FormControlLabel value="female" control={<Radio />} label="여자" />
-                            <FormControlLabel value="male" control={<Radio />} label="남자" />
+                            <FormControlLabel
+                                control={<Radio />}
+                                label="여자"
+                                value="female"
+                                onChange={(e) => {
+                                    setUserGender(e.target.value);
+                                }}
+                            />
+                            <FormControlLabel
+                                control={<Radio />}
+                                label="남자"
+                                value="male"
+                                onChange={(e) => {
+                                    setUserGender(e.target.value);
+                                }}
+                            />
                         </RadioGroup>
                     </FormControl>
 
-                    <input type="date" />
-                    <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                        <DesktopDatePicker
+                            id="datePicker"
+                            label="생년월일"
+                            inputFormat="MM/dd/yyyy"
+                            value={userBirthDate}
+                            onChange={handleDate}
+                            renderInput={(params) => <TextField {...params} />}
+                        />
+                    </LocalizationProvider>
+                    <FormControl sx={{ m: 1, width: '20ch' }} variant="outlined">
                         <OutlinedInput
                             id="outlined-adornment-weight"
                             value={userWeight}
@@ -225,7 +267,7 @@ const AuthRegister = ({ ...others }) => {
                         />
                         <FormHelperText id="outlined-weight-helper-text">몸무게</FormHelperText>
                     </FormControl>
-                    <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+                    <FormControl sx={{ m: 1, width: '20ch' }} variant="outlined">
                         <OutlinedInput
                             id="outlined-adornment-height"
                             value={userHeight}
