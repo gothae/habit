@@ -82,4 +82,4 @@ if __name__ == '__main__':
     db.app = app
     db.create_all()   #db 생성
 
-    app.run(host="3.36.96.100",port="5000",debug=True)
+    app.run(host="0.0.0.0",port="5000",debug=True)
