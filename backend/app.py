@@ -13,16 +13,10 @@ from models import db, Register
 from logging import FileHandler,WARNING
 
 app = Flask(__name__, static_url_path='', static_folder='./frontend/public')
-# app.config.from_pyfile('config.py')
 
-
-# #static_url_path : 웹에서 정적 파일에 대해 다른경로 지정할 때
-# CORS(app)
-# # api = Api(app)
-
-# database = create_engine(app.config['DB_URL'], encoding = 'utf-8')
-# app.database = database
-# # db = sqlalchemy(app)
+@app.route('/')
+def test():
+    return 'asd'
 
 @app.route('/pages/login',methods = ['GET','POST'])
 def login():
