@@ -58,7 +58,6 @@ def register():
 
         new_patient = Patient(patient_id,name, pw, age, weight, height, birth_date, gender, illness=null, medicine=null ,phone_number=phone_number)
         print(new_patient)
-
         db.session.add(new_patient)
         db.session.commit()
         return user
@@ -83,4 +82,4 @@ if __name__ == '__main__':
     db.app = app
     db.create_all()   #db 생성
 
-    app.run(debug=True)
+    app.run(host="3.36.96.100",port="5000",debug=True)
