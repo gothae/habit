@@ -13,12 +13,14 @@ from flask.helpers import flash, url_for
 from models import db, Patient
 from logging import FileHandler,WARNING
 
-app = Flask(__name__, static_url_path='', static_folder='./frontend/public')
+app = Flask(__name__)
+APP_DIR = os.path.abspath(os.path.dirname(__file__)) #/habit/backend
 CORS(app)
 
 @app.route('/')
 def test():
-    return render_template('index.html')
+    # return send_from_directory(APP_DIR+'/static/scripts/frontend/src/public', 'index.html')
+    return redirect('http://3.36.96.100:5000/pages/register')
 
 @app.route('/pages/login',methods = ['GET','POST'])
 def login():
@@ -82,4 +84,5 @@ if __name__ == '__main__':
     db.app = app
     db.create_all()   #db 생성
 
-    app.run(host="0.0.0.0",port="5000",debug=True)
+    # app.run(host="0.0.0.0",port="5000",debug=True)
+    app.run(debug=True)
