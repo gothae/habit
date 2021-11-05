@@ -19,8 +19,6 @@ CORS(app)
 
 @app.route('/')
 def test():
-    # return send_from_directory(APP_DIR+'/static/scripts/frontend/src/public', 'index.html')
-    # return redirect('http://3.36.96.100:5000/pages/register')
     return render_template('index.html')
 
 @app.route('/pages/login',methods = ['GET','POST'])
