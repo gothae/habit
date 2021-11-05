@@ -1,5 +1,5 @@
 {% block app_content %}
 <div id="react_root"></div>
-<script src="{{url_for('static/scripts/frontend/src', filename = 'App.js')}}"></script>
+<script src="{{url_for('static', filename = 'scripts/frontend/src/App.js')}}"></script>
 {% endblock %}
 {{ url_for('static', filename = 'hello.js') }}
