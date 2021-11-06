@@ -1,10 +1,6 @@
 import os
-from flask import Flask, session,send_from_directory, request
-from flask.templating import render_template
+from flask import Flask, session,send_from_directory, request, render_template
 #from flask_restful import Api, reqparse
-from flask_cors import CORS
-from flask_cors.core import serialize_option, serialize_options
-# react는 포트 3000 flask는 5000써서 나는 API오류제거 위함
 from sqlalchemy import create_engine, text
 import sqlalchemy
 from sqlalchemy.sql.expression import null
@@ -12,35 +8,35 @@ from werkzeug.utils import redirect
 from flask.helpers import flash, url_for
 from models import db, Patient
 from logging import FileHandler,WARNING
+from forms import LoginForm, RegisterForm
 
 app = Flask(__name__)
 APP_DIR = os.path.abspath(os.path.dirname(__file__)) #/habit/backend
-CORS(app)
 
-@app.route('/')
-def test():
+@app.route('/main')
+def main():
     return render_template('index.html')
 
-@app.route('/pages/login',methods = ['GET','POST'])
+@app.route('/',methods = ['GET','POST'])
 def login():
+    form = LoginForm()
     if request.method == 'GET':
-        return render_template('login.html')
+        return render_template('login.html', form=form)
     else:
-        userEmail = request.get_json()['userEmail']
-        userPassword = request.get_json()['userPassword']        
-        return 'test'
-        # try:
-        #     patient = Patient().query.filter_by(patient_email = userEmail).first()
-        #     if !patient:
-                # flash('존재하지 않는 아이디입니다')
-            # else:
-                # if user.patient_pw == userPassword
-                # session['patient_id'] = patient.patient_id
-                # else:
-                # flash('비밀번호가 맞지 않습니다')
-            # return '수도코드'
-        # except:
-        #     return 'Dont login'
+        userEmail = request.form.get('userEmail')
+        userPassword = request.form.get('userPassword')
+        print(userEmail, userPassword)
+        # patient = Patient().query.filter_by(patient_email = userEmail).first()
+
+        # if not patient:
+        #     flash('존재하지 않는 아이디입니다')
+        # else:
+        #     if patient.patient_pw == userPassword:
+        #         session['patient_id'] = patient.patient_id
+        #         return redirect('/main')
+        #     else:
+        #         flash('비밀번호가 맞지 않습니다')
+        #         return render_template('login.html',form=form)
 
 @app.route('/pages/register',methods=['GET','POST'])
 def register():
@@ -63,7 +59,7 @@ def register():
         db.session.commit()
         return user
     else:
-        return redirect(url_for('/pages/register'))
+        return render_template('register.html')
 
 @app.route('/logout')
 def logout():

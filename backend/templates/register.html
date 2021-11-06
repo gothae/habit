@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit-Register</title>
+</head>
+
+<body>
+    <form method="post" name="signup_form">
+        {{form.csrf_token}}
+        <div class="form-group first">
+            <label for="userName">이름</label>
+            <input type="text" class="form-control" id="userName" name="userName" required />
+        </div>
+        <div class="form-group last mb-3">
+            <label for="userEmail">ID</label>
+            <input type="text" class="form-control" id="userEmail" name="userEmail" required /><br><br>
+
+            <label for="userPassword">비밀번호</label>
+            <input type="password" class="form-control" id="userPassword" name="userPassword" onchange="isSame()"
+                required /><br><br>
+
+            <label for="userPasswordCheck">비밀번호 확인</label>
+            <input type="password" class="form-control" id="userPasswordCheck" name="userPasswordCheck" onchange="isSame()"
+                required /><br><br>
+            <p id="same"></p>
+
+            <label for="userAge">나이</label>
+            <input type="number" class="form-control" id="userAge" name="userAge" required /><br><br>
+
+            <label for="userHeight">키</label>
+            <input type="number" class="form-control" id="userHeight" name="userHeight" required /><br><br>
+
+            <label for="userWeight">몸무게</label>
+            <input type="number" class="form-control" id="userWeight" name="userWeight" required /><br><br>
+
+            <label for="userHeight">생일</label>
+            <input type="date" class="form-control" id="userHeight" name="userHeight" required /><br><br>
+
+            <label for="userHeight">키</label>
+            <input type="number" class="form-control" id="userHeight" name="userHeight" required /><br><br>
+
+            <label for="genderMale">남자</label>
+            <input type="radio" id="genderMale" name="gender" value="male">
+            
+            <label for="genderMale">여자</label>
+            <input type="radio" id="genderFemale" name="gender" value="female">
+        </div>
+
+        <input type="submit" value="가입" class="btn btn-block py-2 btn-primary"><br>
+
+    </form>
+    <script>
+        var pw = document.getElementById('userPassword').value;
+        var pwck = document.getElementById('userPasswordCheck').value;
+
+        function isSame() {
+            if (document.getElementById('userPassword').value != '' && document.getElementById('userPasswordCheck').value != '') {
+
+                if (document.getElementById('userPassword').value != document.getElementById('userPasswordCheck').value) {
+                    document.getElementById('same').innerHTML = '비밀번호가 일치하지 않습니다';
+                    document.getElementById('same').style.color = "red";
+                } else {
+                    document.getElementById('same').innerHTML = '비밀번호가 일치합니다'
+                    document.getElementById('same').style.color = 'blue';
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
