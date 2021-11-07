@@ -38,8 +38,9 @@ def login():
         #         flash('비밀번호가 맞지 않습니다')
         #         return render_template('login.html',form=form)
 
-@app.route('/pages/register',methods=['GET','POST'])
+@app.route('/register',methods=['GET','POST'])
 def register():
+    form = RegisterForm()
     if request.method == 'POST':
 
         user = request.get_json()['user']
@@ -59,7 +60,7 @@ def register():
         db.session.commit()
         return user
     else:
-        return render_template('register.html')
+        return render_template('register.html', form=form)
 
 @app.route('/logout')
 def logout():

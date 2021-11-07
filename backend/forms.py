@@ -1,15 +1,17 @@
 
 from flask_wtf import FlaskForm
 from models import Patient
-from wtforms import StringField, PasswordField
+from wtforms import StringField, PasswordField, FloatField, RadioField
 from wtforms.validators import DataRequired, EqualTo
 
 class RegisterForm(FlaskForm):
     username = StringField('username', validators=[DataRequired()])
-    userid = StringField('userid', validators=[DataRequired()])
-    userpw = PasswordField('userpw', validators=[DataRequired(), EqualTo('userpwck')])
-    userpwck = PasswordField('userpwck', validators=[DataRequired()])
-
+    userEmail = StringField('userEmail', validators=[DataRequired()])
+    userPassword = PasswordField('userPassword', validators=[DataRequired(), EqualTo('userPasswordCheck')])
+    userPasswordCheck = PasswordField('userPasswordCheck', validators=[DataRequired()])
+    userHeight = FloatField('userHeight', validators=[DataRequired()])
+    userWeight = FloatField('userWeight', validators=[DataRequired()])
+    userGender = RadioField('userGender')
 class LoginForm(FlaskForm):
     class UserPassword(object):
         def __init__(self, message=None):
