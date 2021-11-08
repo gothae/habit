@@ -219,8 +219,9 @@ h1, h2, h3, h4, h5, h6 {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  width: fit-content;
 }
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {background-color: #0563bb;}
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
 /**
