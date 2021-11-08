@@ -150,7 +150,7 @@ def register():
 
         if not data:
             conn.commit()
-            return redirect(url_for('/main'))
+            return render_template('index.html')
         else:
             conn.rollback()
             return "등록 실패"
