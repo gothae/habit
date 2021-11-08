@@ -9,8 +9,7 @@
 </head>
 
 <body>
-    <form method="post" name="signup_form">
-        {{form.csrf_token}}
+    <form method="post" name="signup_form" action="{{url_for('register')}}">
         <div class="form-group first">
             <label for="userName">이름</label>
             <input type="text" class="form-control" id="userName" name="userName" required />
@@ -42,18 +41,11 @@
 
             <label for="userPhoneNum">연락처</label>
             <input type="text" class="form-control" id="userPhoneNum" name="userPhoneNum" required /><br><br>
-
-            {% for gender in form.userGender %}
-                <tr>
-                    <td>{{ gender }}</td>
-                    <td>{{ gender.label }}</td>
-                </tr>
-            {% endfor %}
-            <!-- <label for="genderMale">남자</label>
+            <label for="genderMale">남자</label>
             <input type="radio" id="genderMale" name="userGender" value="male">
             
             <label for="genderMale">여자</label>
-            <input type="radio" id="genderFemale" name="userGender" value="female"> -->
+            <input type="radio" id="genderFemale" name="userGender" value="female">
         </div>
 
         <input type="submit" value="가입" class="btn btn-block py-2 btn-primary"><br>
