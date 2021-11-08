@@ -16,7 +16,7 @@
             <input type="text" class="form-control" id="userName" name="userName" required />
         </div>
         <div class="form-group last mb-3">
-            <label for="userEmail">ID</label>
+            <label for="userEmail">E-mail</label>
             <input type="text" class="form-control" id="userEmail" name="userEmail" required /><br><br>
 
             <label for="userPassword">비밀번호</label>
@@ -37,17 +37,23 @@
             <label for="userWeight">몸무게</label>
             <input type="number" class="form-control" id="userWeight" name="userWeight" required /><br><br>
 
-            <label for="userHeight">생일</label>
-            <input type="date" class="form-control" id="userHeight" name="userHeight" required /><br><br>
+            <label for="userBirthDate">생일</label>
+            <input type="date" class="form-control" id="userBirthDate" name="userBirthDate" required /><br><br>
 
-            <label for="userHeight">키</label>
-            <input type="number" class="form-control" id="userHeight" name="userHeight" required /><br><br>
+            <label for="userPhoneNum">연락처</label>
+            <input type="text" class="form-control" id="userPhoneNum" name="userPhoneNum" required /><br><br>
 
-            <label for="genderMale">남자</label>
+            {% for gender in form.userGender %}
+                <tr>
+                    <td>{{ gender }}</td>
+                    <td>{{ gender.label }}</td>
+                </tr>
+            {% endfor %}
+            <!-- <label for="genderMale">남자</label>
             <input type="radio" id="genderMale" name="userGender" value="male">
             
             <label for="genderMale">여자</label>
-            <input type="radio" id="genderFemale" name="userGender" value="female">
+            <input type="radio" id="genderFemale" name="userGender" value="female"> -->
         </div>
 
         <input type="submit" value="가입" class="btn btn-block py-2 btn-primary"><br>

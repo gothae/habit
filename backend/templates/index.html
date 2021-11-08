@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>MyResume Bootstrap Template - Index</title>
+  <title>Habit</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -44,10 +44,16 @@
   <header id="header" class="d-flex flex-column justify-content-center">
 
     <nav id="navbar" class="navbar nav-menu">
-      <ul>
+      <ul class="dropdown">
         <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-        <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-        <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
+        <li><a href="#about" class="nav-link scrollto dropbtn"><i class="bx bx-user"></i> <span>내정보</span></a></li>
+        <div>
+          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>식단관리</span></a></li>
+          <div class="dropdown-content">
+            <a href="/user/diet">날짜별 식단 관리</a>
+            <a href="#">솔루션 모아보기</a>
+          </div>
+        </div>
         <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
         <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
       </ul>

@@ -8,7 +8,8 @@ from werkzeug.utils import redirect
 from flask.helpers import flash, url_for
 from models import db, Patient
 from logging import FileHandler,WARNING
-from forms import LoginForm, RegisterForm
+from forms import LoginForm, RegisterForm, DateForm
+from flask_wtf.csrf import CSRFProtect
 
 app = Flask(__name__)
 APP_DIR = os.path.abspath(os.path.dirname(__file__)) #/habit/backend
@@ -41,24 +42,26 @@ def login():
 @app.route('/register',methods=['GET','POST'])
 def register():
     form = RegisterForm()
-    if request.method == 'POST':
+    if form.validate_on_submit():
+        patient_id = request.form.get['userEmail']
+        age = request.form.get['userAge']
+        name = request.form.get['userName']
+        pw = request.form.get['userPassword']
+        pwck = request.form.get['userPasswordCheck']
+        weight = request.form.get['userWeight']
+        height = request.form.get['userHeight']
+        birth_date = request.form.get['userBirthDate']
+        gender = request.form.get['gender']
+        phone_number = request.form.get['userPhoneNum']
+        if pw != pwck:
+            flash('비밀번호가 맞지 않습니다')
+        else:
+            new_patient = Patient(patient_id,name, pw, age, weight, height, birth_date, gender, illness=null, medicine=null ,phone_number=phone_number)
 
-        user = request.get_json()['user']
-        patient_id = user['email']
-        age = user['age']
-        name = user['name']
-        pw = user['password']
-        weight = user['weight']
-        height = user['height']
-        birth_date = user['birth_date']
-        gender = user['gender']
-        phone_number = user['phone_number']
-
-        new_patient = Patient(patient_id,name, pw, age, weight, height, birth_date, gender, illness=null, medicine=null ,phone_number=phone_number)
-        print(new_patient)
-        db.session.add(new_patient)
-        db.session.commit()
-        return user
+            db.session.add(new_patient)
+            db.session.commit()
+            flash('회원가입 완료')
+            return redirect('/main')
     else:
         return render_template('register.html', form=form)
 
@@ -66,6 +69,18 @@ def register():
 def logout():
     session['logged in'] = False
     return redirect(url_for('home'))
+
+@app.route('/user/diet', methods=['GET','POST'])
+def diet():
+    if request.method == 'POST':
+        date = request.form.get('datepicker')
+        return redirect('/user/diet/%s'%date)
+    else:
+        return render_template('diet.html')
+
+@app.route('/user/diet/<dietdate>')
+def show_diet(dietdate):
+    return render_template('showDiet.html',dietdate = dietdate)
 
 if __name__ == '__main__':
     basedir = os.path.abspath(os.path.dirname(__file__))
@@ -75,6 +90,9 @@ if __name__ == '__main__':
     app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SECRET_KEY'] = '526553af16de8020fd3b0fbd'
+
+    # csrf = CSRFProtect()
+    # csrf.init_app(app)
 
     db.init_app(app) #초기화 후 db.app에 app으로 명시적으로 넣어줌
     db.app = app
