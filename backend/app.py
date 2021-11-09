@@ -65,7 +65,7 @@ def register():
         height = request.form['userHeight']
         birth_date = request.form['userBirthDate']
         gender = request.form['userGender']
-        ispatient = request.form['isPatient']
+        ispatient = int(request.form['isPatient'])
         # illness = None
         # medicine = None
         phone_number = request.form['userPhoneNum']
