@@ -1,13 +1,20 @@
 const dietItems = document.querySelector('.diet-items');
-const dietItem = document.querySelectorAll('.diet-item');
+const dietItem = document.querySelector('.diet-item');
+const breakfast = document.querySelector('.breakfast');
+const lunch = document.querySelector('.lunch');
+const dinner = document.querySelector('.dinner');
 
 function search() {
     const date = document.querySelector('#datepicker').value;
+    const url = 'user/diet'
     dietItems.style.display = "block";
+    fetch(`${url}/${date}`)
+        .then((res) => res.json())
+        .then((data) => console.log(data));
 }
 
 const solution = () => {
-    location.href = `user/diet/1109`;
+    location.href = `user/diet/`;
 }
 
 // var fetch = true;

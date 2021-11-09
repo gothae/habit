@@ -94,24 +94,27 @@ def logout():
     session['logged in'] = False
     return redirect('/')
 
-@app.route('/user/diet', methods=['GET','POST'])
-def diet():
-    if request.method == 'POST':
-        date = request.form.get('datepicker')
-        return redirect('/user/diet/%s'%date)
-    else:
-        return render_template('diet.html')
-
-@app.route('/user/diet/<int:diet_id>')
-def show_diet(diet_id):
+@app.route('/user/diet/<date>', methods=['GET','POST'])
+def diet_show(date):
     conn = mysql.connect
     cursor = conn.cursor()
 
-    sql  = "select diet from Save_diet where _id = %s and patient_pw = %s"
+    sql  = "select * from Diet where photo_time like %s%"%(date)
+
+    cursor.execute(sql)
+    info = cursor.fetchall()
+    return info
+
+@app.route('/user/diet/<int:diet_id>')
+def diet_solution(diet_id):
+    conn = mysql.connect
+    cursor = conn.cursor()
+
+    sql  = "select diet from Diet where diet_id = %s"%(diet_id)
+    cursor.execute(sql)
+    info = cursor.fetchall()
     
-    imgsrc = '../static/img/dietimage-01.jpg'
-    info = ['foodDetection',mealtime,imgsrc]
-    return render_template('showDiet.html',dietdate = dietdate, info=info)
+    return render_template('showDiet.html', info=info)
 
 if __name__ == '__main__':
     
