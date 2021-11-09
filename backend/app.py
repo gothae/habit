@@ -38,7 +38,7 @@ def login():
         userEmail = request.form.get('userEmail')
         userPassword = request.form.get('userPassword')
         #print(userEmail, userPassword)
-        conn = mysql.connect()
+        conn = mysql.connect
         cursor = conn.cursor()
         sql  = "select patient_id from Patient where patient_id = %s and patient_pw = %s"
         value  = (userEmail, userPassword)
