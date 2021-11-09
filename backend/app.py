@@ -57,7 +57,7 @@ def login():
         userEmail = request.form.get('userEmail')
         userPassword = request.form.get('userPassword')
         #print(userEmail, userPassword)
-        conn = mysql.connect()
+        conn = mysql.connect
         cursor = conn.cursor()
         sql  = "select patient_id from Patient where patient_id = %s and patient_pw = %s"
         value  = (userEmail, userPassword)
@@ -73,7 +73,7 @@ def login():
         
         if data:
             session['patient_id'] = userEmail
-            return redirect(url_for('/main'))
+            return render_template('index.html')
         else:
             error = '잘못된 정보입니다'
 
