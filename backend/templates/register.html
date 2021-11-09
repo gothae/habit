@@ -47,11 +47,18 @@
 
             <label for="userPhoneNum">연락처</label>
             <input type="text" class="form-control" id="userPhoneNum" name="userPhoneNum" required /><br><br>
+
             <label for="genderMale">남자</label>
             <input type="radio" id="genderMale" name="userGender" value="male">
             
-            <label for="genderMale">여자</label>
+            <label for="genderFemale">여자</label>
             <input type="radio" id="genderFemale" name="userGender" value="female">
+
+            <label for="patient">의사</label>
+            <input type="radio" id="patient" name="isPatient" value="0">
+            
+            <label for="doctor">환자</label>
+            <input type="radio" id="doctor" name="isPatient" value="1">
         </div>
 
         <input type="submit" value="가입" class="btn btn-block py-2 btn-primary"><br>

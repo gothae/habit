@@ -37,12 +37,10 @@ def login():
     else:
         userEmail = request.form.get('userEmail')
         userPassword = request.form.get('userPassword')
-        #print(userEmail, userPassword)
         conn = mysql.connect
         cursor = conn.cursor()
-        sql  = "select patient_id from Patient where patient_id = %s and patient_pw = %s"
+        sql  = "select user_id from User where user_id = %s and user_pw = %s"
         value  = (userEmail, userPassword)
-        #cursor.execute("set names utf8")
         cursor.execute(sql,value)
 
         data = cursor.fetchall()
@@ -50,7 +48,7 @@ def login():
         conn.close()
 
         if data:
-            session['patient_id'] = userEmail
+            session['user_id'] = userEmail
             return render_template('index.html')
         else:
             error = '잘못된 정보입니다'
@@ -67,6 +65,7 @@ def register():
         height = request.form['userHeight']
         birth_date = request.form['userBirthDate']
         gender = request.form['userGender']
+        ispatient = request.form['isPatient']
         # illness = None
         # medicine = None
         phone_number = request.form['userPhoneNum']
@@ -75,9 +74,8 @@ def register():
         conn = mysql.connect
         cursor = conn.cursor()
         
-        sql = "Insert into Patient(patient_id, patient_name, patient_pw, age, weight, height, birth_date, gender, phone_number) values ('%s','%s','%s','%s','%s','%s','%s','%s','%s')"%(patient_id, 
-        name, pw, age, weight, height, birth_date, gender, phone_number)
-        print(patient_id)
+        sql = "Insert into User(user_id, user_name, user_pw, is_patient, age, weight, height, birth_date, gender, phone_number) values ('%s','%s','%s','%s,'%s','%s','%s','%s','%s','%s')"%(patient_id, 
+        name, pw, ispatient, age, weight, height, birth_date, gender, phone_number)
         cursor.execute(sql)
 
         data = cursor.fetchall()
@@ -107,9 +105,11 @@ def diet():
 
 @app.route('/user/diet/<int:diet_id>')
 def show_diet(diet_id):
-    sql  = "select patient_id from Patient where patient_id = %s and patient_pw = %s"
     conn = mysql.connect
     cursor = conn.cursor()
+
+    sql  = "select diet from Save_diet where _id = %s and patient_pw = %s"
+    
     imgsrc = '../static/img/dietimage-01.jpg'
     info = ['foodDetection',mealtime,imgsrc]
     return render_template('showDiet.html',dietdate = dietdate, info=info)
