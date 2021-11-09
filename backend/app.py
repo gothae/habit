@@ -49,9 +49,6 @@ def login():
         cursor.close()
         conn.close()
 
-        for i in data:
-            data = i[0]
-        
         if data:
             session['patient_id'] = userEmail
             return render_template('index.html')
@@ -109,7 +106,10 @@ def diet():
         return render_template('diet.html')
 
 @app.route('/user/diet/<int:diet_id>')
-def show_diet(diet_id): 
+def show_diet(diet_id):
+    sql  = "select patient_id from Patient where patient_id = %s and patient_pw = %s"
+    conn = mysql.connect
+    cursor = conn.cursor()
     imgsrc = '../static/img/dietimage-01.jpg'
     info = ['foodDetection',mealtime,imgsrc]
     return render_template('showDiet.html',dietdate = dietdate, info=info)
