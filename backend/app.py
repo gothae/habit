@@ -99,7 +99,7 @@ def diet_show(date):
     conn = mysql.connect
     cursor = conn.cursor()
 
-    sql  = "select * from Diet where photo_time like '%s'%"%(date)
+    sql  = "select * from Diet where date = %s"%(date)
 
     cursor.execute(sql)
     info = cursor.fetchall()
