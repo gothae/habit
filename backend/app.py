@@ -54,7 +54,7 @@ def login():
         
         if data:
             session['patient_id'] = userEmail
-            return redirect(url_for('/main'))
+            return render_template('index.html')
         else:
             error = '잘못된 정보입니다'
 
@@ -98,7 +98,7 @@ def register():
 @app.route('/logout')
 def logout():
     session['logged in'] = False
-    return redirect(url_for('home'))
+    return redirect('/')
 
 @app.route('/user/diet', methods=['GET','POST'])
 def diet():
