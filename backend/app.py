@@ -69,12 +69,11 @@ def register():
         # illness = None
         # medicine = None
         phone_number = request.form['userPhoneNum']
-        
 
         conn = mysql.connect
         cursor = conn.cursor()
         
-        sql = "Insert into User(user_id, user_name, user_pw, is_patient, age, weight, height, birth_date, gender, phone_number) values ('%s','%s','%s','%s,'%s','%s','%s','%s','%s','%s')"%(patient_id, 
+        sql = "Insert into User(user_id, user_name, user_pw, is_patient, age, weight, height, birth_date, gender, phone_number) values ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"%(patient_id, 
         name, pw, ispatient, age, weight, height, birth_date, gender, phone_number)
         cursor.execute(sql)
 
