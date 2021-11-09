@@ -165,7 +165,7 @@ def register():
 @app.route('/logout')
 def logout():
     session['logged in'] = False
-    return redirect(url_for('home'))
+    return redirect('/')
 
 @app.route('/user/diet', methods=['GET','POST'])
 def diet():
