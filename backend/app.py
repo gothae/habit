@@ -116,17 +116,17 @@ def register():
         height = request.form['userHeight']
         birth_date = request.form['userBirthDate']
         gender = request.form['userGender']
-        # illness = None
-        # medicine = None
+        illness = request.form['userIllness']
+        medicine = request.form['userMedicine']
         phone_number = request.form['userPhoneNum']
+        
         
 
         conn = mysql.connect
         cursor = conn.cursor()
         
-        sql = "Insert into Patient(patient_id, patient_name, patient_pw, age, weight, height, birth_date, gender, phone_number) values ('%s','%s','%s','%s','%s','%s','%s','%s','%s')"%(patient_id, 
-        name, pw, age, weight, height, birth_date, gender, phone_number)
-        print(patient_id)
+        sql = "Insert into Patient(patient_id, patient_name, patient_pw, age, weight, height, birth_date, gender,illness, medicine, phone_number) values ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"%(patient_id, 
+        name, pw, age, weight, height, birth_date, gender, illness, medicine, phone_number)
         cursor.execute(sql)
         
         # cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -171,6 +171,7 @@ def logout():
 def diet():
     if request.method == 'POST':
         date = request.form.get('datepicker')
+
         return redirect('/user/diet/%s'%date)
     else:
         return render_template('diet.html')
