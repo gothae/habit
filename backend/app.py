@@ -118,6 +118,9 @@ def diet_solution(diet_id):
     print(info)
     print()
     print(info[0])
+
+    x = cursor.fetchall()
+    print(x)
     foods = info[0][1]
     imgsrc = info[0][2]
     date = info[0][4]
