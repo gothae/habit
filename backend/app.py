@@ -122,8 +122,9 @@ def diet_solution(diet_id):
     date = info[0][2]
     mealtime = info[0][3]
     solution_id = info[0][4]
-
-    sql = "select solution from Solution where Solution.solution_id = (select Diet.solution_id from Solution where diet_id = '%s'"%solution_id
+    print(solution_id)
+    
+    sql = "select solution from Solution where Solution.solution_id = (select Diet.solution_id from Solution where diet_id = %s"%solution_id
     cursor.execute(sql)
     solution = cursor.fetchall()
     print(solution)
