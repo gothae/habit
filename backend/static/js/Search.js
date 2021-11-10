@@ -14,17 +14,8 @@ function search() {
     fetch(`${url}/${date}`)
         .then((res) => res.json())
         .then((data) => {
-            // data.forEach(element => {
-            //     if(element[5] == "breakfast"){
-            //         b.push(element);
-            //     }
-            //     else if (element[5] == "lunch") {
-            //         l.push(element);
-            //     } else {
-            //         d.push(element);
-            //     }
             data.forEach((element) => {
-                console.log(element);
+                console.log(element[5]);
             });
         });
     console.log(l);
