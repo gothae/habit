@@ -27,7 +27,7 @@ function search() {
                 }
             });
         });
-    if(length(b) != 0){
+    if(b.length != 0){
         const b_h = document.createElement('h2');
         const b_img = document.createElement('img');
         const b_p = document.createElement('p');
@@ -42,7 +42,7 @@ function search() {
         });
         breakfast.appendChild(b_h, b_img, b_p, b_button);
     }
-    if(length(l) != 0){
+    if(l.length != 0){
         const l_h = document.createElement('h2');
         const l_img = document.createElement('img');
         const l_p = document.createElement('p');
@@ -57,7 +57,7 @@ function search() {
         });
         lunch.appendChild(l_h, l_img, l_p, l_button);
     }
-    if(length(d) != 0){
+    if(d.length != 0){
         const d_h = document.createElement('h2');
         const d_img = document.createElement('img');
         const d_p = document.createElement('p');
