@@ -3,7 +3,11 @@ const dietItem = document.querySelector('.diet-item');
 const breakfast = document.querySelector('.breakfast');
 const lunch = document.querySelector('.lunch');
 const dinner = document.querySelector('.dinner');
+const btnSearch = document.querySelector('#btn-search');
 
+btnSearch.addEventListener('click',function(){
+    search();
+})
 function search() {
     const date = document.querySelector('#datepicker').value;
     const url = 'user/diet'
