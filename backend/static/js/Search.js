@@ -21,18 +21,23 @@ async function search() {
     var l = new Array();
     var d = new Array();
 
-    res = await getDiet();
-    res.map((item) => {
-        if(item[5] == 'breakfast'){
-            b = item;
-        }
-        else if(item[5] == 'lunch'){
-            l = item;
-        }
-        else{
-            d = item;
-        }
-    })
+    try{
+        res = await getDiet();
+        console.log(res);
+        res.map((item) => {
+            if(item[5] == 'breakfast'){
+                b = item;
+            }
+            else if(item[5] == 'lunch'){
+                l = item;
+            }
+            else{
+                d = item;
+            }
+        })
+    }catch(error){
+        console.log(error);
+    }
     console.log(b,l,d);
 
     if(b.length != 0){
