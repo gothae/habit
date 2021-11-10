@@ -19,24 +19,9 @@ function search() {
     const getDiet = () => {
         return fetch(`${url}/${date}`).then((res) => res.json());
     }
-    try{
-        res = getDiet();
-        console.log(res);
-        res.map((item) => {
-            if(item[5] == 'breakfast'){
-                b = item;
-            }
-            else if(item[5] == 'lunch'){
-                l = item;
-            }
-            else{
-                d = item;
-            }
-        })
-    }catch(error){
-        console.log(error);
-    }
-    console.log(b,l,d);
+    getDiet().then((item) =>{
+        console.log(item);
+    })
 
     if(b.length != 0){
         const b_h = document.createElement('h2');
