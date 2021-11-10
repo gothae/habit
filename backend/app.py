@@ -112,16 +112,21 @@ def diet_solution(diet_id):
     conn = mysql.connect
     cursor = conn.cursor()
 
-    sql  = "select foods,image,date,mealtime from Diet where diet_id = '%s'"%(diet_id)
+    sql  = "select foods,image,date,mealtime,solution_id from Diet where diet_id = '%s'"%(diet_id)
     cursor.execute(sql)
     # info = json.dumps(cursor.fetchall())
     info = cursor.fetchall()
-    print(info)
-    print(info[0])
-    foods = info[0][1]
-    imgsrc = info[0][2]
-    date = info[0][4]
-    mealtime = info[0][5]
+
+    foods = info[0][0]
+    imgsrc = info[0][1]
+    date = info[0][2]
+    mealtime = info[0][3]
+    solution_id = info[0][4]
+
+    sql = "select solution from Solution where Solution.solution_id = (select Diet.solution_id from Solution where diet_id = '%s'"%solution_id
+    cursor.execute(sql)
+    solution = cursor.fetchall()
+    print(solution)
     return render_template('showDiet.html', foods=foods, imgsrc=imgsrc, date=date, mealtime=mealtime)
 
 if __name__ == '__main__':
