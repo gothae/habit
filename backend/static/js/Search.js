@@ -36,7 +36,7 @@ function search() {
     b_img.width = '300px';
     b_img.height = '300px';
     b_p.innerHTML = b[4];
-    b_button.click = solution();
+    b_button.click = solution
     breakfast.appendChild(b_h, b_img, b_p, b_button);
 
     const l_h = document.createElement('h2');
@@ -66,6 +66,6 @@ function search() {
     console.log(b,l,d);
     dietItems.style.display = "block";
 
-const solution = () => {
+function solution() {
     location.href = `user/diet/`;
 }
