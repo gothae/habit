@@ -23,14 +23,15 @@ function search() {
         return fetch(`${url}/${date}`,config).then((res) => res.json());
     }
     getDiet().then((item) => {
+        var b,l,d;
         if(item[5] === "breakfast"){
-            var b = item;
+            b = item;
         }
         else if(item[5] === "lunch"){
-            var l = item;
+            l = item;
         }
         else{
-            var d = item;
+            d = item;
         }
         if (b.length != 0) {
             const b_h = document.createElement('h2');
