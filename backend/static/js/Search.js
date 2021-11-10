@@ -35,7 +35,7 @@ function search() {
     b_img.src = b[2];
     b_img.width = '300px';
     b_img.height = '300px';
-    b_p = b[4];
+    b_p.innerHTML = b[4];
     b_button.click = solution();
     breakfast.appendChild(b_h, b_img, b_p, b_button);
 
@@ -47,7 +47,7 @@ function search() {
     l_img.src = l[2];
     l_img.width = '300px';
     l_img.height = '300px';
-    l_p = l[4];
+    l_p.innerHTML = l[4];
     l_button.click = solution();
     lunch.appendChild(l_h, l_img, l_p, l_button);
 
@@ -59,7 +59,7 @@ function search() {
     d_img.src = d[2];
     d_img.width = '300px';
     d_img.height = '300px';
-    d_p = d[4];
+    d_p.innerHTML = d[4];
     d_button.click = solution();
     dinner.appendChild(d_h, d_img, d_p, d_button);
 
