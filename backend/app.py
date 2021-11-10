@@ -115,6 +115,7 @@ def diet_solution(diet_id):
     sql  = "select * from Diet where diet_id = '%s'"%(diet_id)
     cursor.execute(sql)
     info = cursor.fetchall()
+    print(info)
     foods = info[1].split(',')
     imgsrc = info[2]
     date = info[4]
