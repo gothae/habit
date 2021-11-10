@@ -103,6 +103,7 @@ def diet_show(date):
 
     cursor.execute(sql)
     info = cursor.fetchall()
+    print(jsonify(info))
     return jsonify(info)
 
 @app.route('/user/diet/<int:diet_id>')
