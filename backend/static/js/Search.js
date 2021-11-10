@@ -18,6 +18,7 @@ function search() {
         .then((res) => res.json())
         .then((data) => {
             data.forEach((element) => {
+                console.log(element);
                 if(element[5] == 'breakfast'){
                     b = element;
                 }
