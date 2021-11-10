@@ -99,7 +99,8 @@ def diet_show(date):
     if request.method == 'GET':
         conn = mysql.connect
         cursor = conn.cursor()
-        sql  = "select * from Diet where date = %s"%(date)
+        # sql  = "select * from Diet where date = %s"%date
+        sql  = "select * from Diet where diet_id = 8615"
 
         cursor.execute(sql)
         info = json.dumps(cursor.fetchall())
