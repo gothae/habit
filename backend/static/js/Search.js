@@ -16,8 +16,13 @@ function search() {
     var b = new Array();
     var l = new Array();
     var d = new Array();
+    const config = {
+        headers: {
+            'Accept': 'application/json'
+        }
+    };
     const getDiet = () => {
-        return fetch(`${url}/${date}`).then((res) => res.json());
+        return fetch(`${url}/${date}`,config).then((res) => res.json());
     }
     getDiet().then((item) =>{
         console.log(item);
