@@ -22,7 +22,7 @@ function search() {
         }
     };
     const getDiet = () => {
-        return fetch(`${url}/${date}`,config).then((res) => res.json());
+        return fetch(`user/diet/2021-11-10`,config).then((res) => res.json());
     }
     getDiet().then((item) =>{
         console.log(item);
