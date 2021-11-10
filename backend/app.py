@@ -11,7 +11,7 @@ from flask_wtf.csrf import CSRFProtect
 # from flaskext.mysql import MySQL
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
-import re
+import json
 import mysql.connector
 
 app = Flask(__name__)
@@ -98,13 +98,11 @@ def logout():
 def diet_show(date):
     conn = mysql.connect
     cursor = conn.cursor()
-    print(date)
     sql  = "select * from Diet where date = %s"%(date)
 
     cursor.execute(sql)
-    info = cursor.fetchall()
-    print(jsonify(info))
-    return jsonify(info)
+    info = json.dumps(cursor.fetchall())
+    return info
 
 @app.route('/user/diet/<int:diet_id>')
 def diet_solution(diet_id):
