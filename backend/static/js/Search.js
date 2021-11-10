@@ -7,10 +7,26 @@ const dinner = document.querySelector('.dinner');
 function search() {
     const date = document.querySelector('#datepicker').value;
     const url = 'user/diet'
+    let b = {};
+    let l = {};
+    let d = {};
     dietItems.style.display = "block";
     fetch(`${url}/${date}`)
         .then((res) => res.json())
-        .then((data) => console.log(data));
+        .then((data) => {
+            data.array.forEach(element => {
+                if(element[5] == "breakfast"){
+                    b.push(element);
+                }
+                else if (element[5] == "lunch") {
+                    l.push(element);
+                } else {
+                    d.push(element);
+                }
+            });
+        });
+    console.log(l);
+    console.log(d);
 }
 
 const solution = () => {
