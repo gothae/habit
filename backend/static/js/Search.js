@@ -61,7 +61,7 @@ function search() {
         const d_h = document.createElement('h2');
         const d_img = document.createElement('img');
         const d_p = document.createElement('p');
-        const d_button = document.createElement('button');}
+        const d_button = document.createElement('button');
         d_h.innerHTML = d[5];
         d_img.src = d[2];
         d_img.width = '300px';
