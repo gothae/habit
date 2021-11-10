@@ -43,7 +43,7 @@ function search() {
             const b_img = document.createElement('img');
             const b_p = document.createElement('p');
             const b_button = document.createElement('button');
-            b_h.innerHTML = b[5];
+            b_h.innerHTML = "아침";
             b_img.src = b[2];
             b_img.width = '300px';
             b_img.height = '300px';
@@ -58,7 +58,7 @@ function search() {
             const l_img = document.createElement('img');
             const l_p = document.createElement('p');
             const l_button = document.createElement('button');
-            l_h.innerHTML = l[5];
+            l_h.innerHTML = "점심";
             l_img.src = l[2];
             l_img.width = '300px';
             l_img.height = '300px';
@@ -73,7 +73,7 @@ function search() {
             const d_img = document.createElement('img');
             const d_p = document.createElement('p');
             const d_button = document.createElement('button');
-            d_h.innerHTML = d[5];
+            d_h.innerHTML = "저녁";
             d_img.src = d[2];
             d_img.width = '300px';
             d_img.height = '300px';
@@ -81,7 +81,10 @@ function search() {
             d_button.addEventListener('click', function () {
                 solution();
             });
-            dinner.appendChild(d_h, d_img, d_p, d_button);
+            dinner.appendChild(d_h);
+            dinner.appendChild(d_img);
+            dinner.appendChild(d_p);
+            dinner.appendChild(d_button);
         }
         dietItems.style.display = "block";
     })
