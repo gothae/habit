@@ -116,10 +116,10 @@ def diet_solution(diet_id):
     cursor.execute(sql)
     info = json.dumps(cursor.fetchall())
     print(info)
-    foods = info[1].split(',')
-    imgsrc = info[2]
-    date = info[4]
-    mealtime = info[5]
+    foods = info[0][1].split(',')
+    imgsrc = info[0][2]
+    date = info[0][4]
+    mealtime = info[0][5]
     return render_template('showDiet.html', foods=foods, imgsrc=imgsrc, date=date, mealtime=mealtime)
 
 if __name__ == '__main__':
