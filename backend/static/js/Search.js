@@ -14,7 +14,7 @@ function search() {
     fetch(`${url}/${date}`)
         .then((res) => res.json())
         .then((data) => {
-            data.array.forEach(element => {
+            data.forEach(element => {
                 if(element[5] == "breakfast"){
                     b.push(element);
                 }
