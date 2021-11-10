@@ -124,7 +124,7 @@ def diet_solution(diet_id):
     solution_id = info[0][4]
     print(solution_id)
 
-    sql = "select solution from Solution where Solution.solution_id = (select Diet.solution_id from Solution where diet_id = '%s';"%solution_id
+    sql = "select solution from Solution where Solution.solution_id = (select Diet.solution_id from Solution where diet_id = {0};".format(solution_id)
     cursor.execute(sql)
     solution = cursor.fetchall()
     print(solution)
