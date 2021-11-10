@@ -45,13 +45,16 @@ function search() {
             const b_button = document.createElement('button');
             b_h.innerHTML = "아침";
             b_img.src = b[2];
-            b_img.width = '300px';
-            b_img.height = '300px';
+            b_img.width = '100%';
+            b_img.height = '100%';
             b_p.innerHTML = b[4];
             b_button.addEventListener('click', function () {
                 solution();
             });
-            breakfast.appendChild(b_h, b_img, b_p, b_button);
+            breakfast.appendChild(b_h);
+            breakfast.appendChild(b_img);
+            breakfast.appendChild(b_p);
+            breakfast.appendChild(b_button);
         }
         if (l.length != 0) {
             const l_h = document.createElement('h2');
@@ -60,13 +63,16 @@ function search() {
             const l_button = document.createElement('button');
             l_h.innerHTML = "점심";
             l_img.src = l[2];
-            l_img.width = '300px';
-            l_img.height = '300px';
+            l_img.width = '100%';
+            l_img.height = '100%';
             l_p.innerHTML = l[4];
             l_button.addEventListener('click', function () {
                 solution();
             });
-            lunch.appendChild(l_h, l_img, l_p, l_button);
+            lunch.appendChild(l_h);
+            lunch.appendChild(l_img);
+            lunch.appendChild(l_p);
+            lunch.appendChild(l_button);
         }
         if (d.length != 0) {
             const d_h = document.createElement('h2');
@@ -75,8 +81,8 @@ function search() {
             const d_button = document.createElement('button');
             d_h.innerHTML = "저녁";
             d_img.src = d[2];
-            d_img.width = '300px';
-            d_img.height = '300px';
+            d_img.width = '100%';
+            d_img.height = '100%';
             d_p.innerHTML = d[4];
             d_button.addEventListener('click', function () {
                 solution();
