@@ -22,17 +22,22 @@ function search() {
     const getDiet = () => {
         return fetch(`${url}/${date}`,config).then((res) => res.json());
     }
-    getDiet().then((item) => {
-        var b,l,d;
-        if(item[5] === "breakfast"){
-            b = item;
-        }
-        else if(item[5] === "lunch"){
-            l = item;
-        }
-        else{
-            d = item;
-        }
+    getDiet().then((items) => {
+        var b = new Array();
+        var l = new Array();
+        var d = new Array();
+        items.forEach((item) => {
+            if (item[5] === "breakfast") {
+                b = b.concat(item);
+            }
+            else if (item[5] === "lunch") {
+                l = l.concat(item);
+            }
+            else {
+                d = d.concat(item);
+            }
+        })
+        console.log(b,l,d);
         if (b.length != 0) {
             const b_h = document.createElement('h2');
             const b_img = document.createElement('img');
@@ -79,7 +84,6 @@ function search() {
             dinner.appendChild(d_h, d_img, d_p, d_button);
         }
         dietItems.style.display = "block";
-        console.log(b,l,d);
     })
 }
 function solution(){
