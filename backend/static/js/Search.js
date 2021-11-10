@@ -12,9 +12,9 @@ function search() {
     const date = document.querySelector('#datepicker').value;
     const url = 'user/diet'
     // diet table : diet_id, foods, image, user_id, date, meal
-    let b = new Array();
-    let l = new Array();
-    let d = new Array();
+    var b = new Array();
+    var l = new Array();
+    var d = new Array();
     
     fetch(`${url}/${date}`)
         .then((res) => res.json())
@@ -31,6 +31,7 @@ function search() {
                 }
             });
         });
+    console.log(b,l,d);
     if(b.length != 0){
         const b_h = document.createElement('h2');
         const b_img = document.createElement('img');
