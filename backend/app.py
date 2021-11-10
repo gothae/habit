@@ -115,7 +115,7 @@ def diet_solution(diet_id):
     sql  = "select * from Diet where diet_id = '%s'"%(diet_id)
     cursor.execute(sql)
     info = cursor.fetchall()
-    
+    print(info)
     return render_template('showDiet.html', info=info)
 
 if __name__ == '__main__':
