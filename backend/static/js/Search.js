@@ -9,18 +9,16 @@ const date = document.querySelector('#datepicker').value;
 // btnSearch.addEventListener('click',function(){
 //     search();
 // })
-function getDiet(){
-    const url = 'user/diet';
-    const response = fetch(`${url}/${date}`);
-    return response.then(res => res.json());
-}
 
 function search() {
     // diet table : diet_id, foods, image, user_id, date, meal
+    const url = 'user/diet';
     var b = new Array();
     var l = new Array();
     var d = new Array();
-
+    const getDiet = () => {
+        return fetch(`${url}/${date}`).then((res) => res.json());
+    }
     try{
         res = getDiet();
         console.log(res);
