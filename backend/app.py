@@ -112,15 +112,12 @@ def diet_solution(diet_id):
     conn = mysql.connect
     cursor = conn.cursor()
 
-    sql  = "select * from Diet where diet_id = '%s'"%(diet_id)
+    sql  = "select foods,image,date,mealtime from Diet where diet_id = '%s'"%(diet_id)
     cursor.execute(sql)
-    info = json.dumps(cursor.fetchall())
+    # info = json.dumps(cursor.fetchall())
+    info = cursor.fetchall()
     print(info)
-    print()
     print(info[0])
-
-    x = cursor.fetchall()
-    print(x)
     foods = info[0][1]
     imgsrc = info[0][2]
     date = info[0][4]
