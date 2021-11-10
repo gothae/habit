@@ -115,8 +115,11 @@ def diet_solution(diet_id):
     sql  = "select * from Diet where diet_id = '%s'"%(diet_id)
     cursor.execute(sql)
     info = cursor.fetchall()
-    print(info)
-    return render_template('showDiet.html', info=info)
+    foods = info[1].split(',')
+    imgsrc = info[2]
+    date = info[4]
+    mealtime = info[5]
+    return render_template('showDiet.html', foods=foods, imgsrc=imgsrc, date=date, mealtime=mealtime)
 
 if __name__ == '__main__':
     
