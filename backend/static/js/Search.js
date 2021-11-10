@@ -36,7 +36,9 @@ function search() {
     b_img.width = '300px';
     b_img.height = '300px';
     b_p.innerHTML = b[4];
-    b_button.onclick = solution()
+    b_button.addEventListener('click',function(){
+        solution();
+    });
     breakfast.appendChild(b_h, b_img, b_p, b_button);
 
     const l_h = document.createElement('h2');
@@ -48,7 +50,9 @@ function search() {
     l_img.width = '300px';
     l_img.height = '300px';
     l_p.innerHTML = l[4];
-    l_button.onclick = solution();
+    l_button.addEventListener('click', function () {
+        solution();
+    });
     lunch.appendChild(l_h, l_img, l_p, l_button);
 
     const d_h = document.createElement('h2');
@@ -60,7 +64,9 @@ function search() {
     d_img.width = '300px';
     d_img.height = '300px';
     d_p.innerHTML = d[4];
-    d_button.onclick = solution();
+    d_button.addEventListener('click', function () {
+        solution();
+    });
     dinner.appendChild(d_h, d_img, d_p, d_button);
 
     console.log(b,l,d);
