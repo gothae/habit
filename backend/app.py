@@ -116,6 +116,8 @@ def diet_solution(diet_id):
     cursor.execute(sql)
     info = json.dumps(cursor.fetchall())
     print(info)
+    print()
+    print(info[0])
     foods = info[0][1]
     imgsrc = info[0][2]
     date = info[0][4]
