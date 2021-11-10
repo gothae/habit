@@ -20,21 +20,17 @@ function search() {
         }
     };
     const getDiet = () => {
-        console.log(`${url}/${date}`);
         return fetch(`${url}/${date}`,config).then((res) => res.json());
     }
     getDiet().then((item) => {
-        var b = new Array();
-        var l = new Array();
-        var d = new Array();
-        if(item[5] == 'breakfast'){
-            b = item;
+        if(item[5] === "breakfast"){
+            var b = item;
         }
-        else if(item[5] == 'lunch'){
-            l = item;
+        else if(item[5] === "lunch"){
+            var l = item;
         }
         else{
-            d = item;
+            var d = item;
         }
         if (b.length != 0) {
             const b_h = document.createElement('h2');
