@@ -109,7 +109,7 @@ def diet_solution(diet_id):
     conn = mysql.connect
     cursor = conn.cursor()
 
-    sql  = "select * from Diet where diet_id = %s"%(diet_id)
+    sql  = "select * from Diet where diet_id = '%s'"%(diet_id)
     cursor.execute(sql)
     info = cursor.fetchall()
     
