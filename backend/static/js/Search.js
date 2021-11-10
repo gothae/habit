@@ -3,34 +3,38 @@ const dietItem = document.querySelector('.diet-item');
 const breakfast = document.querySelector('.breakfast');
 const lunch = document.querySelector('.lunch');
 const dinner = document.querySelector('.dinner');
+const date = document.querySelector('#datepicker').value;
 // const btnSearch = document.querySelector('#btn-search');
 
 // btnSearch.addEventListener('click',function(){
 //     search();
 // })
-function search() {
-    const date = document.querySelector('#datepicker').value;
-    const url = 'user/diet'
+function getDiet(){
+    const url = 'user/diet';
+    const response = fetch(`${url}/${date}`);
+    return response.then(res => res.json());
+}
+
+async function search() {
     // diet table : diet_id, foods, image, user_id, date, meal
-    var b,l,d;
-    
-    fetch(`${url}/${date}`)
-        .then((res) => res.json())
-        .then((data) => {
-            data.forEach((element) => {
-                console.log(element);
-                if(element[5] == 'breakfast'){
-                    b = element;
-                }
-                else if(element[5] == 'lunch'){
-                    l = element;
-                }
-                else{
-                    d = element;
-                }
-            });
-        });
+    var b = new Array();
+    var l = new Array();
+    var d = new Array();
+
+    res = await getDiet();
+    res.map((item) => {
+        if(item[5] == 'breakfast'){
+            b = item;
+        }
+        else if(item[5] == 'lunch'){
+            l = item;
+        }
+        else{
+            d = item;
+        }
+    })
     console.log(b,l,d);
+
     if(b.length != 0){
         const b_h = document.createElement('h2');
         const b_img = document.createElement('img');
