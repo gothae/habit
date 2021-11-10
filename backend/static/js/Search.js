@@ -7,53 +7,65 @@ const dinner = document.querySelector('.dinner');
 function search() {
     const date = document.querySelector('#datepicker').value;
     const url = 'user/diet'
-    let b = {};
-    let l = {};
-    let d = {};
-    dietItems.style.display = "block";
+    // diet table : diet_id, foods, image, user_id, date, meal
+    let b = new Array();
+    let l = new Array();
+    let d = new Array();
+    
     fetch(`${url}/${date}`)
         .then((res) => res.json())
         .then((data) => {
             data.forEach((element) => {
-                console.log(element[5]);
+                if(element[5] == 'breakfast'){
+                    b = element;
+                }
+                else if(element[5] == 'lunch'){
+                    l = element;
+                }
+                else{
+                    d = element;
+                }
             });
         });
-    console.log(l);
-    console.log(d);
-}
+    const b_h = document.createElement('h2');
+    const b_img = document.createElement('img');
+    const b_p = document.createElement('p');
+    const b_button = document.createElement('button');
+    b_h.innerHTML = b[5];
+    b_img.src = b[2];
+    b_img.width = '300px';
+    b_img.height = '300px';
+    b_p = b[4];
+    b_button.click = solution();
+    breakfast.appendChild(b_h, b_img, b_p, b_button);
+
+    const l_h = document.createElement('h2');
+    const l_img = document.createElement('img');
+    const l_p = document.createElement('p');
+    const l_button = document.createElement('button');
+    l_h.innerHTML = l[5];
+    l_img.src = l[2];
+    l_img.width = '300px';
+    l_img.height = '300px';
+    l_p = l[4];
+    l_button.click = solution();
+    lunch.appendChild(l_h, l_img, l_p, l_button);
+
+    const d_h = document.createElement('h2');
+    const d_img = document.createElement('img');
+    const d_p = document.createElement('p');
+    const d_button = document.createElement('button');}
+    d_h.innerHTML = d[5];
+    d_img.src = d[2];
+    d_img.width = '300px';
+    d_img.height = '300px';
+    d_p = d[4];
+    d_button.click = solution();
+    dinner.appendChild(d_h, d_img, d_p, d_button);
+
+    console.log(b,l,d);
+    dietItems.style.display = "block";
 
 const solution = () => {
     location.href = `user/diet/`;
 }
-
-// var fetch = true;
-// var url = 'someurl.java';
-// $.ajax(
-//     {
-//         type: 'post',
-//         url: url,
-//         dataType: 'json', // expected returned data format.
-//         data:
-//         {
-//             'fetch': fetch // You might want to indicate what you're requesting.
-//         },
-//         success: function (data) {
-//             // This happens AFTER the backend has returned an JSON array (or other object type)
-//             var res1, res2;
-
-//             for (var i = 0; i < data.length; i++) {
-//                 // Parse through the JSON array which was returned.
-//                 // A proper error handling should be added here (check if
-//                 // everything went successful or not)
-
-//                 res1 = data[i].res1;
-//                 res2 = data[i].res2;
-
-//                 // Do something with the returned data
-//                 $('#div1').html(res1);
-//             }
-//         },
-//         complete: function (data) {
-//             // do something, not critical.
-//         }
-//     });
