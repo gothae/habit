@@ -56,7 +56,7 @@ def login():
 @app.route('/register',methods=['GET','POST'])
 def register():
     if request.method=='POST':
-        patient_id = request.form['userEmail']
+        user_id = request.form['userEmail']
         age = request.form['userAge']
         name = request.form['userName']
         pw = request.form['userPassword']
@@ -66,15 +66,15 @@ def register():
         birth_date = request.form['userBirthDate']
         gender = request.form['userGender']
         ispatient = int(request.form['isPatient'])
-        # illness = None
-        # medicine = None
+        illness = request.form['userIllness']
+        medicine = request.form['userMedicine']
         phone_number = request.form['userPhoneNum']
 
         conn = mysql.connect
         cursor = conn.cursor()
         
-        sql = "Insert into User(user_id, user_name, user_pw, is_patient, age, weight, height, birth_date, gender, phone_number) values ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"%(patient_id, 
-        name, pw, ispatient, age, weight, height, birth_date, gender, phone_number)
+        sql = "Insert into User(user_id, user_name, user_pw, is_patient, age, weight, height, birth_date, gender,illness,medicine, phone_number) values ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"%(user_id, 
+        name, pw, ispatient, age, weight, height, birth_date, gender,illness, medicine, phone_number)
         cursor.execute(sql)
 
         data = cursor.fetchall()
