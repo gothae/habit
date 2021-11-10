@@ -19,7 +19,7 @@ mysql = MySQL(app)
 APP_DIR = os.path.abspath(os.path.dirname(__file__)) #/habit/backend
 app.config['MYSQL_USER'] = 'hhshin98'
 app.config['MYSQL_PASSWORD'] = 'james11'
-app.config['MYSQL_DB'] = 'patientdb'
+app.config['MYSQL_DB'] = 'userdb'
 app.config['MYSQL_HOST'] = 'localhost'
 app.secret_key = "ABfdgfdg"
 
