@@ -1,5 +1,5 @@
 import os
-from flask import Flask, session,send_from_directory, request, render_template
+from flask import Flask, session, jsonify, request, render_template
 #from flask_restful import Api, reqparse
 # from sqlalchemy import create_engine, text
 # import sqlalchemy
@@ -103,7 +103,7 @@ def diet_show(date):
 
     cursor.execute(sql)
     info = cursor.fetchall()
-    return info
+    return jsonify(info)
 
 @app.route('/user/diet/<int:diet_id>')
 def diet_solution(diet_id):
