@@ -50,7 +50,7 @@ function search() {
             b_p.innerHTML = b[4];
             b_button.innerHTML = "솔루션";
             b_button.addEventListener('click', function () {
-                solution(b[1]);
+                solution(b[0]);
             });
             breakfast.appendChild(b_h);
             breakfast.appendChild(b_img);
@@ -69,7 +69,7 @@ function search() {
             l_p.innerHTML = l[4];
             l_button.innerHTML = "솔루션";
             l_button.addEventListener('click', function () {
-                solution(l[1]);
+                solution(l[0]);
             });
             lunch.appendChild(l_h);
             lunch.appendChild(l_img);
@@ -88,7 +88,7 @@ function search() {
             d_p.innerHTML = d[4];
             d_button.innerHTML = "솔루션";
             d_button.addEventListener('click', function () {
-                solution(d[1]);
+                solution(d[0]);
             });
             dinner.appendChild(d_h);
             dinner.appendChild(d_img);
