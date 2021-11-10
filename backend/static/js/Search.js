@@ -3,14 +3,9 @@ const dietItem = document.querySelector('.diet-item');
 const breakfast = document.querySelector('.breakfast');
 const lunch = document.querySelector('.lunch');
 const dinner = document.querySelector('.dinner');
-// const btnSearch = document.querySelector('#btn-search');
-
-// btnSearch.addEventListener('click',function(){
-//     search();
-// })
 
 function search() {
-    // diet table : diet_id, foods, image, user_id, date, meal
+    // diet table : diet_id, foods, image, user_id, date, meal, solution_id
     const date = document.querySelector('#datepicker').value;
     const url = 'user/diet';
 
@@ -37,7 +32,6 @@ function search() {
                 d = d.concat(item);
             }
         })
-        console.log(b,l,d);
         if (b.length != 0) {
             const b_h = document.createElement('h2');
             const b_img = document.createElement('img');
