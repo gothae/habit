@@ -98,7 +98,7 @@ def logout():
 def diet_show(date):
     conn = mysql.connect
     cursor = conn.cursor()
-
+    print(date)
     sql  = "select * from Diet where date = %s"%(date)
 
     cursor.execute(sql)
