@@ -15,14 +15,14 @@ function getDiet(){
     return response.then(res => res.json());
 }
 
-async function search() {
+function search() {
     // diet table : diet_id, foods, image, user_id, date, meal
     var b = new Array();
     var l = new Array();
     var d = new Array();
 
     try{
-        res = await getDiet();
+        res = getDiet();
         console.log(res);
         res.map((item) => {
             if(item[5] == 'breakfast'){
