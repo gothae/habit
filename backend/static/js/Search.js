@@ -12,9 +12,7 @@ function search() {
     const date = document.querySelector('#datepicker').value;
     const url = 'user/diet'
     // diet table : diet_id, foods, image, user_id, date, meal
-    var b = new Array();
-    var l = new Array();
-    var d = new Array();
+    var b,l,d;
     
     fetch(`${url}/${date}`)
         .then((res) => res.json())
