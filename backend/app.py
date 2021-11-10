@@ -96,13 +96,16 @@ def logout():
 
 @app.route('/user/diet/<date>', methods=['GET','POST'])
 def diet_show(date):
-    conn = mysql.connect
-    cursor = conn.cursor()
-    sql  = "select * from Diet where date = %s"%(date)
+    if request.method == 'GET':
+        conn = mysql.connect
+        cursor = conn.cursor()
+        sql  = "select * from Diet where date = %s"%(date)
 
-    cursor.execute(sql)
-    info = json.dumps(cursor.fetchall())
-    return info
+        cursor.execute(sql)
+        info = json.dumps(cursor.fetchall())
+        return info
+    else:
+        return None
 
 @app.route('/user/diet/<int:diet_id>')
 def diet_solution(diet_id):
