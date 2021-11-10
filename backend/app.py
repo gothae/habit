@@ -117,7 +117,7 @@ def diet_solution(diet_id):
     # info = json.dumps(cursor.fetchall())
     info = cursor.fetchall()
 
-    foods = info[0][0]
+    foods = info[0][0].split(',')
     imgsrc = info[0][1]
     date = info[0][2]
     mealtime = info[0][3]
