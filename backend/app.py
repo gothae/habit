@@ -119,6 +119,8 @@ def logout():
     session['logged in'] = False
     return redirect('/')
 
+# <user_id>로 수정해야함
+# js에서 user_id 받는방법??
 @app.route('/user/diet/<date>', methods=['GET','POST'])
 def diet_show(date):
     if request.method == 'GET':
@@ -154,9 +156,9 @@ def diet_solution(diet_id):
     print(solution)
     return render_template('showDiet.html', foods=foods, imgsrc=imgsrc, date=date, mealtime=mealtime, solution=solution)
 
-@app.route('/<user_id>/solution')
-def solutionIndex():
-    return render_template('solutionIndex.html')
+@app.route('/<user_id>/survey')
+def solutionIndex(user_id):
+    return render_template('survey.html')
 
 
 if __name__ == '__main__':
