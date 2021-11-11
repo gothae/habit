@@ -3,7 +3,7 @@ const qna = document.querySelector('#qna');
 const result = document.querySelector('#result');
 const endPoint = 10;
 const select = []; //사용자가 선택한 답변을 담을 배열
-const solution = [];
+const solutions = []; //선택한 답변에 대한 솔루션
 
 function calResult(){
     var res = select.indexOf(Math.max(...select));//전개구문
@@ -11,17 +11,23 @@ function calResult(){
 }
 
 function setResult(){
-    let point = calResult(); //infoList 중에서 인덱스 받아옴
     const resultName = document.querySelector('.resultname');
-    resultName.innerHTML = infoList[point].name;
+    // resultName.innerHTML = infoList[point].name;
 
-    resultImg.src = imgURL;
-    resultImg.alt = point;
-    resultImg.classList.add('img-fluid');
-    imgDiv.appendChild(resultImg);
+    // resultImg.src = imgURL;
+    // resultImg.alt = point;
+    // resultImg.classList.add('img-fluid');
+    // imgDiv.appendChild(resultImg);
    
     const resultDesc = document.querySelector('.resultDesc');
-    resultDesc.innerHTML = qnaList[a].solutions
+    const ul = document.createElement('ul')
+    solutions.map((solution) => {
+        var li = document.createElement('li')
+        li.innerHTML = solution;
+        ul.appendChild(li);
+    })
+    resultDesc.appendChild(ul);
+    // resultDesc.innerHTML = qnaList[a].solutions
 }
 
 function goResult(){
@@ -62,14 +68,13 @@ function addAnswer(answerText,qIdx,idx){
             var targetSolution = qnaList[qIdx].a[idx]['solution'];
 
             select.push(targetAnswer);
-            solution.push(targetSolution);
+            solutions.push(targetSolution);
             for(let i =0; i<children.length; i++){
                 children[i].style.display = 'none';
             }
             goNext(++qIdx);
         },450);
     }, false);
-    console.log(solution);
 }
 
 function goNext(qIdx){
