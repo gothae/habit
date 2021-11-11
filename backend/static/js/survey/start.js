@@ -12,22 +12,15 @@ function calResult(){
 
 function setResult(){
     const resultName = document.querySelector('.resultname');
-    // resultName.innerHTML = infoList[point].name;
-
-    // resultImg.src = imgURL;
-    // resultImg.alt = point;
-    // resultImg.classList.add('img-fluid');
-    // imgDiv.appendChild(resultImg);
-   
     const resultDesc = document.querySelector('.resultDesc');
-    const ul = document.createElement('ul')
+    const ul = document.createElement('ul');
+
     solutions.map((solution) => {
-        var li = document.createElement('li')
+        var li = document.createElement('li');
         li.innerHTML = solution;
         ul.appendChild(li);
     })
     resultDesc.appendChild(ul);
-    // resultDesc.innerHTML = qnaList[a].solutions
 }
 
 function goResult(){

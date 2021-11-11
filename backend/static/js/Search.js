@@ -4,9 +4,9 @@ const breakfast = document.querySelector('.breakfast');
 const lunch = document.querySelector('.lunch');
 const dinner = document.querySelector('.dinner');
 
-function search() {
+function dietSearch() {
     // diet table : diet_id, foods, image, user_id, date, meal, solution_id
-    const date = document.querySelector('#datepicker').value;
+    const date = document.querySelector('.datepicker').value;
     const url = 'user/diet';
 
     const config = {
@@ -92,6 +92,11 @@ function search() {
         dietItems.style.display = "block";
     })
 }
+function solutionSearch(){
+    const date = document.querySelector('.datepicker').value;
+
+}
+
 function solution(diet_id){
     location.href = `user/diet/${diet_id}`;
 }

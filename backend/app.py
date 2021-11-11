@@ -157,9 +157,12 @@ def diet_solution(diet_id):
     return render_template('showDiet.html', foods=foods, imgsrc=imgsrc, date=date, mealtime=mealtime, solution=solution)
 
 @app.route('/<user_id>/survey')
-def solutionIndex(user_id):
+def survey(user_id):
     return render_template('survey.html')
 
+@app.route('<user_id>/solution')
+def solutionIndex(user_id):
+    return render_template('solutionIndex.html')
 
 if __name__ == '__main__':
     
