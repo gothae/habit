@@ -39,7 +39,7 @@ def main():
     user = cursor.fetchall()
     
     name=user[0][0]
-    email=user[0][1]
+    user_id=user[0][1]
     age =user[0][2]
     weight=user[0][3]
     height=user[0][4]
@@ -51,7 +51,7 @@ def main():
     
     cursor.close()
     conn.close()
-    return render_template('index.html',error=error, name=name, email=email, birth_date=birth_date,
+    return render_template('index.html',error=error, name=name, user_id=user_id, birth_date=birth_date,
     phone_number=phone_number, age=age, height=height, weight=weight, illness=illness, medicine=medicine, gender=gender)
 
 @app.route('/',methods = ['GET','POST'])
@@ -153,6 +153,11 @@ def diet_solution(diet_id):
     solution = cursor.fetchall()
     print(solution)
     return render_template('showDiet.html', foods=foods, imgsrc=imgsrc, date=date, mealtime=mealtime, solution=solution)
+
+@app.route('/<user_id>/solution')
+def solutionIndex():
+    return render_template('solutionIndex.html')
+
 
 if __name__ == '__main__':
     
