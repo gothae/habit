@@ -160,7 +160,7 @@ def diet_solution(diet_id):
 def survey(user_id):
     return render_template('survey.html')
 
-@app.route('<user_id>/solution')
+@app.route('/<user_id>/solution')
 def solutionIndex(user_id):
     return render_template('solutionIndex.html')
 
