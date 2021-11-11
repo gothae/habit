@@ -7,7 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <img src="@imgsrc" alt="사진"/>
+    <!-- <img src="@imgsrc" alt="사진"/> -->
+    <!-- <img src=<%= %> -->
+    <!-- <img src='' -->
+    <p id="imgsrc" style="display: none;">{{imgsrc}}</p>
+    <img id="dietImg">
     <ul>음식</ul>
     {% for food in foods %}
         <li>{{ food }}</li>
@@ -15,5 +19,14 @@
     <p>날짜 : {{ date }}</p>
     <p>식사 시간 : {{ mealtime }}</p>
     <p>솔루션 : {{ solution }}</p>
+    <script>
+        function showImg(){
+            var imgsrc = document.getElementById('imgsrc');
+            var img = document.getElementById('dietImg');
+            img.src = imgsrc;
+            img.width = '300';
+            img.height = '300';
+        }
+    </script>
 </body>
 </html>
