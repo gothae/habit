@@ -59,7 +59,7 @@ def login():
         #print(userEmail, userPassword)
         conn = mysql.connect
         cursor = conn.cursor()
-        sql  = "select patient_id from Patient where patient_id = %s and patient_pw = %s"
+        sql  = "select user_id from User where user_id = %s and user_pw = %s"
         value  = (userEmail, userPassword)
         #cursor.execute("set names utf8")
         cursor.execute(sql,value)
@@ -72,7 +72,7 @@ def login():
             data = i[0]
         
         if data:
-            session['patient_id'] = userEmail
+            session['user_id'] = userEmail
             return render_template('index.html')
         else:
             error = '잘못된 정보입니다'
@@ -125,7 +125,7 @@ def register():
         conn = mysql.connect
         cursor = conn.cursor()
         
-        sql = "Insert into Patient(patient_id, patient_name, patient_pw, age, weight, height, birth_date, gender,illness, medicine, phone_number) values ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"%(patient_id, 
+        sql = "Insert into User(user_id, user_name, user_pw, age, weight, height, birth_date, gender,illness, medicine, phone_number) values ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"%(patient_id, 
         name, pw, age, weight, height, birth_date, gender, illness, medicine, phone_number)
         cursor.execute(sql)
         
