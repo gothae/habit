@@ -6,7 +6,7 @@ const dinner = document.querySelector('.dinner');
 
 function dietSearch() {
     // diet table : diet_id, foods, image, user_id, date, meal, solution_id
-    const date = document.querySelector('.datepicker').value;
+    const date = document.querySelector('#datepicker_diet').value;
     const url = 'user/diet';
 
     const config = {
