@@ -213,6 +213,7 @@ h1, h2, h3, h4, h5, h6 {
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  border-radius: 30px;
 }
 .dropdown-content a {
   color: black;
@@ -890,7 +891,7 @@ section {
 }
 @media (min-width: 992px) {
   .testimonials .testimonial-item p {
-    width: 80%;
+    width: 50%;
   }
 }
 
@@ -1026,6 +1027,7 @@ section {
   font-size: 14px;
   text-align: center;
   padding: 30px 0;
+  
 }
 #footer h3 {
   font-size: 36px;
