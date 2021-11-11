@@ -27,7 +27,32 @@ mysql.init_app(app)
 
 @app.route('/main')
 def main():
-    return render_template('index.html')
+    error = None
+    # id  = session['user_id']
+    id = session.get('user_id',None)
+    conn = mysql.connect
+    cursor = conn.cursor()
+    
+    sql = "select user_name, user_id, age,weight,height,birth_date, gender, illness, medicine, phone_number from User where user_id = '%s'"%(id)
+    
+    cursor.execute(sql)
+    user = cursor.fetchall()
+    
+    name=user[0][0]
+    email=user[0][1]
+    age =user[0][2]
+    weight=user[0][3]
+    height=user[0][4]
+    birth_date=user[0][5]
+    gender=user[0][6]
+    illness=user[0][7]
+    medicine=user[0][8]
+    phone_number = user[0][9]
+    
+    cursor.close()
+    conn.close()
+    return render_template('index.html',error=error, name=name, email=email, birth_date=birth_date,
+    phone_number=phone_number, age=age, height=height, weight=weight, illness=illness, medicine=medicine, gender=gender)
 
 @app.route('/',methods = ['GET','POST'])
 def login():
@@ -49,7 +74,7 @@ def login():
 
         if data:
             session['user_id'] = userEmail
-            return render_template('index.html')
+            return redirect('/main')
         else:
             error = '잘못된 정보입니다'
 
