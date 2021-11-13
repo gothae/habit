@@ -150,6 +150,7 @@ def diet_solution(diet_id):
     mealtime = info[0][3]
     diet_id = info[0][4]
 
+    # diet_id와 같은 diet에서 solution_id 를 가지고 solution 찾기
     sql = "select solution from Solution where Solution.solution_id = (select Diet.solution_id from Diet where diet_id = {0});".format(diet_id)
     cursor.execute(sql)
     solution = cursor.fetchall()
