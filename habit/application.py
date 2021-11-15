@@ -23,7 +23,7 @@ mysql = MySQL(app)
 global num_diet
 global num_solution
 num_diet = random.randrange(0, 1000)
-num_solution = random.randrange(0,1000)
+num_solution = random.randrange(0, 1000)
 
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = '1234'
@@ -54,7 +54,8 @@ def locsearch():
     if len(result['documents']) > 0:
         for data in result['documents']:
             title.append(data['place_name'])
-            search_url.append('https://map.kakao.com/link/to/{}'.format(data['id']))
+            search_url.append(
+                'https://map.kakao.com/link/to/{}'.format(data['id']))
 
         title.insert(0, '🗺 클릭시 카카오맵 길찾기로 연결됩니다.')
         search_url.insert(0, '')
@@ -90,28 +91,28 @@ def locsearch():
             itemtype = 'item'
 
         listItems.append({
-                "type": itemtype,               # 카드 리스트의 아이템 티입
-                "title": title[i],              # 제목
-                "linkUrl": {
-                  "type": "OS",
-                  "webUrl": search_url[i]
-                    }
-                })
+            "type": itemtype,               # 카드 리스트의 아이템 티입
+            "title": title[i],              # 제목
+            "linkUrl": {
+                "type": "OS",
+                "webUrl": search_url[i]
+            }
+        })
         cnt += 1
 
     # 카드 리스트형 응답용 메시지
     res = {
-          "contents": [
+        "contents": [
             {
-              "type": "card.list",
-              "cards": [
-                {
-                  "listItems": listItems
-                }
-              ]
+                "type": "card.list",
+                "cards": [
+                    {
+                        "listItems": listItems
+                    }
+                ]
             }
-          ]
-        }
+        ]
+    }
 
     # 전송
     return jsonify(res)
@@ -146,11 +147,10 @@ def calorie():
 
     req = request.get_json()
     print(req)
-    
+
     select = req["action"]["detailParams"]["선택지"]["value"]
     print(select)
-    
-    
+
     res = {
         "version": "2.0",
         "template": {
@@ -194,7 +194,7 @@ def start():
     photo_url = photo_json["secureUrls"]
     u = photo_url[5:-1]
     print(u)
-    
+
     conn = mysql.connect
     cur = conn.cursor()
 
@@ -235,11 +235,12 @@ def food():
     food = req["action"]["detailParams"]["음식이름"]["value"]
     foods = food
     print(foods)
-    
+
     conn = mysql.connect
     cur = conn.cursor()
-    
-    sql = "select choice_01, choice_02, choice_03, unit from Food where food_type = '%s'" % (foods)
+
+    sql = "select choice_01, choice_02, choice_03, unit from Food where food_type = '%s'" % (
+        foods)
 
     cur.execute(sql)
     # conn.commit()
@@ -247,9 +248,9 @@ def food():
     print(food_str)
     cur.close()
     conn.close()
-    
+
     food_tuple = food_str[0]
-    
+
     choice_01 = food_tuple[0]
     choice_02 = food_tuple[1]
     choice_03 = food_tuple[2]
@@ -294,9 +295,7 @@ def food():
     # sql = ""
 
 
-
-
-@app.route("/date", methods=["GET", "POST"])
+@app.route("http://172.31.3.198:5000/date", methods=["GET", "POST"])
 def date():
     print("Start to enter: ")
     req = request.get_json()
@@ -311,21 +310,26 @@ def date():
     print(meal_date)
     meal_month = meal_date[5:7]
     meal_day = meal_date[8:]
-    
+
     if meal_month[0] == "0":
         if meal_day[0] == "0":
-            answer = meal_month[1]+"월 "+meal_day[1]+"일" + "에 드셨군요. \n\n 아래에서 아침, 점심,저녁 중 하나를 골라주세요."
+            answer = meal_month[1]+"월 "+meal_day[1]+"일" + \
+                "에 드셨군요. \n\n 아래에서 아침, 점심,저녁 중 하나를 골라주세요."
         else:
-            answer = meal_month[1]+"월 "+meal_day+"일" + "에 드셨군요. \n\n 아래에서 아침, 점심,저녁 중 하나를 골라주세요."
+            answer = meal_month[1]+"월 "+meal_day+"일" + \
+                "에 드셨군요. \n\n 아래에서 아침, 점심,저녁 중 하나를 골라주세요."
     else:
         if meal_day[0] == "0":
-            answer = meal_month+"월 "+meal_day[1]+"일" + "에 드셨군요. \n\n 아래에서 아침, 점심,저녁 중 하나를 골라주세요."
+            answer = meal_month+"월 " + \
+                meal_day[1]+"일" + "에 드셨군요. \n\n 아래에서 아침, 점심,저녁 중 하나를 골라주세요."
         else:
-            answer = meal_month+"월 "+meal_day+"일" + "에 드셨군요. \n\n 아래에서 아침, 점심,저녁 중 하나를 골라주세요."
+            answer = meal_month+"월 "+meal_day+"일" + \
+                "에 드셨군요. \n\n 아래에서 아침, 점심,저녁 중 하나를 골라주세요."
     conn = mysql.connect
     cur = conn.cursor()
     print(6)
-    sql = "insert into Diet(diet_id, date,solution_id) values ('%s','%s','%s')" % (num_diet, meal_date,num_solution)
+    sql = "insert into Diet(diet_id, date,solution_id) values ('%s','%s','%s')" % (
+        num_diet, meal_date, num_solution)
 
     cur.execute(sql)
     conn.commit()
@@ -374,10 +378,11 @@ def time():
 
     select = req['userRequest']['utterance']
     print(select)
-    
+
     conn = mysql.connect
     cur = conn.cursor()
-    sql = "update Diet set mealtime='%s' where diet_id = '%s'" % (select, num_diet)
+    sql = "update Diet set mealtime='%s' where diet_id = '%s'" % (
+        select, num_diet)
     # sql = 'select * from Diet'
 
     cur.execute(sql)
@@ -412,4 +417,3 @@ def time():
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, threaded=True)
-
