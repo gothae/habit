@@ -296,7 +296,7 @@ def food():
 
 
 
-@app.route("/http://3.36.96.100:5000/date", methods=["GET", "POST"])
+@app.route("/date", methods=["GET", "POST"])
 def date():
     print("Start to enter: ")
     req = request.get_json()
