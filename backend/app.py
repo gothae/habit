@@ -111,6 +111,29 @@ def register():
     else:
         return render_template('register.html')
 
+@app.route('/updateUser/<user_id>',methods=['GET','POST'])
+def updateUser(user_id):
+    conn = mysql.connect
+    cursor = conn.cursor()
+    if request.method == 'GET':
+        sql = "select * from User where user_id={0};".format(user_id)
+        cursor.execute(sql)
+        user = cursor.fetchall()[0]
+        print(user)
+        return render_template('updateUser.html',user=user)
+    else:
+        age = request.form['userAge']
+        pw = request.form['userPassword']
+        pwck = request.form['userPasswordCheck']
+        weight = request.form['userWeight']
+        height = request.form['userHeight']
+        birth_date = request.form['userBirthDate']
+        illness = request.form['userIllness']
+        medicine = request.form['userMedicine']
+        phone_number = request.form['userPhoneNum']
+        print(age)
+    # sql = 'update User set '
+
 @app.route('/logout')
 def logout():
     session['logged in'] = False
