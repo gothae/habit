@@ -10,7 +10,7 @@
     <form method="post">
         <div class="form-group first">
             <label for="updateName">이름</label>
-            <input type="text" class="form-control" id="updateName" name="updateName" required />
+            <input type="text" class="form-control" id="updateName" name="updateName" value="{{user[1]}}" required />
         </div>
         <div class="form-group last mb-3">
             <label for="updateEmail">E-mail</label>
@@ -33,9 +33,6 @@
 
             <label for="updateWeight">몸무게</label>
             <input type="number" class="form-control" id="updateWeight" name="updateWeight" value="{{user[6]}}" required /><br><br>
-
-            <label for="updateIllness">현재 앓고 계신 질환이 있으신가요?</label>
-            <input type="text" class="form-control" id="updateIllness" name="updateIllness" value="{{user[9]}}"/><br><br>
 
             <label for="updateMedicine">복용 중이신 약이 있으신가요?</label>
             <input type="text" class="form-control" id="updateMedicine" name="updateMedicine" value="{{user[10]}}"/><br><br>

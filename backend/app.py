@@ -127,11 +127,9 @@ def updateUser():
         weight = request.form['updateWeight']
         height = request.form['updateHeight']
         birth_date = request.form['updateBirthDate']
-        illness = request.form['updateIllness']
         medicine = request.form['updateMedicine']
         phone_number = request.form['updatePhoneNum']
-        print(age)
-        sql = 'update User set age={0}, user_pw={1}, weight={2}, height={3}, birth_date={4}, illness={5}, medicine={6}, phone_number={7} where user_id={8};'.format(age, pw, weight, height, birth_date, illness, medicine, phone_number, user_id)
+        sql = 'update User set age={0}, user_pw={1}, weight={2}, height={3}, birth_date={4}, medicine={5}, phone_number={6} where user_id={7};'.format(age, pw, weight, height, birth_date, medicine, phone_number, user_id)
         cursor.execute(sql)
         return url_for('/main')
 
