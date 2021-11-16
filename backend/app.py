@@ -25,7 +25,7 @@ mysql.init_app(app)
 @app.route('/main')
 def main():
     error = None
-    id = session.get('user_id',None)
+    id = session.get('user',None)
     conn = mysql.connect
     cursor = conn.cursor()
     
@@ -70,7 +70,7 @@ def login():
         conn.close()
 
         if data:
-            session['user_id'] = userEmail
+            session['user'] = userEmail
             return redirect('/main')
         else:
             error = '잘못된 정보입니다'
@@ -111,8 +111,9 @@ def register():
     else:
         return render_template('register.html')
 
-@app.route('/updateUser/<user_id>',methods=['GET','POST'])
-def updateUser(user_id):
+@app.route('/updateUser',methods=['GET','POST'])
+def updateUser():
+    user_id = session['user']
     conn = mysql.connect
     cursor = conn.cursor()
     if request.method == 'GET':
@@ -136,7 +137,7 @@ def updateUser(user_id):
 
 @app.route('/logout')
 def logout():
-    session['logged in'] = False
+    session.pop('user',None)
     return redirect('/')
 
 # <user_id>로 수정해야함
