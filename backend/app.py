@@ -120,21 +120,19 @@ def updateUser():
         sql = "select * from User where user_id={0};".format(user_id)
         cursor.execute(sql)
         user = cursor.fetchall()[0]
-        print(user)
         return render_template('updateUser.html',user=user)
     else:
         age = request.form['userAge']
         pw = request.form['userPassword']
-        pwck = request.form['userPasswordCheck']
         weight = request.form['userWeight']
         height = request.form['userHeight']
         birth_date = request.form['userBirthDate']
         illness = request.form['userIllness']
         medicine = request.form['userMedicine']
         phone_number = request.form['userPhoneNum']
-        print(age)
-    # sql = 'update User set '
-
+        sql = 'update User set age={0}, user_pw={1}, weight={2}, height={3}, birth_date={4}, illness={5}, medicine={6}, phone_number={7} where user_id={8};'.format(age,pw,weight,height,birth_date,illness,medicine,phone_number,user_id)
+        cursor.execute(sql)
+        
 @app.route('/logout')
 def logout():
     session.pop('user',None)
