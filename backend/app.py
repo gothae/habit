@@ -144,13 +144,15 @@ def logout():
 # js에서 user_id 받는방법??
 @app.route('/user/diet/<date>', methods=['GET','POST'])
 def diet_show(date):
+    user_id = session['user']
     if request.method == 'GET':
         conn = mysql.connect
         cursor = conn.cursor()
-        sql  = "select * from Diet where date = '%s';"%date
+        sql  = "select * from Diet where date = '%s' and user_id = '%s';"%(date,user_id)
 
         cursor.execute(sql)
         info = json.dumps(cursor.fetchall())
+        print(info)
         return info
     else:
         return None
