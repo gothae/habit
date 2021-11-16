@@ -8,7 +8,15 @@ function dietSearch() {
     // diet table : diet_id, foods, image, user_id, date, meal, solution_id
     const date = document.querySelector('#datepicker_diet').value;
     const url = 'user/diet';
-
+    while(breakfast.hasChildNodes()){
+        breakfast.removeChild(breakfast.firstChild);
+    }
+    while (lunch.hasChildNodes()) {
+        lunch.removeChild(lunch.firstChild);
+    }
+    while (dinner.hasChildNodes()) {
+        dinner.removeChild(dinner.firstChild);
+    }
     const config = {
         headers: {
             'Accept': 'application/json'
