@@ -114,6 +114,7 @@ def register():
 @app.route('/updateUser',methods=['GET','POST'])
 def updateUser():
     user_id = session['user']
+    print(user_id)
     conn = mysql.connect
     cursor = conn.cursor()
     if request.method == 'GET':
@@ -130,9 +131,9 @@ def updateUser():
         illness = request.form['userIllness']
         medicine = request.form['userMedicine']
         phone_number = request.form['userPhoneNum']
-        sql = 'update User set age={0}, user_pw={1}, weight={2}, height={3}, birth_date={4}, illness={5}, medicine={6}, phone_number={7} where user_id={8};'.format(age,pw,weight,height,birth_date,illness,medicine,phone_number,user_id)
+        sql = 'update User set age={0}, user_pw={1}, weight={2}, height={3}, birth_date={4}, illness={5}, medicine={6}, phone_number={7} where user_id={8};'.format(age, pw, weight, height, birth_date, illness, medicine, phone_number, user_id)
         cursor.execute(sql)
-        
+
 @app.route('/logout')
 def logout():
     session.pop('user',None)
