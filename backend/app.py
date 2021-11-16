@@ -146,7 +146,7 @@ def updateUser():
         # cursor.execute(sql)
         # sql = 'update User set phone_number={0} where user_id={1};'.format(phone_number,user_id)
         # cursor.execute(sql)
-        return url_for('/main')
+        return redirect('/main')
 
 @app.route('/logout')
 def logout():
