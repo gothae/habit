@@ -164,7 +164,7 @@ def diet_solution(diet_id):
     user_id = session['user']
     sql = "select * from User where user_id='%s'"%(user_id)
     cursor.execute(sql)
-    userName = cursor.fetchall()[0]
+    userName = cursor.fetchall()[0][1]
 
     sql  = "select * from Diet where diet_id = '%s'"%(diet_id)
     cursor.execute(sql)
