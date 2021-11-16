@@ -162,8 +162,15 @@ def survey(user_id):
 def solutionIndex(user_id):
     return render_template('solutionIndex.html')
 
-@app.route('/table')
-def showPatients():
+@app.route('/<user_id>/patientList')
+def showPatients(user_id):
+    conn = mysql.connect
+    cursor = conn.cursor()
+
+    sql = "select * from User where doctor_in_charge = {0};".format(user_id)
+    cursor.execute(sql)
+    pList = cursor.fetchall()
+    print(pList)
     return render_template('table.html')
 
 @app.route('/locsearch', methods=['POST'])
