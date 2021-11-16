@@ -114,7 +114,6 @@ def register():
 @app.route('/updateUser',methods=['GET','POST'])
 def updateUser():
     user_id = session['user']
-    print(user_id)
     conn = mysql.connect
     cursor = conn.cursor()
     if request.method == 'GET':
@@ -123,16 +122,18 @@ def updateUser():
         user = cursor.fetchall()[0]
         return render_template('updateUser.html',user=user)
     else:
-        age = request.form['userAge']
-        pw = request.form['userPassword']
-        weight = request.form['userWeight']
-        height = request.form['userHeight']
-        birth_date = request.form['userBirthDate']
-        illness = request.form['userIllness']
-        medicine = request.form['userMedicine']
-        phone_number = request.form['userPhoneNum']
+        age = request.form['updateAge']
+        pw = request.form['updatePassword']
+        weight = request.form['updateWeight']
+        height = request.form['updateHeight']
+        birth_date = request.form['updateBirthDate']
+        illness = request.form['updateIllness']
+        medicine = request.form['updateMedicine']
+        phone_number = request.form['updatePhoneNum']
+        print(age)
         sql = 'update User set age={0}, user_pw={1}, weight={2}, height={3}, birth_date={4}, illness={5}, medicine={6}, phone_number={7} where user_id={8};'.format(age, pw, weight, height, birth_date, illness, medicine, phone_number, user_id)
         cursor.execute(sql)
+        return url_for('/main')
 
 @app.route('/logout')
 def logout():
