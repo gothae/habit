@@ -7,10 +7,36 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <img src="@imgsrc" alt="사진"/> -->
-    <!-- <img src=<%= %> -->
-    <!-- <img src='' -->
+    <h2>{{userName}}님의 {{date}} {{mealtime}} 영양 소견지</h2>
     <img src={{imgsrc}} width="300px" height="300px">
+    <hr>
+    <h3>3대 영양소 섭취량</h3>
+    <table style="width: auto; height: auto;">
+        <th>영양소</th>
+        <th>1일당 섭취량</th>
+        <tr>
+            <td>열량(kcal)</td>
+            <td>{{calorie}}</td>
+        </tr>
+        <tr>
+            <td>탄수화물(g)</td>
+            <td>{{carbohydrate}}</td>
+        </tr>
+        <tr>
+            <td>지방(g)</td>
+            <td>{{fat}}</td>
+        </tr>
+        <tr>
+            <td>단백질(g)</td>
+            <td>{{protein}}</td>
+        </tr>
+    </table>
+
+    <h3>영양소별 평과 결과</h3>
+
+
+
+    <!-- <img src={{imgsrc}} width="300px" height="300px">
     <p id="imgsrc" style="display: none;">{{imgsrc}}</p>
     <ul>음식</ul>
     {% for food in foods %}
@@ -18,15 +44,7 @@
     {% endfor %}
     <p>날짜 : {{ date }}</p>
     <p>식사 시간 : {{ mealtime }}</p>
-    <p>솔루션 : {{ solution }}</p>
-    <!-- <script>
-        function showImg(){
-            var imgsrc = document.getElementById('imgsrc');
-            var img = document.getElementById('dietImg');
-            img.src = imgsrc;
-            img.width = '300';
-            img.height = '300';
-        }
-    </script> -->
+    <p>솔루션 : {{ solution }}</p> -->
+
 </body>
 </html>
