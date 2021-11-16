@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form>
+    <form method="post">
         <div class="form-group first">
             <label for="userName">이름</label>
             <input type="text" class="form-control" id="userName" name="userName" required />
@@ -47,7 +47,7 @@
             <input type="text" class="form-control" id="userPhoneNum" name="userPhoneNum" value="{{user[11]}}" required /><br><br>
         </div>
 
-        <input type="submit" value="수정하기" class="btn btn-block py-2 btn-primary"><br>
+        <input type="submit" value="수정하기" class="btn btn-block py-2 btn-primary" onclick="update()"><br>
     </form>
     <script>
         var pw = document.getElementById('userPassword').value;
@@ -65,6 +65,13 @@
                 }
             }
         }
+        function update() {
+                var ans = confirm('이대로 수정하시겠습니까??')
+                if (ans) {
+                    return true;
+                } else {
+                    return false;
+                }
     </script>
 </body>
 </html>
