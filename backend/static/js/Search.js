@@ -30,10 +30,10 @@ function dietSearch() {
         var l = new Array();
         var d = new Array();
         items.forEach((item) => {
-            if (item[5] === "아침") {
+            if (item[4] === "아침") {
                 b = b.concat(item);
             }
-            else if (item[5] === "점심") {
+            else if (item[4] === "점심") {
                 l = l.concat(item);
             }
             else {
