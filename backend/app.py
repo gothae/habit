@@ -170,8 +170,7 @@ def showPatients(user_id):
     sql = "select * from User where doctor_in_charge = {0};".format(user_id)
     cursor.execute(sql)
     pList = cursor.fetchall()
-    print(pList)
-    return render_template('table.html')
+    return render_template('table.html',pList=pList)
 
 @app.route('/locsearch', methods=['POST'])
 def locsearch():
