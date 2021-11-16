@@ -7,47 +7,48 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="form-group first">
-        <label for="userName">이름</label>
-        <input type="text" class="form-control" id="userName" name="userName" required />
-    </div>
-    <div class="form-group last mb-3">
-        <label for="userEmail">E-mail</label>
-        <p id="userEmail" name="userEmail">{{user[0]}}</p><br><br>
+    <form>
+        <div class="form-group first">
+            <label for="userName">이름</label>
+            <input type="text" class="form-control" id="userName" name="userName" required />
+        </div>
+        <div class="form-group last mb-3">
+            <label for="userEmail">E-mail</label>
+            <p id="userEmail" name="userEmail">{{user[0]}}</p><br><br>
 
-        <label for="userPassword">비밀번호</label>
-        <input type="password" class="form-control" id="userPassword" name="userPassword" onchange="isSame()" value="{{user[2]}}"
-            required /><br><br>
+            <label for="userPassword">비밀번호</label>
+            <input type="password" class="form-control" id="userPassword" name="userPassword" onchange="isSame()" value="{{user[2]}}"
+                required /><br><br>
 
-        <label for="userPasswordCheck">비밀번호 확인</label>
-        <input type="password" class="form-control" id="userPasswordCheck" name="userPasswordCheck" onchange="isSame()" value="{{user[2]}}"
-            required /><br><br>
-        <p id="same"></p>
+            <label for="userPasswordCheck">비밀번호 확인</label>
+            <input type="password" class="form-control" id="userPasswordCheck" name="userPasswordCheck" onchange="isSame()" value="{{user[2]}}"
+                required /><br><br>
+            <p id="same"></p>
 
-        <label for="userAge">나이</label>
-        <input type="number" class="form-control" id="userAge" name="userAge" value="{{user[4]}}" required /><br><br>
+            <label for="userAge">나이</label>
+            <input type="number" class="form-control" id="userAge" name="userAge" value="{{user[4]}}" required /><br><br>
 
-        <label for="userHeight">키</label>
-        <input type="number" class="form-control" id="userHeight" name="userHeight" value="{{user[5]}}" required /><br><br>
+            <label for="userHeight">키</label>
+            <input type="number" class="form-control" id="userHeight" name="userHeight" value="{{user[5]}}" required /><br><br>
 
-        <label for="userWeight">몸무게</label>
-        <input type="number" class="form-control" id="userWeight" name="userWeight" value="{{user[6]}}" required /><br><br>
+            <label for="userWeight">몸무게</label>
+            <input type="number" class="form-control" id="userWeight" name="userWeight" value="{{user[6]}}" required /><br><br>
 
-        <label for="userIllness">현재 앓고 계신 질환이 있으신가요?</label>
-        <input type="text" class="form-control" id="userIllness" name="userIllness" value="{{user[9]}}"/><br><br>
+            <label for="userIllness">현재 앓고 계신 질환이 있으신가요?</label>
+            <input type="text" class="form-control" id="userIllness" name="userIllness" value="{{user[9]}}"/><br><br>
 
-        <label for="userMedicine">복용 중이신 약이 있으신가요?</label>
-        <input type="text" class="form-control" id="userMedicine" name="userMedicine" value="{{user[10]}}"/><br><br>
+            <label for="userMedicine">복용 중이신 약이 있으신가요?</label>
+            <input type="text" class="form-control" id="userMedicine" name="userMedicine" value="{{user[10]}}"/><br><br>
 
-        <label for="userBirthDate">생일</label>
-        <input type="date" class="form-control" id="userBirthDate" name="userBirthDate" value="{{user[7]}}" required /><br><br>
+            <label for="userBirthDate">생일</label>
+            <input type="date" class="form-control" id="userBirthDate" name="userBirthDate" value="{{user[7]}}" required /><br><br>
 
-        <label for="userPhoneNum">연락처</label>
-        <input type="text" class="form-control" id="userPhoneNum" name="userPhoneNum" value="{{user[11]}}" required /><br><br>
-    </div>
+            <label for="userPhoneNum">연락처</label>
+            <input type="text" class="form-control" id="userPhoneNum" name="userPhoneNum" value="{{user[11]}}" required /><br><br>
+        </div>
 
-    <input type="submit" value="수정하기" class="btn btn-block py-2 btn-primary"><br>
-    
+        <input type="submit" value="수정하기" class="btn btn-block py-2 btn-primary"><br>
+    </form>
     <script>
         var pw = document.getElementById('userPassword').value;
         var pwck = document.getElementById('userPasswordCheck').value;
