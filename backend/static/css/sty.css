@@ -8,7 +8,14 @@
   
   body {
     background: url("../img/medical-g8c48bf3f1_1920.jpg") ;
-    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .bg-image{
+    display: inline;
+    width: 50%;
+  }
+  .bg-loginform{
+    display: inline;
   }
   
   .loginForm {

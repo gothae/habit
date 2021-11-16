@@ -59,7 +59,9 @@
             <a href="#solution">솔루션 모아보기</a>
           </div>
         </div>
+        {% if is_patient == 1 %}
         <li><a href="/{{user_id}}/survey" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>설문조사</span></a></li>
+        {% endif %}
         {% if is_patient == 0 %}
         <li><a href="/{{user_id}}/patientList" class="nav-link scrollto"><i class="bx bx-server"></i> <span>환자 목록</span></a></li>
         {% endif %}
