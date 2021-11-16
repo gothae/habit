@@ -1,5 +1,5 @@
 import os
-from flask import Flask, session, jsonify, request, render_template
+from flask import Flask, session, jsonify, request, render_template, redirect
 from flask.helpers import flash, url_for
 from forms import LoginForm, RegisterForm, DateForm
 from flask_wtf.csrf import CSRFProtect
@@ -11,11 +11,9 @@ import mysql.connector
 import random
 from bs4 import BeautifulSoup
 from urllib.request import urlopen, Request
-from flaskext.mysql import MySQL
 
 app = Flask(__name__)
 mysql = MySQL(app)
-APP_DIR = os.path.abspath(os.path.dirname(__file__)) #/habit/backend
 app.config['MYSQL_USER'] = 'hhshin98'
 app.config['MYSQL_PASSWORD'] = 'james11'
 app.config['MYSQL_DB'] = 'userdb'
@@ -27,12 +25,11 @@ mysql.init_app(app)
 @app.route('/main')
 def main():
     error = None
-    # id  = session['user_id']
     id = session.get('user_id',None)
     conn = mysql.connect
     cursor = conn.cursor()
     
-    sql = "select user_name, user_id, age,weight,height,birth_date, gender, illness, medicine, phone_number from User where user_id = '%s'"%(id)
+    sql = "select user_name, user_id, age,weight,height,birth_date, gender, illness, medicine, phone_number, is_patient from User where user_id = '%s'"%(id)
     
     cursor.execute(sql)
     user = cursor.fetchall()
@@ -47,11 +44,12 @@ def main():
     illness=user[0][7]
     medicine=user[0][8]
     phone_number = user[0][9]
+    is_patient = user[0][10]
     
     cursor.close()
     conn.close()
     return render_template('index.html',error=error, name=name, user_id=user_id, birth_date=birth_date,
-    phone_number=phone_number, age=age, height=height, weight=weight, illness=illness, medicine=medicine, gender=gender)
+    phone_number=phone_number, age=age, height=height, weight=weight, illness=illness, medicine=medicine, gender=gender, is_patient=is_patient)
 
 @app.route('/',methods = ['GET','POST'])
 def login():
@@ -163,6 +161,10 @@ def survey(user_id):
 @app.route('/<user_id>/solution')
 def solutionIndex(user_id):
     return render_template('solutionIndex.html')
+
+@app.route('/table')
+def showPatients():
+    return render_template('table.html')
 
 @app.route('/locsearch', methods=['POST'])
 def locsearch():
