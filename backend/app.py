@@ -203,7 +203,7 @@ def showPatients(user_id):
     conn = mysql.connect
     cursor = conn.cursor()
 
-    sql = "select * from User where doctor_in_charge = {0};".format(user_id)
+    sql = "select * from User where doctor_in_charge = '%s';"%(user_id)
     cursor.execute(sql)
     pList = cursor.fetchall()
     return render_template('table.html',pList=pList)
