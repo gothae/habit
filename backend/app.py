@@ -132,7 +132,7 @@ def updateUser():
         # sql = 'update User set age={0}, user_pw={1}, weight={2}, height={3}, birth_date={4}, medicine={5}, phone_number={6} where user_id={7};'.format(age, pw, weight, height, birth_date, medicine, phone_number, user_id)
         sql = "update User set age=%d, user_pw='%s', weight=%f, height=%f, birth_date='%s', medicine='%s', phone_number='%s' where user_id='%s';"%(age, pw, weight, height, birth_date, medicine, phone_number, user_id)
         cursor.execute(sql)
-        
+        conn.commit()
 
         # sql = 'update User set age={0} where user_id={1};'.format(age,user_id)
         # cursor.execute(sql)
