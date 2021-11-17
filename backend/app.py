@@ -118,7 +118,7 @@ def updateUser():
     conn = mysql.connect
     cursor = conn.cursor()
     if request.method == 'GET':
-        sql = "select * from User where user_id={0};".format(user_id)
+        sql = "select * from User where user_id='%s';"%(user_id)
         cursor.execute(sql)
         user = cursor.fetchall()[0]
         return render_template('updateUser.html',user=user)
