@@ -74,7 +74,7 @@ def login():
             return redirect('/main')
         else:
             flash('ID와 비밀번호를 확인해주세요')
-            return render_template('login.html')
+            return render_template('login.html',form=form)
 
 @app.route('/register',methods=['GET','POST'])
 def register():
