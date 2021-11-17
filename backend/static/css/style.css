@@ -538,6 +538,14 @@ section {
 .diet-item .container{
   padding: 2px 16px;
 }
+.diet-item .container .button{
+  background: #0563bb;
+  border: 0px;
+  border-radius: 10px;
+  width: 100%;
+  align-items: center;
+  color: white;
+}
 .diet-item h2{
   text-align: center;
   padding: 10px 10px 10px 10px;
