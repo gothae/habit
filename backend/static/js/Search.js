@@ -98,16 +98,17 @@ function DaySolutionSearch(){
     const area = document.querySelector('.day_diet_container');
     var calorie, carbohydrate, protein, fat, sodium, calcium, vitamin_c, saturated_fat;
     getDaySolution().then((item) => {
-        calorie += item[7]
-        carbohydrate += item[8]
-        protein += item[9]
-        fat += item[10]
-        sodium += item[11]
-        calcium += item[12]
-        vitamin_c += item[13]
-        saturated_fat += item[14]
+        console.log(item);
+        calorie += item[7];
+        carbohydrate += item[8];
+        protein += item[9];
+        fat += item[10];
+        sodium += item[11];
+        calcium += item[12];
+        vitamin_c += item[13];
+        saturated_fat += item[14];
     });
-    const p = document.createElement('p')
+    const p = document.createElement('p');
     p.innerHTML = calorie;
     area.appendChild(p);
 }
