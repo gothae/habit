@@ -73,7 +73,8 @@ def login():
             session['user'] = userEmail
             return redirect('/main')
         else:
-            error = '잘못된 정보입니다'
+            flash('ID와 비밀번호를 확인해주세요')
+            return render_template('login.html')
 
 @app.route('/register',methods=['GET','POST'])
 def register():
