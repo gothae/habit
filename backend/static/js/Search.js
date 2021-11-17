@@ -47,8 +47,8 @@ function dietSearch() {
             const b_button = document.createElement('button');
             b_h.innerHTML = "아침";
             b_img.src = b[2];
-            b_img.width = '330';
-            b_img.height = '330';
+            b_img.width = '350';
+            b_img.height = '350';
             b_button.innerHTML = "솔루션";
             b_button.addEventListener('click', function () {
                 solution(b[0]);
@@ -66,8 +66,8 @@ function dietSearch() {
             const l_button = document.createElement('button');
             l_h.innerHTML = "점심";
             l_img.src = l[2];
-            l_img.width = '330';
-            l_img.height = '330';
+            l_img.width = '350';
+            l_img.height = '350';
             l_button.innerHTML = "솔루션";
             l_button.addEventListener('click', function () {
                 solution(l[0]);
@@ -85,8 +85,8 @@ function dietSearch() {
             const d_button = document.createElement('button');
             d_h.innerHTML = "저녁";
             d_img.src = d[2];
-            d_img.width = '330';
-            d_img.height = '330';
+            d_img.width = '350';
+            d_img.height = '350';
             d_button.innerHTML = "솔루션";
             d_button.addEventListener('click', function () {
                 solution(d[0]);
