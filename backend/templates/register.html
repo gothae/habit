@@ -1,304 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-    
-    
+
 <head>
     <meta charset="UTF-8">
-    <title>회원가입</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Habit-Register</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="../static/fonts/signup/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="../static/vendor/signup/nouislider.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="../static/css/signup/style.css">
 </head>
 
- <style> 
+<body>
 
- /* form { 
-     width: 60%; 
-     margin: 60px auto; 
-     background: #efefef; 
-     padding: 60px 120px 80px 120px; 
-     text-align: center; 
-     -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
-    box-shadow: 2px 2px 3px rgba(0,0,0,0.1); 
-    } 
-    label { 
-        display: block; 
-        position: relative;
-        margin: 40px 0px; 
-    } 
-    .label-txt { 
-        position: absolute; 
-        top: -1.6em; 
-        padding: 10px; 
-        font-family: sans-serif; 
-        font-size: .8em; 
-        letter-spacing: 1px; 
-        color: rgb(120,120,120); 
-        transition: ease .3s; 
-    } 
-    .input { 
-        width: 100%; 
-        padding: 10px; 
-        background: transparent;
-        border: none; outline: none; 
-    } 
-    .line-box { 
-        position: relative; 
-        width: 100%; 
-        height: 2px; 
-        background: #BCBCBC; 
-    } 
-    .line { 
-        position: absolute; 
-        width: 0%; 
-        height: 2px; top: 0px; 
-        left: 50%; 
-        transform: translateX(-50%); 
-        background: #1E90FF; 
-        transition: ease .6s; 
-    } 
-    .input:focus + .line-box .line { 
-        width: 100%; 
-    } 
-    .label-active { 
-        top: -3em; 
-    } 
-    button { 
-        display: inline-block; 
-        padding: 12px 24px; 
-        background: #ffffff; 
-        font-weight: bold; 
-        color: black; 
-        border: none; 
-        outline: none; 
-        border-radius: 3px; 
-        cursor: pointer; 
-        transition: ease .3s; 
-        } 
-        button:hover { 
-            background: #1E90FF; 
-            color: #ffffff; 
-        } 
-    </style> */
-    <body>
-        <form>
-            <h2>회원가입</h2> 
-            <div class="form-group first">
-                <label for="userName">이름</label>
-                <input type="text" class="form-control" id="userName" name="userName" required />
-            </div>
-            <div class="form-group last mb-3">
-                <label for="userEmail">E-mail</label>
-                <input type="text" class="form-control" id="userEmail" name="userEmail" required /><br><br>
-    
-                <label for="userPassword">비밀번호</label>
-                <input type="password" class="form-control" id="userPassword" name="userPassword" onchange="isSame()"
-                    required /><br><br>
-    
-                <label for="userPasswordCheck">비밀번호 확인</label>
-                <input type="password" class="form-control" id="userPasswordCheck" name="userPasswordCheck" onchange="isSame()"
-                    required /><br><br>
-                <p id="same"></p>
-    
-                <label for="userAge">나이</label>
-                <input type="number" class="form-control" id="userAge" name="userAge" required /><br><br>
-    
-                <label for="userHeight">키</label>
-                <input type="number" class="form-control" id="userHeight" name="userHeight" required /><br><br>
-    
-                <label for="userWeight">몸무게</label>
-                <input type="number" class="form-control" id="userWeight" name="userWeight" required /><br><br>
-    
-                <label for="userIllness">현재 앓고 계신 질환이 있으신가요?</label>
-                <input type="text" class="form-control" id="userIllness" name="userIllness"/><br><br>
-    
-                <label for="userMedicine">복용 중이신 약이 있으신가요?</label>
-                <input type="text" class="form-control" id="userMedicine" name="userMedicine"/><br><br>
-    
-                <label for="userBirthDate">생일</label>
-                <input type="date" class="form-control" id="userBirthDate" name="userBirthDate" required /><br><br>
-    
-                <label for="userPhoneNum">연락처</label>
-                <input type="text" class="form-control" id="userPhoneNum" name="userPhoneNum" required /><br><br>
-    
-                <label for="genderMale">남자</label>
-                <input type="radio" id="genderMale" name="userGender" value="male">
-                
-                <label for="genderFemale">여자</label>
-                <input type="radio" id="genderFemale" name="userGender" value="female">
-    
-                <label for="patient">의사</label>
-                <input type="radio" id="patient" name="isPatient" value="0">
-                
-                <label for="doctor">환자</label>
-                <input type="radio" id="doctor" name="isPatient" value="1">
-            </div>
-    
-            <input type="submit" value="가입" class="btn btn-block py-2 btn-primary"><br>
-            <!-- <label> 
-                <p class="label-txt">이름</p> 
-                <input type="text" class="input"> 
-                <div class="line-box"> 
-                    <div class="line"></div> 
-                </div> 
-            </label> 
-            <label> 
-                <p class="label-txt">이메일</p>
-                <input type="text" class="input"> 
-                <div class="line-box"> 
-                    <div class="line"></div> 
+    <div class="main">
+
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-img">
+                    <img src="../static/img/medical-g8c48bf3f1_1920.jpg" alt="">
+                    <div class="signup-img-content">
+                        <h2>널 위한 해빗</h2>
+                        <p>AI기반 식생활습관 솔루션 제공</p>
+                    </div>
                 </div>
-             </label> 
-             <label> 
-                 <p class="label-txt">비밀번호</p>
-                  <input type="password" class="input" onchange="isSame()"
-                  required> 
-                  <div class="line-box"> 
-                      <div class="line"></div> 
-                    </div> 
-                </label> 
-            <label> 
-                    <p class="label-txt">비밀번호 확인</p>
-                     <input type="password" class="input" onchange="isSame()"
-                     required>
-                     <p id="same"></p>
-                     <div class="line-box"> 
-                    <div class="line"></div> 
-                    </div> 
-            </label>
-            <label> 
-                    <p class="label-txt">나이</p>
-                     <input type="number" class="input">
-                     <p id="same"></p>
-                     <div class="line-box"> 
-                    <div class="line"></div> 
-                    </div> 
-            </label>
-            <label> 
-                    <p class="label-txt">키</p>
-                     <input type="number" class="input">
-                     <p id="same"></p>
-                     <div class="line-box"> 
-                         <div class="line"></div> 
-                       </div> 
-            </label>
-            <label> 
-                    <p class="label-txt">몸무게</p>
-                     <input type="number" class="input">
-                     <p id="same"></p>
-                     <div class="line-box"> 
-                         <div class="line"></div> 
-                       </div> 
-            </label> 
-            <label> 
-                <p class="label-txt">현재 앓고 계신 질환이 있으신가요?</p>
-                 <input type="text" class="input">
-                 <p id="same"></p>
-                 <div class="line-box"> 
-                     <div class="line"></div> 
-                   </div> 
-        </label> 
-        <label> 
-            <p class="label-txt">복용 중이신 약이 있으신가요?</p>
-             <input type="text" class="input">
-             <p id="same"></p>
-             <div class="line-box"> 
-                 <div class="line"></div> 
-               </div> 
-    </label>
-    <label> 
-        <p class="label-txt">생일</p>
-         <input type="date" class="input">
-         <p id="same"></p>
-         <div class="line-box"> 
-             <div class="line"></div> 
-           </div> 
-</label>
-<label> 
-    <p class="label-txt">연락처</p>
-     <input type="date" class="input">
-     <p id="same"></p>
-     <div class="line-box"> 
-         <div class="line"></div> 
-       </div> 
-</label>
-
-    
-                <button type="submit">submit</button> -->
-        </form>  
-        
-
-        <!-- <div class="form-group first">
-            <label for="userName">이름</label>
-            <input type="text" class="form-control" id="userName" name="userName" required />
-        </div>
-        <div class="form-group last mb-3">
-            <label for="userEmail">E-mail</label>
-            <input type="text" class="form-control" id="userEmail" name="userEmail" required /><br><br>
-
-            <label for="userPassword">비밀번호</label>
-            <input type="password" class="form-control" id="userPassword" name="userPassword" onchange="isSame()"
-                required /><br><br>
-
-            <label for="userPasswordCheck">비밀번호 확인</label>
-            <input type="password" class="form-control" id="userPasswordCheck" name="userPasswordCheck" onchange="isSame()"
-                required /><br><br>
-            <p id="same"></p>
-
-            <label for="userAge">나이</label>
-            <input type="number" class="form-control" id="userAge" name="userAge" required /><br><br>
-
-            <label for="userHeight">키</label>
-            <input type="number" class="form-control" id="userHeight" name="userHeight" required /><br><br>
-
-            <label for="userWeight">몸무게</label>
-            <input type="number" class="form-control" id="userWeight" name="userWeight" required /><br><br>
-
-            <label for="userIllness">현재 앓고 계신 질환이 있으신가요?</label>
-            <input type="text" class="form-control" id="userIllness" name="userIllness"/><br><br>
-
-            <label for="userMedicine">복용 중이신 약이 있으신가요?</label>
-            <input type="text" class="form-control" id="userMedicine" name="userMedicine"/><br><br>
-
-            <label for="userBirthDate">생일</label>
-            <input type="date" class="form-control" id="userBirthDate" name="userBirthDate" required /><br><br>
-
-            <label for="userPhoneNum">연락처</label>
-            <input type="text" class="form-control" id="userPhoneNum" name="userPhoneNum" required /><br><br>
-
-            <label for="genderMale">남자</label>
-            <input type="radio" id="genderMale" name="userGender" value="male">
-            
-            <label for="genderFemale">여자</label>
-            <input type="radio" id="genderFemale" name="userGender" value="female">
-
-            <label for="patient">의사</label>
-            <input type="radio" id="patient" name="isPatient" value="0">
-            
-            <label for="doctor">환자</label>
-            <input type="radio" id="doctor" name="isPatient" value="1">
+                <div class="signup-form">
+                    <form method="POST" class="register-form" id="register-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <div class="form-input">
+                                    <label for="userName" class="required">이름</label>
+                                    <input type="text" name="userName" id="userName" />
+                                </div>
+                                <div class="form-input">
+                                    <label for="userEmail" class="required">Email</label>
+                                    <input type="text" name="userEmail" id="userEmail" />
+                                </div>
+                                <div class="form-input form-password">
+                                    <label for="userPassword" class="required">비밀번호</label>
+                                    <input type="text" name="userPassword" id="userPassword"/>
+                                </div>
+                                <div class="form-input form-password">
+                                    <label for="userPasswordCheck" class="required">비밀번호 확인</label>
+                                    <input type="text" name="userPasswordCheck" id="userPasswordCheck" onchange="isSame()"/>
+                                </div>
+                                <div class="form-input">
+                                    <label for="userPhoneNum" class="required">연락처</label>
+                                    <input type="text" name="userPhoneNum" id="userPhoneNum" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-radio">
+                                    <div class="label-flex">
+                                        <label for="userGender">성별</label>
+                                    </div>
+                                    <div class="form-radio-group">
+                                        <div class="form-radio-item">
+                                            <input type="radio" name="userGender" id="genderMale" checked>
+                                            <label for="genderMale">남자</label>
+                                            <span class="check"></span>
+                                        </div>
+                                        <div class="form-radio-item">
+                                            <input type="radio" name="userGender" id="genderFemale">
+                                            <label for="genderFemale">여자</label>
+                                            <span class="check"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-radio">
+                                    <div class="label-flex">
+                                        <label for="isPatient">신분</label>
+                                    </div>
+                                    <div class="form-radio-group">
+                                        <div class="form-radio-item">
+                                            <input type="radio" name="isPatient" id="patient" checked>
+                                            <label for="patient">의사</label>
+                                            <span class="check"></span>
+                                        </div>
+                                        <div class="form-radio-item">
+                                            <input type="radio" name="isPatient" id="doctor">
+                                            <label for="doctor">환자</label>
+                                            <span class="check"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-input">
+                                    <label for="userHeight">키</label>
+                                    <input type="number" name="userHeight" id="userHeight" />
+                                </div>
+                                <div class="form-input">
+                                    <label for="userWeight">몸무게</label>
+                                    <input type="number" name="userWeight" id="userWeight" />
+                                </div>
+                                <div class="form-input">
+                                    <label for="userAge">나이</label>
+                                    <input type="number" name="userAge" id="userAge" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="donate-us">
+                            <label>생일</label>
+                            <input type="date">
+                        </div>
+                        <div class="form-submit">
+                            <input type="submit" value="가입" class="submit" id="submit" name="submit" />
+                            <input type="submit" value="초기화" class="submit" id="reset" name="reset" />
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
 
-        <input type="submit" value="가입" class="btn btn-block py-2 btn-primary"><br> -->
+    </div>
 
-    <script>
-        var pw = document.getElementById('userPassword').value;
-        var pwck = document.getElementById('userPasswordCheck').value;
+    <!-- JS -->
+    <script src="../static/vendor/signup/jquery.min.js"></script>
+    <script src="../static/vendor/signup/nouislider.min.js"></script>
+    <script src="../static/vendor/signup/wNumb.js"></script>
+    <script src="../static/vendor/signup/jquery.validate.min.js"></script>
+    <script src="../static/vendor/signup/additional-methods.min.js"></script>
+    <script src="../static/vendor/signup/main.js"></script>
 
-        function isSame() {
-            if (document.getElementById('userPassword').value != '' && document.getElementById('userPasswordCheck').value != '') {
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
-                if (document.getElementById('userPassword').value != document.getElementById('userPasswordCheck').value) {
-                    document.getElementById('same').innerHTML = '비밀번호가 일치하지 않습니다';
-                    document.getElementById('same').style.color = "red";
-                } else {
-                    document.getElementById('same').innerHTML = '비밀번호가 일치합니다'
-                    document.getElementById('same').style.color = 'blue';
-                }
-            }
-        }
-    </script>
-   </body>
 </html>
