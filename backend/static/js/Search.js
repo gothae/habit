@@ -40,6 +40,8 @@ function dietSearch() {
             }
         })
         if (b.length != 0) {
+            const div = document.createElement('div')
+            div.classList.add('container');
             const b_h = document.createElement('h2');
             const b_img = document.createElement('img');
             const b_button = document.createElement('button');
@@ -51,11 +53,14 @@ function dietSearch() {
             b_button.addEventListener('click', function () {
                 solution(b[0]);
             });
-            breakfast.appendChild(b_h);
+            div.appendChild(b_h);
+            div.appendChild(b_button);
             breakfast.appendChild(b_img);
-            breakfast.appendChild(b_button);
+            breakfast.appendChild(div);
         }
         if (l.length != 0) {
+            const div = document.createElement('div')
+            div.classList.add('container');
             const l_h = document.createElement('h2');
             const l_img = document.createElement('img');
             const l_button = document.createElement('button');
@@ -67,11 +72,14 @@ function dietSearch() {
             l_button.addEventListener('click', function () {
                 solution(l[0]);
             });
-            lunch.appendChild(l_h);
+            div.appendChild(l_h);
+            div.appendChild(l_button);
             lunch.appendChild(l_img);
-            lunch.appendChild(l_button);
+            lunch.appendChild(div);
         }
         if (d.length != 0) {
+            const div = document.createElement('div')
+            div.classList.add('container');
             const d_h = document.createElement('h2');
             const d_img = document.createElement('img');
             const d_button = document.createElement('button');
@@ -83,13 +91,15 @@ function dietSearch() {
             d_button.addEventListener('click', function () {
                 solution(d[0]);
             });
-            dinner.appendChild(d_h);
+            div.appendChild(d_h);
+            div.appendChild(d_button);
             dinner.appendChild(d_img);
-            dinner.appendChild(d_button);
+            dinner.appendChild(div);
         }
         dietItems.style.display = "block";
     })
 }
+// 하루치 솔루션
 function DaySolutionSearch(){
     const date = document.querySelector('#datepicker_solution').value;
     const getDaySolution = () =>{
@@ -98,7 +108,6 @@ function DaySolutionSearch(){
     const area = document.querySelector('.day_diet_container');
     var calorie, carbohydrate, protein, fat, sodium, calcium, vitamin_c, saturated_fat;
     getDaySolution().then((item) => {
-        console.log(item);
         calorie += item[7];
         carbohydrate += item[8];
         protein += item[9];
@@ -113,6 +122,7 @@ function DaySolutionSearch(){
     area.appendChild(p);
 }
 
+// 식단 하나 솔루션
 function solution(diet_id){
     location.href = `user/diet/${diet_id}`;
 }
