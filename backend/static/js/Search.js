@@ -97,16 +97,16 @@ function dietSearch() {
             dinner.appendChild(div);
         }
         dietItems.style.display = "block";
-    })
+    });
 }
 // 하루치 솔루션
 function DaySolutionSearch(){
+    const area = document.querySelector('#day_diet_container');
     const date = document.querySelector('#datepicker_solution').value;
     const getDaySolution = () =>{
         return fetch(`user/solution/${date}`, config).then((res) => res.json());
     }
-    const area = document.querySelector('.day_diet_container');
-    var calorie, carbohydrate, protein, fat, sodium, calcium, vitamin_c, saturated_fat;
+    let calorie, carbohydrate, protein, fat, sodium, calcium, vitamin_c, saturated_fat;
     getDaySolution().then((item) => {
         calorie += item[7];
         carbohydrate += item[8];
@@ -116,10 +116,66 @@ function DaySolutionSearch(){
         calcium += item[12];
         vitamin_c += item[13];
         saturated_fat += item[14];
+    })
+    .then(()=>{
+        Highcharts.chart('day_diet_container', {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: '하루 권장량 대비 영양소 섭취 현황'
+            },
+            xAxis: {
+                categories: ['칼로리', '탄수화물', '단백질', '지방', '나트륨', '칼슘', '비타민C', '포화지방'],
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: '하루 권장량 대비 비율 (%)',
+                    align: 'high'
+                },
+                labels: {
+                    overflow: 'justify'
+                }
+            },
+            tooltip: {
+                valueSuffix: ' %'
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -40,
+                y: 80,
+                floating: true,
+                borderWidth: 1,
+                backgroundColor: Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
+                shadow: true
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+                name: '섭취량',
+                data: [calorie, carbohydrate, protein, fat, sodium, calcium, vitamin_c, saturated_fat]
+            }, {
+                name: '권장량',
+                data: [2400, 324, 55, 54, 2000, 750, 100, 15]
+            }]
+        });
+    area.style.display = 'block'; 
     });
-    const p = document.createElement('p');
-    p.innerHTML = calorie;
-    area.appendChild(p);
+    
 }
 
 // 식단 하나 솔루션
