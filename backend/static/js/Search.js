@@ -91,7 +91,7 @@ function dietSearch() {
     })
 }
 function DaySolutionSearch(){
-    const date = document.querySelector('.datepicker').value;
+    const date = document.querySelector('#datepicker_solution').value;
     const getDaySolution = () =>{
         return fetch(`user/solution/${date}`, config).then((res) => res.json());
     }
