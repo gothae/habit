@@ -141,8 +141,6 @@ def logout():
     session.pop('user',None)
     return redirect('/')
 
-# <user_id>로 수정해야함
-# js에서 user_id 받는방법??
 @app.route('/user/diet/<date>', methods=['GET','POST'])
 def diet_show(date):
     user_id = session['user']
@@ -195,9 +193,21 @@ def diet_solution(diet_id):
 def survey(user_id):
     return render_template('survey.html')
 
-@app.route('/<user_id>/solution')
-def solutionIndex(user_id):
-    return render_template('solutionIndex.html')
+@app.route('/user/solution/<date>')
+def show_solution_day(date):
+    user_id = session['user']
+    if request.method == 'GET':
+        conn = mysql.connect
+        cursor = conn.cursor()
+        sql  = "select * from Diet where date = '%s' and user_id = '%s';"%(date,user_id)
+        cursor.execute(sql)
+        daydiets = cursor.fetchall()
+        print(daydiets)
+        
+        return daydiets
+    else:
+        return None
+    # return render_template('solutionIndex.html')
 
 @app.route('/<user_id>/patientList')
 def showPatients(user_id):
