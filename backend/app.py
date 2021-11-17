@@ -201,13 +201,10 @@ def show_solution_day(date):
         cursor = conn.cursor()
         sql  = "select * from Diet where date = '%s' and user_id = '%s';"%(date,user_id)
         cursor.execute(sql)
-        daydiets = cursor.fetchall()
-        print(daydiets)
-        
+        daydiets = json.dumps(cursor.fetchall())
         return daydiets
     else:
         return None
-    # return render_template('solutionIndex.html')
 
 @app.route('/<user_id>/patientList')
 def showPatients(user_id):
