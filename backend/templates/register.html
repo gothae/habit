@@ -132,7 +132,20 @@
     <script src="../static/vendor/signup/jquery.validate.min.js"></script>
     <script src="../static/vendor/signup/additional-methods.min.js"></script>
     <script src="../static/vendor/signup/main.js"></script>
+    <script>
+        function isSame() {
+            if (document.getElementById('updatePassword').value != '' && document.getElementById('updatePasswordCheck').value != '') {
 
+                if (document.getElementById('updatePassword').value != document.getElementById('updatePasswordCheck').value) {
+                    document.getElementById('same').innerHTML = '비밀번호가 일치하지 않습니다';
+                    document.getElementById('same').style.color = "red";
+                } else {
+                    document.getElementById('same').innerHTML = '비밀번호가 일치합니다'
+                    document.getElementById('same').style.color = 'blue';
+                }
+            }
+        }
+    </script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
 </html>

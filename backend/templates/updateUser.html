@@ -1,76 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="../static/fonts/signup/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="../static/vendor/signup/nouislider.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="../static/css/signup/style.css">
 </head>
+
 <body>
-    <form method="post">
-        <div class="form-group first">
-            <label for="updateName">이름</label>
-            <p id="updateName" name="updateName">{{user[1]}}</p>
+
+    <div class="main">
+
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-img">
+                    <img src="../static/img/medical-g8c48bf3f1_1920.jpg" alt="">
+                    <div class="signup-img-content">
+                        <h2>널 위한 해빗</h2>
+                        <p>AI기반 식생활습관 솔루션 제공</p>
+                    </div>
+                </div>
+                <div class="signup-form">
+                    <form method="POST" class="register-form" id="register-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <div class="form-input">
+                                    <label for="userName">이름</label>
+                                    <p name="userName" id="userName">{{user[1]}}</p>
+                                </div>
+                                <div class="form-input">
+                                    <label for="userEmail">Email</label>
+                                    <p name="userEmail" id="userEmail">{{user[0]}}</p>
+                                </div>
+                                <div class="form-input form-password">
+                                    <label for="updatePassword" class="required">비밀번호</label>
+                                    <input type="password" name="updatePassword" id="updatePassword" />
+                                </div>
+                                <div class="form-input form-password">
+                                    <label for="updatePasswordCheck" class="required">비밀번호 확인</label>
+                                    <input type="password" name="updatePasswordCheck" id="updatePasswordCheck" />
+                                </div>
+                                <div class="form-input">
+                                    <label for="updatePhoneNum" class="required">연락처</label>
+                                    <input type="text" name="updatePhoneNum" id="updatePhoneNum" value="{{user[11]}}" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-input">
+                                    <label for="updateHeight">키</label>
+                                    <input type="number" name="updateHeight" id="updateHeight" value="{{user[5]}}" />
+                                </div>
+                                <div class="form-input">
+                                    <label for="updateWeight">몸무게</label>
+                                    <input type="number" name="updateWeight" id="updateWeight" value="{{user[6]}}" />
+                                </div>
+                                <div class="form-input">
+                                    <label for="updateAge">나이</label>
+                                    <input type="number" name="updateAge" id="updateAge" value="{{user[4]}}" />
+                                </div>
+                                <div class="form-input">
+                                    <label for="updateMedicine">현재 복용 중인 약이 있나요?</label>
+                                    <input type="없음" name="updateMedicine" id="updateMedicine" value="{{user[10]}}" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="donate-us">
+                            <label>생일</label>
+                            <input type="date" name="userBirthDate" value="{{user[7]}}">
+                        </div>
+                        <div class="form-submit">
+                            <input type="submit" value="수정하기" class="submit" name="submit" onclick="update()" />
+                            <input type="submit" value="뒤로가기" class="submit" onclick="location.href='../main'" />
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="form-group last mb-3">
-            <label for="updateEmail">E-mail</label>
-            <p id="updateEmail" name="updateEmail">{{user[0]}}</p><br><br>
 
-            <label for="updatePassword">비밀번호</label>
-            <input type="password" class="form-control" id="updatePassword" name="updatePassword" onchange="isSame()" value="{{user[2]}}"
-                required /><br><br>
+    </div>
 
-            <label for="updatePasswordCheck">비밀번호 확인</label>
-            <input type="password" class="form-control" id="updatePasswordCheck" name="updatePasswordCheck" onchange="isSame()" value="{{user[2]}}"
-                required /><br><br>
-            <p id="same"></p>
-
-            <label for="updateAge">나이</label>
-            <input type="number" class="form-control" id="updateAge" name="updateAge" value="{{user[4]}}" required /><br><br>
-
-            <label for="updateHeight">키</label>
-            <input type="number" class="form-control" id="updateHeight" name="updateHeight" value="{{user[5]}}" required /><br><br>
-
-            <label for="updateWeight">몸무게</label>
-            <input type="number" class="form-control" id="updateWeight" name="updateWeight" value="{{user[6]}}" required /><br><br>
-
-            <label for="updateMedicine">복용 중이신 약이 있으신가요?</label>
-            <input type="text" class="form-control" id="updateMedicine" name="updateMedicine" value="{{user[10]}}"/><br><br>
-
-            <label for="updateBirthDate">생일</label>
-            <input type="date" class="form-control" id="updateBirthDate" name="updateBirthDate" value="{{user[7]}}" required /><br><br>
-
-            <label for="updatePhoneNum">연락처</label>
-            <input type="text" class="form-control" id="updatePhoneNum" name="updatePhoneNum" value="{{user[11]}}" required /><br><br>
-        </div>
-
-        <input type="submit" value="수정하기" class="btn btn-block py-2 btn-primary" onclick="update()"><br>
-        <button type="button" onclick="location.href='../main'">뒤로 가기</button>
-    </form>
+    <!-- JS -->
+    <script src="../static/vendor/signup/jquery.min.js"></script>
+    <script src="../static/vendor/signup/nouislider.min.js"></script>
+    <script src="../static/vendor/signup/wNumb.js"></script>
+    <script src="../static/vendor/signup/jquery.validate.min.js"></script>
+    <script src="../static/vendor/signup/additional-methods.min.js"></script>
+    <script src="../static/vendor/signup/main.js"></script>
     <script>
-        var pw = document.getElementById('updatePassword').value;
-        var pwck = document.getElementById('updatePasswordCheck').value;
-
-        function isSame() {
-            if (document.getElementById('updatePassword').value != '' && document.getElementById('updatePasswordCheck').value != '') {
-
-                if (document.getElementById('updatePassword').value != document.getElementById('updatePasswordCheck').value) {
-                    document.getElementById('same').innerHTML = '비밀번호가 일치하지 않습니다';
-                    document.getElementById('same').style.color = "red";
-                } else {
-                    document.getElementById('same').innerHTML = '비밀번호가 일치합니다'
-                    document.getElementById('same').style.color = 'blue';
-                }
+        function update() {
+            var ans = confirm('이대로 수정하시겠습니까??')
+            if (ans) {
+                return true;
+            } else {
+                return false;
             }
         }
-        function update() {
-                var ans = confirm('이대로 수정하시겠습니까??')
-                if (ans) {
-                    return true;
-                } else {
-                    return false;
-                }
-        }
     </script>
-</body>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
 </html>
