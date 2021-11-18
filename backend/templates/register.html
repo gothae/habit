@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form by Colorlib</title>
+    <title>널 위한 해빗 - 회원가입</title>
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="../static/fonts/signup/material-design-iconic-font.min.css">
@@ -29,28 +29,28 @@
                     </div>
                 </div>
                 <div class="signup-form">
-                    <form method="POST" class="register-form" id="register-form">
+                    <form method="POST" class="register-form" id="register-form" onsubmit="submit()">
                         <div class="form-row">
                             <div class="form-group">
                                 <div class="form-input">
                                     <label for="userName" class="required">이름</label>
-                                    <input type="text" name="userName" id="userName" />
+                                    <input type="text" name="userName" id="userName" required/>
                                 </div>
                                 <div class="form-input">
                                     <label for="userEmail" class="required">Email</label>
-                                    <input type="text" name="userEmail" id="userEmail" />
+                                    <input type="text" name="userEmail" id="userEmail" required/>
                                 </div>
                                 <div class="form-input form-password">
                                     <label for="userPassword" class="required">비밀번호</label>
-                                    <input type="password" name="userPassword" id="userPassword"/>
+                                    <input type="password" name="userPassword" id="userPassword" required/>
                                 </div>
                                 <div class="form-input form-password">
                                     <label for="userPasswordCheck" class="required">비밀번호 확인</label>
-                                    <input type="password" name="userPasswordCheck" id="userPasswordCheck" onchange="isSame()"/>
+                                    <input type="password" name="userPasswordCheck" id="userPasswordCheck" onchange="isSame()" required/>
                                 </div>
                                 <div class="form-input">
                                     <label for="userPhoneNum" class="required">연락처</label>
-                                    <input type="text" name="userPhoneNum" id="userPhoneNum" />
+                                    <input type="text" name="userPhoneNum" id="userPhoneNum" required/>
                                 </div>
                                 <div class="form-input">
                                     <label for="userIllness" class="required">현재 앓고 계신 질병이 있나요?</label>
@@ -64,12 +64,12 @@
                                     </div>
                                     <div class="form-radio-group">
                                         <div class="form-radio-item">
-                                            <input type="radio" name="userGender" id="genderMale" checked>
+                                            <input type="radio" name="userGender" id="genderMale" value="남자" checked>
                                             <label for="genderMale">남자</label>
                                             <span class="check"></span>
                                         </div>
                                         <div class="form-radio-item">
-                                            <input type="radio" name="userGender" id="genderFemale">
+                                            <input type="radio" name="userGender" id="genderFemale" value="여자">
                                             <label for="genderFemale">여자</label>
                                             <span class="check"></span>
                                         </div>
@@ -94,29 +94,29 @@
                                 </div>
                                 <div class="form-input">
                                     <label for="userHeight">키</label>
-                                    <input type="number" name="userHeight" id="userHeight" />
+                                    <input type="number" name="userHeight" id="userHeight" required/>
                                 </div>
                                 <div class="form-input">
                                     <label for="userWeight">몸무게</label>
-                                    <input type="number" name="userWeight" id="userWeight" />
+                                    <input type="number" name="userWeight" id="userWeight" required/>
                                 </div>
                                 <div class="form-input">
                                     <label for="userAge">나이</label>
-                                    <input type="number" name="userAge" id="userAge" />
+                                    <input type="number" name="userAge" id="userAge" required/>
                                 </div>
                                 <div class="form-input">
                                     <label for="userMedicine">현재 복용 중인 약이 있나요?</label>
-                                    <input type="없음" name="userMedicine" id="userMedicine" />
+                                    <input type="text" name="userMedicine" id="userMedicine" />
                                 </div>
                             </div>
                         </div>
                         <div class="donate-us">
                             <label>생일</label>
-                            <input type="date" name="userBirthDate">
+                            <input type="date" name="userBirthDate" required>
                         </div>
                         <div class="form-submit">
                             <input type="submit" value="가입" class="submit" id="submit" name="submit" />
-                            <input type="submit" value="초기화" class="submit" id="reset" name="reset" />
+                            <input type="button" value="뒤로가기" class="submit" id="reset" name="reset" onclick="locatoin.href='../'"/>
                         </div>
                     </form>
                 </div>
@@ -134,15 +134,25 @@
     <script src="../static/vendor/signup/main.js"></script>
     <script>
         function isSame() {
-            if (document.getElementById('updatePassword').value != '' && document.getElementById('updatePasswordCheck').value != '') {
-
-                if (document.getElementById('updatePassword').value != document.getElementById('updatePasswordCheck').value) {
-                    document.getElementById('same').innerHTML = '비밀번호가 일치하지 않습니다';
-                    document.getElementById('same').style.color = "red";
-                } else {
-                    document.getElementById('same').innerHTML = '비밀번호가 일치합니다'
-                    document.getElementById('same').style.color = 'blue';
-                }
+            var a = document.querySelector('#userPassword');
+            var b = document.querySelector('#userPasswordCheck');
+            if(a.value === b.value){
+                a.style.border = '1px solid green';
+                b.style.border = '1px solid green';
+                return true;
+            }else{
+                a.style.border = '1px solid red';
+                a.style.border = '1px solid red';
+                return false;
+            }
+        }
+        async function submit(){
+            if(!isSame()){
+                event.preventDefault();
+                alert('비밀번호가 맞지 않습니다')
+                return false;
+            }else{
+                return true;
             }
         }
     </script>
