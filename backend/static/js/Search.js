@@ -106,14 +106,14 @@ function DaySolutionSearch(){
     const getDaySolution = () =>{
         return fetch(`user/solution/${date}`, config).then((res) => res.json());
     }
-    var calorie = 0;
-    var carbohydrate = 0;
-    var protein = 0;
-    var fat = 0;
-    var sodium = 0;
-    var calcium = 0;
-    var vitamin_c = 0;
-    var saturated_fat =0;
+    let calorie = 0;
+    let carbohydrate = 0;
+    let protein = 0;
+    let fat = 0;
+    let sodium = 0;
+    let calcium = 0;
+    let vitamin_c = 0;
+    let saturated_fat =0;
     getDaySolution().then((items) => {
         items.map((item)=>{
             calorie += item[7];
@@ -187,14 +187,30 @@ function DaySolutionSearch(){
                     Math.round(vitamin_c/100*10000)/100,
                     Math.round(saturated_fat/15*10000)/100
                 ]
-            }, {
-                name: '권장량',
-                data: [100, 100, 100, 100, 100, 100, 100, 100]
             }]
         });
     area.style.display = 'block'; 
+    const table_area = document.querySelector('#diet_analyze_table');
+    const tableContent = document.querySelector('#table_content');
+    var arr = [
+        { 'name': '칼로리 (kcal)', 'amount': calorie },
+        { 'name': '탄수화물 (g)', 'amount': carbohydrate },
+        { 'name': '단백질 (g)', 'amount': protein },
+        { 'name': '지방 (g)', 'amount': fat },
+        { 'name': '포화지방 (g)', 'amount': saturated_fat },
+        { 'name': '나트륨 (mg)', 'amount': sodium },
+        { 'name': '칼슘 (mg)', 'amount': calcium },
+        { 'name': '비타민C (mg)', 'amount': vitamin_c }
+    ];
+    for( var i=0; i<=arr.length; i++){
+        var data = `<tr>
+                        <td>${arr[i].name}</td>
+                        <td>${arr[i].amount}
+                    </tr>`;
+        tableContent.innerHTML += data;
+    }
     });
-    
+    table_area.style.display = 'block';
 }
 
 // 식단 하나 솔루션
