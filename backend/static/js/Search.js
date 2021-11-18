@@ -106,7 +106,7 @@ function DaySolutionSearch(){
     const getDaySolution = () =>{
         return fetch(`user/solution/${date}`, config).then((res) => res.json());
     }
-    let calorie, carbohydrate, protein, fat, sodium, calcium, vitamin_c, saturated_fat;
+    var calorie, carbohydrate, protein, fat, sodium, calcium, vitamin_c, saturated_fat;
     getDaySolution().then((item) => {
         calorie += item[7];
         carbohydrate += item[8];
@@ -116,8 +116,10 @@ function DaySolutionSearch(){
         calcium += item[12];
         vitamin_c += item[13];
         saturated_fat += item[14];
+        console.log(calorie);
     })
     .then(()=>{
+        console.log(calorie);
         Highcharts.chart('day_diet_container', {
             chart: {
                 type: 'bar'
@@ -126,7 +128,7 @@ function DaySolutionSearch(){
                 text: '하루 권장량 대비 영양소 섭취 현황'
             },
             xAxis: {
-                categories: ['칼로리', '탄수화물', '단백질', '지방', '나트륨', '칼슘', '비타민C', '포화지방'],
+                categories: ['칼로리(kcal)', '탄수화물(g)', '단백질(g)', '지방(g)', '나트륨(mg)', '칼슘(mg)', '비타민C(mg)', '포화지방(g)'],
                 title: {
                     text: null
                 }
@@ -173,6 +175,7 @@ function DaySolutionSearch(){
                 data: [2400, 324, 55, 54, 2000, 750, 100, 15]
             }]
         });
+    console.log(calorie);
     area.style.display = 'block'; 
     });
     
