@@ -107,16 +107,17 @@ function DaySolutionSearch(){
         return fetch(`user/solution/${date}`, config).then((res) => res.json());
     }
     var calorie, carbohydrate, protein, fat, sodium, calcium, vitamin_c, saturated_fat;
-    getDaySolution().then((item) => {
-        console.log(item);
-        calorie += item[7];
-        carbohydrate += item[8];
-        protein += item[9];
-        fat += item[10];
-        sodium += item[11];
-        calcium += item[12];
-        vitamin_c += item[13];
-        saturated_fat += item[14];
+    getDaySolution().then((items) => {
+        items.map((item)=>{
+            calorie += item[7];
+            carbohydrate += item[8];
+            protein += item[9];
+            fat += item[10];
+            sodium += item[11];
+            calcium += item[12];
+            vitamin_c += item[13];
+            saturated_fat += item[14];
+        })
         console.log(calorie);
     })
     .then(()=>{
