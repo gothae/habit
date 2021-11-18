@@ -125,7 +125,6 @@ function DaySolutionSearch(){
             vitamin_c += item[13];
             saturated_fat += item[14];
         })
-        console.log(calorie);
     })
     .then(()=>{
         console.log(calorie);
@@ -178,13 +177,21 @@ function DaySolutionSearch(){
             },
             series: [{
                 name: '섭취량',
-                data: [calorie, carbohydrate, protein, fat, sodium, calcium, vitamin_c, saturated_fat]
+                data: [
+                    Math.round(calorie/2400 * 100) / 100,
+                    Math.round(carbohydrate/324 * 100) / 100,
+                    Math.round(protein/55 * 100) / 100,
+                    Math.round(fat/54*100)/100,
+                    Math.round(sodium/2000*100)/100,
+                    Math.round(calcium/750*100)/100,
+                    Math.round(vitamin_c/100*100)/100,
+                    Math.round(saturated_fat/15*100)/100
+                ]
             }, {
                 name: '권장량',
-                data: [2400, 324, 55, 54, 2000, 750, 100, 15]
+                data: [100, 100, 100, 100, 100, 100, 100, 100]
             }]
         });
-    console.log(calorie);
     area.style.display = 'block'; 
     });
     
