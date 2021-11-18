@@ -109,6 +109,7 @@ function DaySolutionSearch(){
     var calorie, carbohydrate, protein, fat, sodium, calcium, vitamin_c, saturated_fat;
     getDaySolution().then((items) => {
         items.map((item)=>{
+            console.log(item);
             calorie += item[7];
             carbohydrate += item[8];
             protein += item[9];
