@@ -208,6 +208,7 @@ function DaySolutionSearch(){
                         </tr>`;
             tableContent.innerHTML += data;
         }
+        console.log(tableContent);
         tableArea.style.display = 'block';
     });
 }
