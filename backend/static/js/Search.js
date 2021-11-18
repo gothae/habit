@@ -192,16 +192,16 @@ function DaySolutionSearch(){
         const tableArea = document.querySelector('#diet_analyze_table');
         const tableContent = document.querySelector('#table_content');
         var arr = [
-            { 'name': '칼로리 (kcal)', 'amount': calorie },
-            { 'name': '탄수화물 (g)', 'amount': carbohydrate },
-            { 'name': '단백질 (g)', 'amount': protein },
-            { 'name': '지방 (g)', 'amount': fat },
-            { 'name': '포화지방 (g)', 'amount': saturated_fat },
-            { 'name': '나트륨 (mg)', 'amount': sodium },
-            { 'name': '칼슘 (mg)', 'amount': calcium },
-            { 'name': '비타민C (mg)', 'amount': vitamin_c }
+            { "name": '칼로리 (kcal)', 'amount': calorie },
+            { "name": '탄수화물 (g)', 'amount': carbohydrate },
+            { "name": '단백질 (g)', 'amount': protein },
+            { "name": '지방 (g)', 'amount': fat },
+            { "name": '포화지방 (g)', 'amount': saturated_fat },
+            { "name": '나트륨 (mg)', 'amount': sodium },
+            { "name": '칼슘 (mg)', 'amount': calcium },
+            { "name": '비타민C (mg)', 'amount': vitamin_c }
         ];
-        for( var i=0; i<=arr.length; i++){
+        for( var i=0; i<arr.length; i++){
             var data = `<tr>
                             <td>${arr[i].name}</td>
                             <td>${arr[i].amount}</td>
