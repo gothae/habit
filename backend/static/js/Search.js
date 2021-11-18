@@ -178,14 +178,14 @@ function DaySolutionSearch(){
             series: [{
                 name: '섭취량',
                 data: [
-                    Math.round(calorie/2400 * 100) / 100,
-                    Math.round(carbohydrate/324 * 100) / 100,
-                    Math.round(protein/55 * 100) / 100,
-                    Math.round(fat/54*100)/100,
-                    Math.round(sodium/2000*100)/100,
-                    Math.round(calcium/750*100)/100,
-                    Math.round(vitamin_c/100*100)/100,
-                    Math.round(saturated_fat/15*100)/100
+                    Math.round(calorie/2400 * 10000) / 100,
+                    Math.round(carbohydrate/324 * 10000) / 100,
+                    Math.round(protein/55 * 10000) / 100,
+                    Math.round(fat/54*10000)/100,
+                    Math.round(sodium/2000*10000)/100,
+                    Math.round(calcium/750*10000)/100,
+                    Math.round(vitamin_c/100*10000)/100,
+                    Math.round(saturated_fat/15*10000)/100
                 ]
             }, {
                 name: '권장량',
