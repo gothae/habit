@@ -205,7 +205,7 @@ function DaySolutionSearch(){
     for( var i=0; i<=arr.length; i++){
         var data = `<tr>
                         <td>${arr[i].name}</td>
-                        <td>${arr[i].amount}
+                        <td>${arr[i].amount}</td>
                     </tr>`;
         tableContent.innerHTML += data;
     }
