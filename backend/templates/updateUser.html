@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="signup-form">
-                    <form method="POST" class="register-form" id="register-form">
+                    <form method="POST" class="register-form" id="register-form" onsubmit="update()">
                         <div class="form-row">
                             <div class="form-group">
                                 <div class="form-input">
@@ -42,33 +42,33 @@
                                 </div>
                                 <div class="form-input form-password">
                                     <label for="updatePassword" class="required">비밀번호</label>
-                                    <input type="password" name="updatePassword" id="updatePassword" />
+                                    <input type="password" name="updatePassword" id="updatePassword" required/>
                                 </div>
                                 <div class="form-input form-password">
                                     <label for="updatePasswordCheck" class="required">비밀번호 확인</label>
-                                    <input type="password" name="updatePasswordCheck" id="updatePasswordCheck" />
+                                    <input type="password" name="updatePasswordCheck" id="updatePasswordCheck" required/>
                                 </div>
                                 <div class="form-input">
                                     <label for="updatePhoneNum" class="required">연락처</label>
-                                    <input type="text" name="updatePhoneNum" id="updatePhoneNum" value="{{user[11]}}" />
+                                    <input type="text" name="updatePhoneNum" id="updatePhoneNum" value="{{user[11]}}" required/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="form-input">
                                     <label for="updateHeight">키</label>
-                                    <input type="number" name="updateHeight" id="updateHeight" value="{{user[5]}}" />
+                                    <input type="number" name="updateHeight" id="updateHeight" value="{{user[5]}}" required/>
                                 </div>
                                 <div class="form-input">
                                     <label for="updateWeight">몸무게</label>
-                                    <input type="number" name="updateWeight" id="updateWeight" value="{{user[6]}}" />
+                                    <input type="number" name="updateWeight" id="updateWeight" value="{{user[6]}}" required/>
                                 </div>
                                 <div class="form-input">
                                     <label for="updateAge">나이</label>
-                                    <input type="number" name="updateAge" id="updateAge" value="{{user[4]}}" />
+                                    <input type="number" name="updateAge" id="updateAge" value="{{user[4]}}" required/>
                                 </div>
                                 <div class="form-input">
                                     <label for="updateMedicine">현재 복용 중인 약이 있나요?</label>
-                                    <input type="없음" name="updateMedicine" id="updateMedicine" value="{{user[10]}}" />
+                                    <input type="없음" name="updateMedicine" id="updateMedicine" value="{{user[10]}}" required/>
                                 </div>
                             </div>
                         </div>
@@ -77,7 +77,7 @@
                             <input type="date" name="updateBirthDate" value="{{user[7]}}">
                         </div>
                         <div class="form-submit">
-                            <input type="submit" value="수정하기" class="submit" name="submit" onclick="update()" />
+                            <input type="submit" value="수정하기" class="submit" name="submit"/>
                             <input type="button" value="뒤로가기" class="submit" onclick="location.href='../main'" />
                         </div>
                     </form>
@@ -95,11 +95,21 @@
     <script src="../static/vendor/signup/additional-methods.min.js"></script>
     <script src="../static/vendor/signup/main.js"></script>
     <script>
-        function update() {
-            var ans = confirm('이대로 수정하시겠습니까??')
+        async function update() {
+            var ans = confirm('이대로 수정하시겠습니까??');
+            let pw = document.querySelector('#updatePassword');
+            let pwck = document.querySelector('#updatePasswordCheck');
             if (ans) {
-                return true;
+                if(pw.value === pwck.value){
+                    return true;
+                }else{
+                    alert('비밀번호가 맞지 않습니다');
+                    pwck.focus();
+                    event.preventDefault();
+                    return false;
+                }
             } else {
+                event.preventDefault();
                 return false;
             }
         }
