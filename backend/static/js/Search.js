@@ -209,8 +209,8 @@ function DaySolutionSearch(){
                     </tr>`;
         tableContent.innerHTML += data;
     }
-    });
     table_area.style.display = 'block';
+    });
 }
 
 // 식단 하나 솔루션
