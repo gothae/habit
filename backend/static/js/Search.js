@@ -106,10 +106,16 @@ function DaySolutionSearch(){
     const getDaySolution = () =>{
         return fetch(`user/solution/${date}`, config).then((res) => res.json());
     }
-    var calorie, carbohydrate, protein, fat, sodium, calcium, vitamin_c, saturated_fat;
+    var calorie = 0;
+    var carbohydrate = 0;
+    var protein = 0;
+    var fat = 0;
+    var sodium = 0;
+    var calcium = 0;
+    var vitamin_c = 0;
+    var saturated_fat =0;
     getDaySolution().then((items) => {
         items.map((item)=>{
-            console.log(item);
             calorie += item[7];
             carbohydrate += item[8];
             protein += item[9];
