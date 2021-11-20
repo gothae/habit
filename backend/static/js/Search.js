@@ -39,19 +39,18 @@ function dietSearch() {
                 d = d.concat(item);
             }
         })
-        const bkgr = document.createElement('div');
-        bkgr.classList.add('hover_bkgr_fricc');
-        const helper = document.createElement('span');
-        helper.classList.add('helper');
-        const blank = document.createElement('div');
-        const clostBtn = document.createElement('div');
-        clostBtn.classList.add('popupCloseButton');
-        clostBtn.innerHTML = '&times;';
-        blank.appendChild(clostBtn);
-        bkgr.appendChild(helper);
-        bkgr.appendChild(blank);
 
         if (b.length != 0) {
+            const bkgr = document.createElement('div');
+            bkgr.classList.add('hover_bkgr_fricc');
+            const helper = document.createElement('span');
+            helper.classList.add('helper');
+            const blank = document.createElement('div');
+            const clostBtn = document.createElement('div');
+            clostBtn.classList.add('popupCloseButton');
+
+            clostBtn.innerHTML = '&times;';
+
             const div = document.createElement('div')
             div.classList.add('container');
             const b_h = document.createElement('h2');
@@ -70,12 +69,31 @@ function dietSearch() {
             popupImg.src = b[2];
             popupImg.width = '100';
             popupImg.height = '100';
+
             blank.appendChild(popupImg);
+            blank.appendChild(clostBtn);
+            bkgr.appendChild(helper);
+            bkgr.appendChild(blank);
+
             div.appendChild(b_h);
             div.appendChild(b_button);
             breakfast.appendChild(b_img);
             breakfast.appendChild(div);
             clostBtn.onclick = popup();
+            function popup() {
+                const trigger = document.querySelector('.trigger_popup_fricc');
+                const bkgr = document.querySelector('.hover_bkgr_fricc');
+                const close = document.querySelector('.popupCloseButton');
+                trigger.addEventListener('click', function () {
+                    bkgr.style.display = 'block';
+                });
+                bkgr.addEventListener('click', function () {
+                    bkgr.style.display = 'none';
+                });
+                close.addEventListener('click', function () {
+                    bkgr.style.display = 'none';
+                });
+            }
         }
         if (l.length != 0) {
             const div = document.createElement('div')
@@ -249,18 +267,4 @@ function DaySolutionSearch(){
 // 식단 하나 솔루션
 function solution(diet_id){
     location.href = `user/diet/${diet_id}`;
-}
-function popup(){
-    const trigger = document.querySelector('.trigger_popup_fricc');
-    const bkgr = document.querySelector('.hover_bkgr_fricc');
-    const close = document.querySelector('.popupCloseButton');
-    trigger.addEventListener('click', function () {
-        bkgr.style.display = 'block';
-    });
-    bkgr.addEventListener('click', function () {
-        bkgr.style.display = 'none';
-    });
-    close.addEventListener('click', function () {
-        bkgr.style.display = 'none';
-    });
 }
