@@ -58,14 +58,15 @@ function dietSearch() {
             const b_h = document.createElement('h2');
             const b_img = document.createElement('img');
             const b_button = document.createElement('button');
+            b_button.classList.add('trigger_popup_fricc');
             b_h.innerHTML = "아침";
             b_img.src = b[2];
             b_img.width = '350';
             b_img.height = '350';
             b_button.innerHTML = "솔루션";
-            b_button.addEventListener('click', function () {
-                solution(b[0]);
-            });
+            // b_button.addEventListener('click', function () {
+            //     solution(b[0]);
+            // });
             const popupImg = document.createElement('img');
             popupImg.src = b[2];
             popupImg.width = '100';
@@ -82,14 +83,20 @@ function dietSearch() {
             const l_h = document.createElement('h2');
             const l_img = document.createElement('img');
             const l_button = document.createElement('button');
+            l_button.classList.add('trigger_popup_fricc');
             l_h.innerHTML = "점심";
             l_img.src = l[2];
             l_img.width = '350';
             l_img.height = '350';
             l_button.innerHTML = "솔루션";
-            l_button.addEventListener('click', function () {
-                solution(l[0]);
-            });
+            // l_button.addEventListener('click', function () {
+            //     solution(l[0]);
+            // });
+            const popupImg = document.createElement('img');
+            popupImg.src = l[2];
+            popupImg.width = '100';
+            popupImg.height = '100';
+            blank.appendChild(popupImg);
             div.appendChild(l_h);
             div.appendChild(l_button);
             lunch.appendChild(l_img);
@@ -101,14 +108,20 @@ function dietSearch() {
             const d_h = document.createElement('h2');
             const d_img = document.createElement('img');
             const d_button = document.createElement('button');
+            d_button.classList.add('trigger_popup_fricc');
             d_h.innerHTML = "저녁";
             d_img.src = d[2];
             d_img.width = '350';
             d_img.height = '350';
             d_button.innerHTML = "솔루션";
-            d_button.addEventListener('click', function () {
-                solution(d[0]);
-            });
+            // d_button.addEventListener('click', function () {
+            //     solution(d[0]);
+            // });
+            const popupImg = document.createElement('img');
+            popupImg.src = b[2];
+            popupImg.width = '100';
+            popupImg.height = '100';
+            blank.appendChild(popupImg);
             div.appendChild(d_h);
             div.appendChild(d_button);
             dinner.appendChild(d_img);
