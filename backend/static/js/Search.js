@@ -77,6 +77,7 @@ function dietSearch() {
 
             div.appendChild(b_h);
             div.appendChild(b_button);
+            div.appendChild(bkgr);
             breakfast.appendChild(b_img);
             breakfast.appendChild(div);
             clostBtn.onclick = popup();
