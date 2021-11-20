@@ -39,20 +39,21 @@ function dietSearch() {
                 d = d.concat(item);
             }
         })
-        const bkgr = document.createElement('div');
-        bkgr.classList.add('hover_bkgr_fricc');
-        const helper = document.createElement('span');
-        helper.classList.add('helper');
-        const blank = document.createElement('div');
-        const clostBtn = document.createElement('div');
-        clostBtn.classList.add('popupCloseButton');
-        clostBtn.innerHTML = '&times;';
-        clostBtn.onclick = popup();
-        blank.appendChild(clostBtn);
-        bkgr.appendChild(helper);
-        bkgr.appendChild(blank);
 
         if (b.length != 0) {
+            const bkgr = document.createElement('div');
+            bkgr.classList.add('hover_bkgr_fricc');
+            const helper = document.createElement('span');
+            helper.classList.add('helper');
+            const blank = document.createElement('div');
+            const clostBtn = document.createElement('div');
+            clostBtn.classList.add('popupCloseButton');
+            clostBtn.innerHTML = '&times;';
+            clostBtn.onclick = popup();
+            blank.appendChild(clostBtn);
+            bkgr.appendChild(helper);
+            bkgr.appendChild(blank);
+            
             const div = document.createElement('div')
             div.classList.add('container');
             const b_h = document.createElement('h2');
