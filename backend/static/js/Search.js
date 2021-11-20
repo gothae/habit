@@ -40,12 +40,12 @@ function dietSearch() {
             }
         })
         const bkgr = document.createElement('div');
-        bkgr.classList('hover_bkgr_fricc');
+        bkgr.classList.add('hover_bkgr_fricc');
         const helper = document.createElement('span');
-        helper.classList('helper');
+        helper.classList.add('helper');
         const blank = document.createElement('div');
         const clostBtn = document.createElement('div');
-        clostBtn.classList('popupCloseButton');
+        clostBtn.classList.add('popupCloseButton');
         clostBtn.innerHTML = '&times;';
         clostBtn.onclick = popup();
         blank.appendChild(clostBtn);
