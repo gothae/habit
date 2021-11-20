@@ -97,6 +97,15 @@ function dietSearch() {
             }
         }
         if (l.length != 0) {
+            const bkgr = document.createElement('div');
+            bkgr.classList.add('hover_bkgr_fricc');
+            const helper = document.createElement('span');
+            helper.classList.add('helper');
+            const blank = document.createElement('div');
+            const clostBtn = document.createElement('div');
+            clostBtn.classList.add('popupCloseButton');
+
+            clostBtn.innerHTML = '&times;';
             const div = document.createElement('div')
             div.classList.add('container');
             const l_h = document.createElement('h2');
@@ -115,14 +124,43 @@ function dietSearch() {
             popupImg.src = l[2];
             popupImg.width = '100';
             popupImg.height = '100';
+
             blank.appendChild(popupImg);
+            blank.appendChild(clostBtn);
+            bkgr.appendChild(helper);
+            bkgr.appendChild(blank);
+
             div.appendChild(l_h);
             div.appendChild(l_button);
-            lunch.appendChild(l_img);
-            lunch.appendChild(div);
+            div.appendChild(bkgr);
+            breakfast.appendChild(l_img);
+            breakfast.appendChild(div);
             clostBtn.onclick = popup();
+            function popup() {
+                const trigger = document.querySelector('.trigger_popup_fricc');
+                const bkgr = document.querySelector('.hover_bkgr_fricc');
+                const close = document.querySelector('.popupCloseButton');
+                trigger.addEventListener('click', function () {
+                    bkgr.style.display = 'block';
+                });
+                bkgr.addEventListener('click', function () {
+                    bkgr.style.display = 'none';
+                });
+                close.addEventListener('click', function () {
+                    bkgr.style.display = 'none';
+                });
+            }
         }
         if (d.length != 0) {
+            const bkgr = document.createElement('div');
+            bkgr.classList.add('hover_bkgr_fricc');
+            const helper = document.createElement('span');
+            helper.classList.add('helper');
+            const blank = document.createElement('div');
+            const clostBtn = document.createElement('div');
+            clostBtn.classList.add('popupCloseButton');
+
+            clostBtn.innerHTML = '&times;';
             const div = document.createElement('div')
             div.classList.add('container');
             const d_h = document.createElement('h2');
@@ -138,15 +176,35 @@ function dietSearch() {
             //     solution(d[0]);
             // });
             const popupImg = document.createElement('img');
-            popupImg.src = b[2];
+            popupImg.src = d[2];
             popupImg.width = '100';
             popupImg.height = '100';
+
             blank.appendChild(popupImg);
+            blank.appendChild(clostBtn);
+            bkgr.appendChild(helper);
+            bkgr.appendChild(blank);
+
             div.appendChild(d_h);
             div.appendChild(d_button);
-            dinner.appendChild(d_img);
-            dinner.appendChild(div);
+            div.appendChild(bkgr);
+            breakfast.appendChild(d_img);
+            breakfast.appendChild(div);
             clostBtn.onclick = popup();
+            function popup() {
+                const trigger = document.querySelector('.trigger_popup_fricc');
+                const bkgr = document.querySelector('.hover_bkgr_fricc');
+                const close = document.querySelector('.popupCloseButton');
+                trigger.addEventListener('click', function () {
+                    bkgr.style.display = 'block';
+                });
+                bkgr.addEventListener('click', function () {
+                    bkgr.style.display = 'none';
+                });
+                close.addEventListener('click', function () {
+                    bkgr.style.display = 'none';
+                });
+            }
         }
         dietItems.style.display = "block";
     });
