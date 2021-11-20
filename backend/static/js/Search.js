@@ -39,6 +39,19 @@ function dietSearch() {
                 d = d.concat(item);
             }
         })
+        const bkgr = document.createElement('div');
+        bkgr.classList('hover_bkgr_fricc');
+        const helper = document.createElement('span');
+        helper.classList('helper');
+        const blank = document.createElement('div');
+        const clostBtn = document.createElement('div');
+        clostBtn.classList('popupCloseButton');
+        clostBtn.innerHTML = '&times;';
+        clostBtn.onclick = popup();
+        blank.appendChild(clostBtn);
+        bkgr.appendChild(helper);
+        bkgr.appendChild(blank);
+
         if (b.length != 0) {
             const div = document.createElement('div')
             div.classList.add('container');
@@ -53,6 +66,11 @@ function dietSearch() {
             b_button.addEventListener('click', function () {
                 solution(b[0]);
             });
+            const popupImg = document.createElement('img');
+            popupImg.src = b[2];
+            popupImg.width = '100';
+            popupImg.height = '100';
+            blank.appendChild(popupImg);
             div.appendChild(b_h);
             div.appendChild(b_button);
             breakfast.appendChild(b_img);
@@ -216,4 +234,18 @@ function DaySolutionSearch(){
 // 식단 하나 솔루션
 function solution(diet_id){
     location.href = `user/diet/${diet_id}`;
+}
+function popup(){
+    const trigger = document.querySelector('.trigger_popup_fricc');
+    const bkgr = document.querySelector('.hover_bkgr_fricc');
+    const close = document.querySelector('.popupCloseButton');
+    trigger.addEventListener('click', function () {
+        bkgr.style.display = 'block';
+    });
+    bkgr.addEventListener('click', function () {
+        bkgr.style.display = 'none';
+    });
+    close.addEventListener('click', function () {
+        bkgr.style.display = 'none';
+    });
 }

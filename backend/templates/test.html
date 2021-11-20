@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./test.css" rel="stylesheet"/>
+</head>
+<body>
+    <p onclick="show()">show diets</p>
+    <div class="dietItems" style="display: none;">
+        <div class="diet-item breakfast">
+            <div class="container">
+                <h2>아침</h2>
+                <img src="../static/img/dietimage-01.jpg" width="300" height="300">
+                <button class="trigger_popup_fricc" onclick="popup()">솔루션</button>
+                <div class="hover_bkgr_fricc">
+                    <span class="helper"></span>
+                    <div>
+                        <div class="popupCloseButton">&times;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function show(){
+            const dietItems = document.querySelector('.dietItems');
+            dietItems.style.display = 'block';
+        }
+        function popup(){
+            const trigger = document.querySelector('.trigger_popup_fricc');
+            const bkgr = document.querySelector('.hover_bkgr_fricc');
+            const close = document.querySelector('.popupCloseButton');
+            trigger.addEventListener('click',function(){
+                bkgr.style.display = 'block';
+            });
+            bkgr.addEventListener('click', function () {
+                bkgr.style.display = 'none';
+            });
+            close.addEventListener('click', function () {
+                bkgr.style.display = 'none';
+            });
+        }
+    </script>
+</body>
+</html>
