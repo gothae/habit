@@ -39,21 +39,19 @@ function dietSearch() {
                 d = d.concat(item);
             }
         })
+        const bkgr = document.createElement('div');
+        bkgr.classList.add('hover_bkgr_fricc');
+        const helper = document.createElement('span');
+        helper.classList.add('helper');
+        const blank = document.createElement('div');
+        const clostBtn = document.createElement('div');
+        clostBtn.classList.add('popupCloseButton');
+        clostBtn.innerHTML = '&times;';
+        blank.appendChild(clostBtn);
+        bkgr.appendChild(helper);
+        bkgr.appendChild(blank);
 
         if (b.length != 0) {
-            const bkgr = document.createElement('div');
-            bkgr.classList.add('hover_bkgr_fricc');
-            const helper = document.createElement('span');
-            helper.classList.add('helper');
-            const blank = document.createElement('div');
-            const clostBtn = document.createElement('div');
-            clostBtn.classList.add('popupCloseButton');
-            clostBtn.innerHTML = '&times;';
-            clostBtn.onclick = popup();
-            blank.appendChild(clostBtn);
-            bkgr.appendChild(helper);
-            bkgr.appendChild(blank);
-            
             const div = document.createElement('div')
             div.classList.add('container');
             const b_h = document.createElement('h2');
@@ -77,6 +75,7 @@ function dietSearch() {
             div.appendChild(b_button);
             breakfast.appendChild(b_img);
             breakfast.appendChild(div);
+            clostBtn.onclick = popup();
         }
         if (l.length != 0) {
             const div = document.createElement('div')
@@ -102,6 +101,7 @@ function dietSearch() {
             div.appendChild(l_button);
             lunch.appendChild(l_img);
             lunch.appendChild(div);
+            clostBtn.onclick = popup();
         }
         if (d.length != 0) {
             const div = document.createElement('div')
@@ -127,6 +127,7 @@ function dietSearch() {
             div.appendChild(d_button);
             dinner.appendChild(d_img);
             dinner.appendChild(div);
+            clostBtn.onclick = popup();
         }
         dietItems.style.display = "block";
     });
