@@ -39,22 +39,37 @@ function dietSearch() {
                 d = d.concat(item);
             }
         })
+        const hover_bkgr = document.createElement('div');
+        hover_bkgr.classList('hover_bkgr_fricc');
+        const blank = document.createElement('div');
+        const closebtn = document.createElement('div');
+        closebtn.classList('popupCloseButton');
+        const modal_img = document.createElement('img');
+        blank.appendChild(closebtn);
+        blank.appendChild(modal_img);
+        hover_bkgr.appendChild(blank);
+
         if (b.length != 0) {
             const div = document.createElement('div')
             div.classList.add('container');
             const b_h = document.createElement('h2');
             const b_img = document.createElement('img');
             const b_button = document.createElement('button');
+            b_button.classList('trigger_popup_fricc');
+
             b_h.innerHTML = "아침";
             b_img.src = b[2];
             b_img.width = '350';
             b_img.height = '350';
             b_button.innerHTML = "솔루션";
-            b_button.addEventListener('click', function () {
-                solution(b[0]);
-            });
+            modal_img.src = b[2];
+            // b_button.addEventListener('click', function () {
+            //     solution(b[0]);
+            // });
+
             div.appendChild(b_h);
             div.appendChild(b_button);
+            div.appendChild(hover_bkgr);
             breakfast.appendChild(b_img);
             breakfast.appendChild(div);
         }
@@ -208,7 +223,6 @@ function DaySolutionSearch(){
                         </tr>`;
             tableContent.innerHTML += data;
         }
-        console.log(tableContent);
         tableArea.style.display = 'block';
     });
 }
