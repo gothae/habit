@@ -193,6 +193,7 @@ function dietSearch() {
             clostBtn.onclick = popup();
             function popup() {
                 const trigger = document.querySelector('.trigger_popup_fricc');
+                console.log(trigger);
                 const bkgr = document.querySelector('.hover_bkgr_fricc');
                 const close = document.querySelector('.popupCloseButton');
                 trigger.addEventListener('click', function () {
