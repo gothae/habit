@@ -133,8 +133,8 @@ function dietSearch() {
             div.appendChild(l_h);
             div.appendChild(l_button);
             div.appendChild(bkgr);
-            breakfast.appendChild(l_img);
-            breakfast.appendChild(div);
+            lunch.appendChild(l_img);
+            lunch.appendChild(div);
             clostBtn.onclick = popup();
             function popup() {
                 const trigger = document.querySelector('.trigger_popup_fricc');
@@ -188,8 +188,8 @@ function dietSearch() {
             div.appendChild(d_h);
             div.appendChild(d_button);
             div.appendChild(bkgr);
-            breakfast.appendChild(d_img);
-            breakfast.appendChild(div);
+            dinner.appendChild(d_img);
+            dinner.appendChild(div);
             clostBtn.onclick = popup();
             function popup() {
                 const trigger = document.querySelector('.trigger_popup_fricc');
