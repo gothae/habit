@@ -76,9 +76,9 @@ function dietSearch() {
             bkgr.appendChild(blank);
 
             div.appendChild(b_h);
+            div.appendChild(b_img);
             div.appendChild(b_button);
             div.appendChild(bkgr);
-            breakfast.appendChild(b_img);
             breakfast.appendChild(div);
             clostBtn.onclick = popup();
             function popup() {
@@ -131,9 +131,9 @@ function dietSearch() {
             bkgr.appendChild(blank);
 
             div.appendChild(l_h);
+            div.appendChild(l_img);
             div.appendChild(l_button);
             div.appendChild(bkgr);
-            lunch.appendChild(l_img);
             lunch.appendChild(div);
             clostBtn.onclick = popup();
             function popup() {
@@ -186,9 +186,9 @@ function dietSearch() {
             bkgr.appendChild(blank);
 
             div.appendChild(d_h);
+            div.appendChild(d_img);
             div.appendChild(d_button);
             div.appendChild(bkgr);
-            dinner.appendChild(d_img);
             dinner.appendChild(div);
             clostBtn.onclick = popup();
             function popup() {
