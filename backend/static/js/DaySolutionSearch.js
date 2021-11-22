@@ -4,7 +4,7 @@ const config = {
         'Accept': 'application/json'
     }
 };
-function SolutionSearch() {
+function solutionSearch() {
     const area = document.querySelector('#day_diet_container');
     const date = document.querySelector('#datepicker_solution').value;
     const getDaySolution = () => {
