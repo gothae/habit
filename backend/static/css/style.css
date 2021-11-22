@@ -530,7 +530,7 @@ section {
 .diet-item{
   /* display: inline-block; */
   float: left;
-  width: 33.33%;
+  width: 32%;
   padding: 10px 10px 10px 10px;
   margin-left: 5px;
   margin-right: 5px;
