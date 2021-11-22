@@ -59,7 +59,7 @@ function dietSearch() {
             button.classList.add('trigger_popup_fricc');
             h.innerHTML = meal[4];
             img.src = meal[2];
-            img.width = '320';
+            img.width = '380';
             img.height = '320';
             img.style.marginBottom = '20px';
             button.innerHTML = "솔루션";
