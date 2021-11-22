@@ -39,8 +39,8 @@ function dietSearch() {
                 d = d.concat(item);
             }
         })
-
-        if (b.length != 0) {
+        var meals = new Array(b,l,d);
+        meals.map((meal) => {
             const bkgr = document.createElement('div');
             bkgr.classList.add('hover_bkgr_fricc');
             const helper = document.createElement('span');
@@ -53,21 +53,19 @@ function dietSearch() {
 
             const div = document.createElement('div')
             div.classList.add('container');
-            const b_h = document.createElement('h2');
-            const b_img = document.createElement('img');
-            const b_button = document.createElement('button');
-            b_button.classList.add('trigger_popup_fricc');
-            b_h.innerHTML = "아침";
-            b_img.src = b[2];
-            b_img.width = '100%';
-            b_img.height = '320';
-            b_img.style.marginBottom = '20px';
-            b_button.innerHTML = "솔루션";
-            // b_button.addEventListener('click', function () {
-            //     solution(b[0]);
-            // });
+            const h = document.createElement('h2');
+            const img = document.createElement('img');
+            const button = document.createElement('button');
+            button.classList.add('trigger_popup_fricc');
+            h.innerHTML = meal[4];
+            img.src = meal[2];
+            img.width = '320';
+            img.height = '320';
+            img.style.marginBottom = '20px';
+            button.innerHTML = "솔루션";
+
             const popupImg = document.createElement('img');
-            popupImg.src = b[2];
+            popupImg.src = meal[2];
             popupImg.width = '100';
             popupImg.height = '100';
 
@@ -76,99 +74,157 @@ function dietSearch() {
             bkgr.appendChild(helper);
             bkgr.appendChild(blank);
 
-            div.appendChild(b_h);
-            div.appendChild(b_img);
-            div.appendChild(b_button);
+            div.appendChild(h);
+            div.appendChild(img);
+            div.appendChild(button);
             div.appendChild(bkgr);
-            breakfast.appendChild(div);
-            clostBtn.addEventListener('click',function(){
-                popup('breakfast');
-            });
-        }
-        if (l.length != 0) {
-            const bkgr = document.createElement('div');
-            bkgr.classList.add('hover_bkgr_fricc');
-            const helper = document.createElement('span');
-            helper.classList.add('helper');
-            const blank = document.createElement('div');
-            const clostBtn = document.createElement('div');
-            clostBtn.classList.add('popupCloseButton');
+            if(meal[4] === '아침'){
+                breakfast.appendChild(div);
+                clostBtn.addEventListener('click', function () {
+                    popup('breakfast');
+                });
+            }
+            else if(meal[4] ==='점심'){
+                lunch.appendChild(div);
+                clostBtn.addEventListener('click', function () {
+                    popup('lunch');
+                });
+            }
+            else{
+                dinner.appendChild(div);
+                clostBtn.addEventListener('click', function () {
+                    popup('dinner');
+                });
+            }
+        });
 
-            clostBtn.innerHTML = '&times;';
-            const div = document.createElement('div')
-            div.classList.add('container');
-            const l_h = document.createElement('h2');
-            const l_img = document.createElement('img');
-            const l_button = document.createElement('button');
-            l_button.classList.add('trigger_popup_fricc');
-            l_h.innerHTML = "점심";
-            l_img.src = l[2];
-            l_img.width = '100%';
-            l_img.height = '320';
-            l_img.style.marginBottom = '20px';
-            l_button.innerHTML = "솔루션";
+        // if (b.length != 0) {
+        //     const bkgr = document.createElement('div');
+        //     bkgr.classList.add('hover_bkgr_fricc');
+        //     const helper = document.createElement('span');
+        //     helper.classList.add('helper');
+        //     const blank = document.createElement('div');
+        //     const clostBtn = document.createElement('div');
+        //     clostBtn.classList.add('popupCloseButton');
 
-            const popupImg = document.createElement('img');
-            popupImg.src = l[2];
-            popupImg.width = '100';
-            popupImg.height = '100';
+        //     clostBtn.innerHTML = '&times;';
 
-            blank.appendChild(popupImg);
-            blank.appendChild(clostBtn);
-            bkgr.appendChild(helper);
-            bkgr.appendChild(blank);
+        //     const div = document.createElement('div')
+        //     div.classList.add('container');
+        //     const b_h = document.createElement('h2');
+        //     const b_img = document.createElement('img');
+        //     const b_button = document.createElement('button');
+        //     b_button.classList.add('trigger_popup_fricc');
+        //     b_h.innerHTML = "아침";
+        //     b_img.src = b[2];
+        //     b_img.width = '320';
+        //     b_img.height = '320';
+        //     b_img.style.marginBottom = '20px';
+        //     b_button.innerHTML = "솔루션";
 
-            div.appendChild(l_h);
-            div.appendChild(l_img);
-            div.appendChild(l_button);
-            div.appendChild(bkgr);
-            lunch.appendChild(div);
-            clostBtn.addEventListener('click', function () {
-                popup('lunch');
-            });
-        }
-        if (d.length != 0) {
-            const bkgr = document.createElement('div');
-            bkgr.classList.add('hover_bkgr_fricc');
-            const helper = document.createElement('span');
-            helper.classList.add('helper');
-            const blank = document.createElement('div');
-            const clostBtn = document.createElement('div');
-            clostBtn.classList.add('popupCloseButton');
+        //     const popupImg = document.createElement('img');
+        //     popupImg.src = b[2];
+        //     popupImg.width = '100';
+        //     popupImg.height = '100';
 
-            clostBtn.innerHTML = '&times;';
-            const div = document.createElement('div')
-            div.classList.add('container');
-            const d_h = document.createElement('h2');
-            const d_img = document.createElement('img');
-            const d_button = document.createElement('button');
-            d_button.classList.add('trigger_popup_fricc');
-            d_h.innerHTML = "저녁";
-            d_img.src = d[2];
-            d_img.width = '100%';
-            d_img.height = '320';
-            d_img.style.marginBottom = '20px';
-            d_button.innerHTML = "솔루션";
+        //     blank.appendChild(popupImg);
+        //     blank.appendChild(clostBtn);
+        //     bkgr.appendChild(helper);
+        //     bkgr.appendChild(blank);
 
-            const popupImg = document.createElement('img');
-            popupImg.src = d[2];
-            popupImg.width = '100';
-            popupImg.height = '100';
+        //     div.appendChild(b_h);
+        //     div.appendChild(b_img);
+        //     div.appendChild(b_button);
+        //     div.appendChild(bkgr);
+        //     breakfast.appendChild(div);
+        //     clostBtn.addEventListener('click',function(){
+        //         popup('breakfast');
+        //     });
+        // }
+        // if (l.length != 0) {
+        //     const bkgr = document.createElement('div');
+        //     bkgr.classList.add('hover_bkgr_fricc');
+        //     const helper = document.createElement('span');
+        //     helper.classList.add('helper');
+        //     const blank = document.createElement('div');
+        //     const clostBtn = document.createElement('div');
+        //     clostBtn.classList.add('popupCloseButton');
 
-            blank.appendChild(popupImg);
-            blank.appendChild(clostBtn);
-            bkgr.appendChild(helper);
-            bkgr.appendChild(blank);
+        //     clostBtn.innerHTML = '&times;';
+        //     const div = document.createElement('div')
+        //     div.classList.add('container');
+        //     const l_h = document.createElement('h2');
+        //     const l_img = document.createElement('img');
+        //     const l_button = document.createElement('button');
+        //     l_button.classList.add('trigger_popup_fricc');
+        //     l_h.innerHTML = "점심";
+        //     l_img.src = l[2];
+        //     l_img.width = '320';
+        //     l_img.height = '320';
+        //     l_img.style.marginBottom = '20px';
+        //     l_button.innerHTML = "솔루션";
 
-            div.appendChild(d_h);
-            div.appendChild(d_img);
-            div.appendChild(d_button);
-            div.appendChild(bkgr);
-            dinner.appendChild(div);
-            clostBtn.addEventListener('click', function () {
-                popup('dinner');
-            });
-        }
+        //     const popupImg = document.createElement('img');
+        //     popupImg.src = l[2];
+        //     popupImg.width = '100';
+        //     popupImg.height = '100';
+
+        //     blank.appendChild(popupImg);
+        //     blank.appendChild(clostBtn);
+        //     bkgr.appendChild(helper);
+        //     bkgr.appendChild(blank);
+
+        //     div.appendChild(l_h);
+        //     div.appendChild(l_img);
+        //     div.appendChild(l_button);
+        //     div.appendChild(bkgr);
+        //     lunch.appendChild(div);
+        //     clostBtn.addEventListener('click', function () {
+        //         popup('lunch');
+        //     });
+        // }
+        // if (d.length != 0) {
+        //     const bkgr = document.createElement('div');
+        //     bkgr.classList.add('hover_bkgr_fricc');
+        //     const helper = document.createElement('span');
+        //     helper.classList.add('helper');
+        //     const blank = document.createElement('div');
+        //     const clostBtn = document.createElement('div');
+        //     clostBtn.classList.add('popupCloseButton');
+
+        //     clostBtn.innerHTML = '&times;';
+        //     const div = document.createElement('div')
+        //     div.classList.add('container');
+        //     const d_h = document.createElement('h2');
+        //     const d_img = document.createElement('img');
+        //     const d_button = document.createElement('button');
+        //     d_button.classList.add('trigger_popup_fricc');
+        //     d_h.innerHTML = "저녁";
+        //     d_img.src = d[2];
+        //     d_img.width = '320';
+        //     d_img.height = '320';
+        //     d_img.style.marginBottom = '20px';
+        //     d_button.innerHTML = "솔루션";
+
+        //     const popupImg = document.createElement('img');
+        //     popupImg.src = d[2];
+        //     popupImg.width = '100';
+        //     popupImg.height = '100';
+
+        //     blank.appendChild(popupImg);
+        //     blank.appendChild(clostBtn);
+        //     bkgr.appendChild(helper);
+        //     bkgr.appendChild(blank);
+
+        //     div.appendChild(d_h);
+        //     div.appendChild(d_img);
+        //     div.appendChild(d_button);
+        //     div.appendChild(bkgr);
+        //     dinner.appendChild(div);
+        //     clostBtn.addEventListener('click', function () {
+        //         popup('dinner');
+        //     });
+        // }
         dietItems.style.display = "block";
     });
 }
