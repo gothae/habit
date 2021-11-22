@@ -12,6 +12,9 @@
     height: 78vh;
     z-index:10000;
 }
+.hover_bkgr_fricc h3,h4{
+    display: inline;
+}
 .hover_bkgr_fricc .helper{
     display:inline-block;
     height:100%;

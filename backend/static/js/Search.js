@@ -66,22 +66,22 @@ function dietSearch() {
 
             const popupImg = document.createElement('img');
             popupImg.src = meal[2];
-            popupImg.width = '100';
-            popupImg.height = '100';
+            popupImg.width = '300';
+            popupImg.height = '300';
             const title = document.createElement('div');
             const mealtime = document.createElement('h3');
             const calorie = document.createElement('h3');
             calorie.style.color = 'red';
-            calorie.innerHTML = meal[7];
+            calorie.innerHTML = ` ${meal[7]}kcal`;
             title.appendChild(mealtime);
             title.appendChild(calorie);
             const nutri = document.createElement('div');
             const carbo = document.createElement('h4');
-            carbo.innerHTML = meal[8];
+            carbo.innerHTML = `탄 ${meal[8]}g`;
             const protein = document.createElement('h4');
-            protein.innerHTML = meal[9];
+            protein.innerHTML = `단 ${meal[9]}g`;
             const fat = document.createElement('h4');
-            fat.innerHTML = meal[10];
+            fat.innerHTML = `지 ${meal[10]}g`;
             nutri.appendChild(carbo);
             nutri.appendChild(protein);
             nutri.appendChild(fat);
