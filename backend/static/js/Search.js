@@ -68,8 +68,26 @@ function dietSearch() {
             popupImg.src = meal[2];
             popupImg.width = '100';
             popupImg.height = '100';
-            const calorie =document.createElement('')
+            const title = document.createElement('div');
+            const mealtime = document.createElement('h3');
+            const calorie = document.createElement('h3');
+            calorie.style.color = 'red';
+            calorie.innerHTML = meal[7];
+            title.appendChild(mealtime);
+            title.appendChild(calorie);
+            const nutri = document.createElement('div');
+            const carbo = document.createElement('h4');
+            carbo.innerHTML = meal[8];
+            const protein = document.createElement('h4');
+            protein.innerHTML = meal[9];
+            const fat = document.createElement('h4');
+            fat.innerHTML = meal[10];
+            nutri.appendChild(carbo);
+            nutri.appendChild(protein);
+            nutri.appendChild(fat);
 
+            blank.appendChild(title);
+            blank.appendChild(nutri);
             blank.appendChild(popupImg);
             blank.appendChild(clostBtn);
             bkgr.appendChild(helper);
@@ -81,17 +99,20 @@ function dietSearch() {
             div.appendChild(bkgr);
             if(meal[4] === '아침'){
                 breakfast.appendChild(div);
+                mealtime.innerHTML = '아침';
                 button.addEventListener('click', function () {
                     popup('breakfast');
                 });
             }
             else if(meal[4] ==='점심'){
+                mealtime.innerHTML = '점심';
                 lunch.appendChild(div);
                 button.addEventListener('click', function () {
                     popup('lunch');
                 });
             }
             else{
+                mealtime.innerHTML = '저녁';
                 dinner.appendChild(div);
                 button.addEventListener('click', function () {
                     popup('dinner');
