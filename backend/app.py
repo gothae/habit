@@ -9,7 +9,7 @@ import MySQLdb.cursors
 import json
 import mysql.connector
 import random
-from bs4 import BeautifulSoup
+# from bs4 import BeautifulSoup
 from urllib.request import urlopen, Request
 
 app = Flask(__name__)
