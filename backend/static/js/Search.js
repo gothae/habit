@@ -69,25 +69,48 @@ function dietSearch() {
             popupImg.width = '300';
             popupImg.height = '300';
             const title = document.createElement('div');
+            title.classList.add('title');
             const mealtime = document.createElement('h3');
             const calorie = document.createElement('h3');
             calorie.style.color = 'red';
             calorie.innerHTML = ` ${meal[7]}kcal`;
             title.appendChild(mealtime);
             title.appendChild(calorie);
-            const nutri = document.createElement('div');
-            const carbo = document.createElement('h4');
-            carbo.innerHTML = `탄 ${meal[8]}g`;
-            const protein = document.createElement('h4');
-            protein.innerHTML = `단 ${meal[9]}g`;
-            const fat = document.createElement('h4');
-            fat.innerHTML = `지 ${meal[10]}g`;
-            nutri.appendChild(carbo);
-            nutri.appendChild(protein);
-            nutri.appendChild(fat);
+            const nutrient = document.createElement('div');
+            nutrient.classList.add('nutrient')
+
+            const carbo = document.createElement('div');
+            const ch = document.createElement('h5');
+            ch.style.backgroundColor = 'aqua';
+            ch.style.color = 'black'
+            ch.innerHTML = '탄';
+            const cc = document.createElement('h5');
+            cc.innerHTML = `${meal[8]}g `;
+            carbo.appendChild(ch);
+            carbo.appendChild(cc);
+
+            const protein = document.createElement('div');
+            const ph = document.createElement('h5');
+            ph.innerHTML = '단';
+            const pc = document.createElement('h5');
+            pc.innerHTML = `${meal[9]}g `;
+            protein.appendChild(ph);
+            protein.appendChild(pc);
+
+            const fat = document.createElement('div');
+            const fh = document.createElement('h5');
+            fh.innerHTML = '지';
+            const fc = document.createElement('h5');
+            fc.innerHTML = `${meal[10]}g `;
+            protein.appendChild(fh);
+            protein.appendChild(fc);
+
+            nutrient.appendChild(carbo);
+            nutrient.appendChild(protein);
+            nutrient.appendChild(fat);
 
             blank.appendChild(title);
-            blank.appendChild(nutri);
+            blank.appendChild(nutrient);
             blank.appendChild(popupImg);
             blank.appendChild(clostBtn);
             bkgr.appendChild(helper);
@@ -146,7 +169,7 @@ function solutionSearch() {
         return fetch(`user/solution/${date}`, config).then((res) => res.json());
     }
     let calorie = 0;
-    let carbohydrate = 0;
+    let chydrate = 0;
     let protein = 0;
     let fat = 0;
     let sodium = 0;
@@ -156,7 +179,7 @@ function solutionSearch() {
     getDaySolution().then((items) => {
         items.map((item) => {
             calorie += item[7];
-            carbohydrate += item[8];
+            chydrate += item[8];
             protein += item[9];
             fat += item[10];
             sodium += item[11];
@@ -217,7 +240,7 @@ function solutionSearch() {
                     name: '섭취량',
                     data: [
                         Math.round(calorie / 2400 * 10000) / 100,
-                        Math.round(carbohydrate / 324 * 10000) / 100,
+                        Math.round(chydrate / 324 * 10000) / 100,
                         Math.round(protein / 55 * 10000) / 100,
                         Math.round(fat / 54 * 10000) / 100,
                         Math.round(sodium / 2000 * 10000) / 100,
@@ -232,7 +255,7 @@ function solutionSearch() {
             const tableContent = document.querySelector('#table_content');
             var arr = [
                 { "name": '칼로리 (kcal)', 'amount': calorie },
-                { "name": '탄수화물 (g)', 'amount': carbohydrate },
+                { "name": '탄수화물 (g)', 'amount': chydrate },
                 { "name": '단백질 (g)', 'amount': protein },
                 { "name": '지방 (g)', 'amount': fat },
                 { "name": '포화지방 (g)', 'amount': saturated_fat },
