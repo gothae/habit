@@ -156,39 +156,6 @@ def diet_show(date):
     else:
         return None
 
-@app.route('/user/diet/<int:diet_id>')
-def diet_solution(diet_id):
-    conn = mysql.connect
-    cursor = conn.cursor()
-    user_id = session['user']
-    sql = "select * from User where user_id='%s'"%(user_id)
-    cursor.execute(sql)
-    userName = cursor.fetchall()[0][1]
-
-    sql  = "select * from Diet where diet_id = '%s'"%(diet_id)
-    cursor.execute(sql)
-    info = cursor.fetchall()[0]
-
-    foods = info[1].split(',')
-    imgsrc = info[2]
-    date = info[3]
-    mealtime = info[4]
-    calorie = info[7]
-    carbohydrate = info[8]
-    protein = info[9]
-    fat = info[10]
-    sodium = info[11]
-    calcium = info[12]
-    vitamin_c = info[13]
-    saturated_fat = info[14]
-
-    # diet_id와 같은 diet에서 solution_id 를 가지고 solution 찾기
-    sql = "select solution from Solution where Solution.solution_id = (select Diet.solution_id from Diet where diet_id = {0});".format(diet_id)
-    cursor.execute(sql)
-    solution = cursor.fetchall()
-    return render_template('showDiet.html', userName=userName, foods=foods, imgsrc=imgsrc, date=date, mealtime=mealtime, solution=solution, calorie=calorie,
-    carbohydrate=carbohydrate, protein=protein, fat=fat, sodium=sodium, calcium=calcium, vitamin_c=vitamin_c, saturated_fat=saturated_fat)
-
 @app.route('/<user_id>/survey')
 def survey(user_id):
     return render_template('survey.html')
