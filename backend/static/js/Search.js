@@ -80,19 +80,19 @@ function dietSearch() {
             div.appendChild(bkgr);
             if(meal[4] === '아침'){
                 breakfast.appendChild(div);
-                clostBtn.addEventListener('click', function () {
+                button.addEventListener('click', function () {
                     popup('breakfast');
                 });
             }
             else if(meal[4] ==='점심'){
                 lunch.appendChild(div);
-                clostBtn.addEventListener('click', function () {
+                button.addEventListener('click', function () {
                     popup('lunch');
                 });
             }
             else{
                 dinner.appendChild(div);
-                clostBtn.addEventListener('click', function () {
+                button.addEventListener('click', function () {
                     popup('dinner');
                 });
             }
