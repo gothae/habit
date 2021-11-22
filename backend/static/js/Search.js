@@ -85,7 +85,8 @@ function dietSearch() {
             ch.style.color = 'white';
             ch.innerHTML = '탄';
             const cc = document.createElement('h5');
-            cc.innerHTML = `   ${meal[8]}g `;
+            cc.innerHTML = `${meal[8]}g `;
+            cc.style.marginLeft = '5px';
             carbo.appendChild(ch);
             carbo.appendChild(cc);
 
@@ -95,7 +96,8 @@ function dietSearch() {
             ph.style.color = 'white';
             ph.innerHTML = '단 ';
             const pc = document.createElement('h5');
-            pc.innerHTML = `   ${meal[9]}g `;
+            pc.innerHTML = `${meal[9]}g `;
+            pc.style.marginLeft = '5px';
             protein.appendChild(ph);
             protein.appendChild(pc);
 
@@ -105,7 +107,8 @@ function dietSearch() {
             fh.style.color = 'white';
             fh.innerHTML = '지';
             const fc = document.createElement('h5');
-            fc.innerHTML = `   ${meal[10]}g `;
+            fc.innerHTML = `${meal[10]}g `;
+            fc.style.marginLeft = '5px';
             fat.appendChild(fh);
             fat.appendChild(fc);
 
