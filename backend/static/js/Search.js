@@ -68,6 +68,7 @@ function dietSearch() {
             popupImg.src = meal[2];
             popupImg.width = '100';
             popupImg.height = '100';
+            const calorie =document.createElement('')
 
             blank.appendChild(popupImg);
             blank.appendChild(clostBtn);
