@@ -59,8 +59,9 @@ function dietSearch() {
             b_button.classList.add('trigger_popup_fricc');
             b_h.innerHTML = "아침";
             b_img.src = b[2];
-            b_img.width = '350';
-            b_img.height = '350';
+            b_img.width = '100%';
+            b_img.height = '320';
+            b_img.style.marginBottom = '20px';
             b_button.innerHTML = "솔루션";
             // b_button.addEventListener('click', function () {
             //     solution(b[0]);
@@ -80,7 +81,9 @@ function dietSearch() {
             div.appendChild(b_button);
             div.appendChild(bkgr);
             breakfast.appendChild(div);
-            clostBtn.onclick = popup('breakfast');
+            clostBtn.addEventListener('click',function(){
+                popup('breakfast');
+            });
         }
         if (l.length != 0) {
             const bkgr = document.createElement('div');
@@ -100,12 +103,11 @@ function dietSearch() {
             l_button.classList.add('trigger_popup_fricc');
             l_h.innerHTML = "점심";
             l_img.src = l[2];
-            l_img.width = '350';
-            l_img.height = '350';
+            l_img.width = '100%';
+            l_img.height = '320';
+            l_img.style.marginBottom = '20px';
             l_button.innerHTML = "솔루션";
-            // l_button.addEventListener('click', function () {
-            //     solution(l[0]);
-            // });
+
             const popupImg = document.createElement('img');
             popupImg.src = l[2];
             popupImg.width = '100';
@@ -121,7 +123,9 @@ function dietSearch() {
             div.appendChild(l_button);
             div.appendChild(bkgr);
             lunch.appendChild(div);
-            clostBtn.onclick = popup('lunch');
+            clostBtn.addEventListener('click', function () {
+                popup('lunch');
+            });
         }
         if (d.length != 0) {
             const bkgr = document.createElement('div');
@@ -141,12 +145,11 @@ function dietSearch() {
             d_button.classList.add('trigger_popup_fricc');
             d_h.innerHTML = "저녁";
             d_img.src = d[2];
-            d_img.width = '350';
-            d_img.height = '350';
+            d_img.width = '100%';
+            d_img.height = '320';
+            d_img.style.marginBottom = '20px';
             d_button.innerHTML = "솔루션";
-            // d_button.addEventListener('click', function () {
-            //     solution(d[0]);
-            // });
+
             const popupImg = document.createElement('img');
             popupImg.src = d[2];
             popupImg.width = '100';
@@ -162,8 +165,9 @@ function dietSearch() {
             div.appendChild(d_button);
             div.appendChild(bkgr);
             dinner.appendChild(div);
-            clostBtn.onclick = popup('dinner');
-
+            clostBtn.addEventListener('click', function () {
+                popup('dinner');
+            });
         }
         dietItems.style.display = "block";
     });
