@@ -24,6 +24,9 @@
     flex-direction: column;
     align-items: flex-start;
 }
+.hover_bkgr_fricc .nutrient div{
+    display: flex;
+}
 .hover_bkgr_fricc .helper{
     display:inline-block;
     height:100%;
