@@ -67,7 +67,7 @@
                     }
                 };
                 const patientId = document.location.href.split('/')[5];
-                return fetch(`patientList/${patientId}`, config).then((res) => res.json());
+                return fetch(`${patientId}`, config).then((res) => res.json());
             };
             var calendarEl = document.getElementById('calendar');
             var { diets } = getUserDietInfo();
