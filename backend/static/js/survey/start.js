@@ -13,17 +13,13 @@ function calResult(){
 function setResult(){
     const resultName = document.querySelector('.resultname');
     const resultDesc = document.querySelector('.resultDesc');
-    // const ul = document.createElement('ul');
-    const ul = document.createElement('p');
-    var desc = '';
+    const ul = document.createElement('ul');
 
     solutions.map((solution) => {
-        // var li = document.createElement('li');
-        // li.innerHTML = solution;
-        desc += solution;
-        // ul.appendChild(li);
+        var li = document.createElement('li');
+        li.innerHTML = solution;
+        ul.appendChild(li);
     })
-    ul.innerHTML = desc;
     resultDesc.appendChild(ul);
 }
 
