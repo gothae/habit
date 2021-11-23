@@ -148,7 +148,7 @@
             const url = document.location.href.split('/');
             const doctorId = url[3];
             const patientId = url[5];
-            return fetch(`${doctorId}/patientList/${patientId}`, config).then((res) => res.json());
+            return fetch(`patientList/${patientId}`, config).then((res) => res.json());
         };
     </script>
 
