@@ -14,9 +14,10 @@ function setResult(){
     const resultName = document.querySelector('.resultname');
     const resultDesc = document.querySelector('.resultDesc');
     const ul = document.createElement('ul');
-
     solutions.map((solution) => {
         var li = document.createElement('li');
+        li.style.marginTop = '10px';
+        li.style.marginBottom = '10px';
         li.innerHTML = solution;
         ul.appendChild(li);
     })
