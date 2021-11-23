@@ -66,11 +66,10 @@
                 }
             };
             const url = document.location.href.split('/');
-            console.log(url);
             const doctorId = url[3];
             const patientId = url[5];
             try{
-                return fetch(`/patientList/${patientId}`,config).then((res) => res.json())
+                return fetch(`/patientList/${patientId}`,config).then((res) => {console.log(res); return res.json();})
             }
             catch(err){
                 console.log(err);
