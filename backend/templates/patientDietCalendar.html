@@ -27,15 +27,15 @@
 
     <link rel="stylesheet" href="../static/fonts/calendar/icomoon/style.css">
 
-    <link href='../static/fullcalendar/packages/core/main.css' rel='stylesheet' />
-    <link href='../static/fullcalendar/packages/daygrid/main.css' rel='stylesheet' />
+    <link href="{{url_for('static',filename='fullcalendar/packages/core/main.css')}}" rel='stylesheet' />
+    <link href="{{url_for('static',filename='fullcalendar/packages/daygrid/main.css')}}" rel='stylesheet' />
 
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../static/css/calendar/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/calendar/bootstrap.min.css')}}">
 
     <!-- Style -->
-    <link rel="stylesheet" href="../static/css/calendar/style.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/calendar/style.css')}}">
 
     <title>환자 식단 달력</title>
 </head>
