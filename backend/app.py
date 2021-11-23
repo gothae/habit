@@ -184,7 +184,7 @@ def showPatients(doctor_id):
     return render_template('table.html',pList=pList)
 
 @app.route('/<doctor_id>/patientList/<patient_id>')
-def showPatient(doctor_id, patient_id):
+def showPatientCalendar(doctor_id, patient_id):
     conn = mysql.connect
     cursor = conn.cursor()
 
