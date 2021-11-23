@@ -156,8 +156,8 @@ def diet_show(date):
     else:
         return None
 
-@app.route('/<user_id>/survey')
-def survey(user_id):
+@app.route('/survey')
+def survey():
     return render_template('survey.html')
 
 @app.route('/user/solution/<date>')
