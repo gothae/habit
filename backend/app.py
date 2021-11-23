@@ -181,7 +181,7 @@ def showPatients(doctor_id):
     sql = "select * from User where doctor_in_charge = '%s';"%(doctor_id)
     cursor.execute(sql)
     pList = cursor.fetchall()
-    return render_template('table.html',pList=pList,doctor_id=doctor_id)
+    return render_template('table.html',pList=pList)
 
 @app.route('/<doctor_id>/patientList/<patient_id>')
 def showPatient(doctor_id, patient_id):
