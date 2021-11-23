@@ -16,8 +16,6 @@ function setResult(){
     const ul = document.createElement('ul');
     solutions.map((solution) => {
         var li = document.createElement('li');
-        li.style.marginTop = '10px';
-        li.style.marginBottom = '10px';
         li.innerHTML = solution;
         ul.appendChild(li);
     })
