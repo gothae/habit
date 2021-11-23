@@ -59,25 +59,26 @@
     <script src="{{url_for('static',filename='fullcalendar/packages/list/main.js')}}"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const getUserDietInfo = () => {
-                const config = {
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                };
-                const url = document.location.href.split('/');
-                const doctorId = url[3];
-                const patientId = url[5];
-                return fetch(`${doctorId}/patientList/${patientId}`, config).then((res) => res.json());
+        const getUserDietInfo = () => {
+            const config = {
+                headers: {
+                    'Accept': 'application/json'
+                }
             };
-            var calendarEl = document.getElementById('calendar');
-            var diets = getUserDietInfo();
-            console.log(diets);
+            const url = document.location.href.split('/');
+            const doctorId = url[3];
+            const patientId = url[5];
+            return fetch(`${doctorId}/patientList/${patientId}`, config).then((res) => res.json());
+        };
+        var diets = getUserDietInfo();
+        console.log(diets);
 
-            getUserDietInfo().then((res)=>{
-                console.log(res);
-            })
+        getUserDietInfo().then((res) => {
+            console.log(res);
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
 
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 plugins: ['interaction', 'dayGrid', 'timeGrid', 'list'],
