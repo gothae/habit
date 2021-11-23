@@ -189,7 +189,7 @@ def showPatient(doctor_id, patient_id):
     cursor = conn.cursor()
 
     sql = "select * from Diet where user_id = '%s';"%(patient_id)
-    cursor.exequte(sql)
+    cursor.execute(sql)
     dietList = cursor.fetchall()
     return render_template('patientDietCalendar.html',dietList = dietList)
 
