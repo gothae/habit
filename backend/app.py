@@ -193,12 +193,11 @@ def showPatientCalendar(doctor_id, patient_id):
     dietList = cursor.fetchall()
     return render_template('patientDietCalendar.html',dietList = dietList)
 
-@app.route('/patientList/<patient_id>')
+@app.route('/patientList/<patient_id>', methods=['GET','POST'])
 def showPatient(patient_id):
     if request.method == "GET":
         conn = mysql.connect
         cursor = conn.cursor()
-
         sql = "select * from Diet where user_id = '%s';"%(patient_id)
         cursor.execute(sql)
         dietList = cursor.fetchall()
