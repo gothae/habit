@@ -1,21 +1,5 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div id="calendar"></div>
-    {% for diet in dietList %}
-        <p>{{diet}}</p>
-    {% endfor %}
-</body>
-</html> -->
 <!doctype html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -69,7 +53,7 @@
             const doctorId = url[3];
             const patientId = url[5];
             try{
-                return fetch(`/patientList/${patientId}`,config).then((res) => {console.log(res); return res.json();})
+                return fetch(`/patientList/${patientId}`,config).then((res) => {console.log(res); return res.json();});
             }
             catch(err){
                 console.log(err);
