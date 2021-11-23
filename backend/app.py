@@ -193,6 +193,16 @@ def showPatient(doctor_id, patient_id):
     dietList = cursor.fetchall()
     return render_template('patientDietCalendar.html',dietList = dietList)
 
+@app.route('/patientList/<patient_id>')
+def showPatient(patient_id):
+    conn = mysql.connect
+    cursor = conn.cursor()
+
+    sql = "select * from Diet where user_id = '%s';"%(patient_id)
+    cursor.execute(sql)
+    dietList = cursor.fetchall()
+    return dietList
+
 @app.route('/locsearch', methods=['POST'])
 def locsearch():
     req = request.get_json()
