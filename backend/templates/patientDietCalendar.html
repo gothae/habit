@@ -60,9 +60,21 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            const getUserDietInfo = () => {
+                const config = {
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                };
+                const patientId = document.location.href.split('/')[5];
+                return fetch(`patientList/${patientId}`, config).then((res) => res.json());
+            };
             var calendarEl = document.getElementById('calendar');
             var { diets } = getUserDietInfo();
             console.log(diets);
+            getUserDietInfo().then((items) => {
+                console.log(item);
+            })
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 plugins: ['interaction', 'dayGrid', 'timeGrid', 'list'],
                 height: 'parent',
@@ -137,19 +149,6 @@
             calendar.render();
         });
 
-    </script>
-    <script>
-        const getUserDietInfo = () => {
-            const config = {
-                headers: {
-                    'Accept': 'application/json'
-                }
-            };
-            const url = document.location.href.split('/');
-            const doctorId = url[3];
-            const patientId = url[5];
-            return fetch(`patientList/${patientId}`, config).then((res) => res.json());
-        };
     </script>
 
     <script src="{{url_for('static',filename='js/calendar/main.js')}}"></script>
