@@ -70,7 +70,7 @@
                 return fetch(`${patientId}`, config).then((res) => res.json());
             };
             var calendarEl = document.getElementById('calendar');
-            var { diets } = getUserDietInfo();
+            var diets = getUserDietInfo();
             console.log(diets);
             getUserDietInfo().then((items) => {
                 console.log(item);
