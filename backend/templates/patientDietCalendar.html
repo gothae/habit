@@ -25,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
 
 
-    <link rel="stylesheet" href="../static/fonts/calendar/icomoon/style.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='fonts/calendar/icomoon/style.css')}}">
 
     <link href="{{url_for('static',filename='fullcalendar/packages/core/main.css')}}" rel='stylesheet' />
     <link href="{{url_for('static',filename='fullcalendar/packages/daygrid/main.css')}}" rel='stylesheet' />
@@ -48,15 +48,15 @@
     </div>
 
 
-    <script src="../static/js/calendar/jquery-3.3.1.min.js"></script>
-    <script src="../static/js/calendar/popper.min.js"></script>
-    <script src="../static/js/calendar/bootstrap.min.js"></script>
+    <script src="{{url_for('static',filename='js/calendar/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/calendar/popper.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/calendar/bootstrap.min.js')}}"></script>
 
-    <script src='../static/fullcalendar/packages/core/main.js'></script>
-    <script src='../static/fullcalendar/packages/interaction/main.js'></script>
-    <script src='../static/fullcalendar/packages/daygrid/main.js'></script>
-    <script src='../static/fullcalendar/packages/timegrid/main.js'></script>
-    <script src='../static/fullcalendar/packages/list/main.js'></script>
+    <script src="{{url_for('static',filename='fullcalendar/packages/core/main.js')}}"></script>
+    <script src="{{url_for('static',filename='fullcalendar/packages/interaction/main.js')}}"></script>
+    <script src="{{url_for('static',filename='fullcalendar/packages/daygrid/main.js')}}"></script>
+    <script src="{{url_for('static',filename='fullcalendar/packages/timegrid/main.js')}}"></script>
+    <script src="{{url_for('static',filename='fullcalendar/packages/list/main.js')}}"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -152,7 +152,7 @@
         };
     </script>
 
-    <script src="../static/js/calendar/main.js"></script>
+    <script src="{{url_for('static',filename='js/calendar/main.js')}}"script>
 </body>
 
 </html>
