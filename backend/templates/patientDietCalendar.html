@@ -66,15 +66,15 @@
                         'Accept': 'application/json'
                     }
                 };
-                const patientId = document.location.href.split('/')[5];
-                return fetch(`${patientId}`, config).then((res) => res.json());
+                const url = document.location.href.split('/');
+                const doctorId = url[3];
+                const patientId = url[5];
+                return fetch(`${doctorId}/patientList/${patientId}`, config).then((res) => res.json());
             };
             var calendarEl = document.getElementById('calendar');
-            var diets = getUserDietInfo();
+            var { diets } = getUserDietInfo();
             console.log(diets);
-            getUserDietInfo().then((items) => {
-                console.log(item);
-            })
+            
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 plugins: ['interaction', 'dayGrid', 'timeGrid', 'list'],
                 height: 'parent',
