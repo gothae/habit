@@ -68,7 +68,13 @@
             const url = document.location.href.split('/');
             const doctorId = url[3];
             const patientId = url[5];
-            return fetch(`/${doctorId}/patientList/${patientId}`, config).then((res) => res.json());
+            try{
+                return fetch(`patientList/${patientId}`,config).then((res) => res.json())
+            }
+            catch(err){
+                console.log(err);
+            }
+            // return fetch(`/${doctorId}/patientList/${patientId}`, config).then((res) => res.json());
         };
         var diets = getUserDietInfo();
         console.log(diets);
