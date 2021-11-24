@@ -22,7 +22,7 @@ thead{
     vertical-align: middle;
     border-color: inherit;
 }
-tbody tr:hover{
+#patientListTable tbody tr:hover{
     cursor: pointer;
     background-color: #abd4fd;
 }
