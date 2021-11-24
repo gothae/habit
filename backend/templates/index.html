@@ -24,6 +24,7 @@
   <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="../static/css/popup.css" rel="stylesheet">
+  <link href="../static/css/table.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="../static/css/style.css" rel="stylesheet">
@@ -221,12 +222,15 @@
         </div>
 
         <div id="diet_analyze_table" style="display: none;">
-          <table>
-            <tr>
-              <th>영양소 (단위)</th>
-              <th>1일당 섭취량</th>
-              <th>식품섭취 빈도조사 판단 결과</th>
-            </tr>
+          <table class="table">
+            <thead class="thead-primary">
+              <tr>
+                <th>영양소 (단위)</th>
+                <th>1일당 섭취량</th>
+                <th>식품섭취 빈도조사 판단 결과</th>
+              </tr>
+            </thead>
+
             <tbody id="table_content">
 
             </tbody>
@@ -252,12 +256,15 @@
         </select>
 
         <div id="patientListTable">
-          <table id="patientTable" style="display: none;">
-            <tr>
-              <th>날짜</th>
-              <th>식사시간</th>
-              <th>음식명</th>
-            </tr>
+          <table id="patientTable" class="table" style="display: none;">
+            <thead class="thead-primary">
+              <tr>
+                <th>날짜</th>
+                <th>식사시간</th>
+                <th>음식명</th>
+              </tr>
+            </thead>
+
             <tbody id="patientTableContent">
 
             </tbody>

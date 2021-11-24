@@ -1,5 +1,22 @@
 table{
-    position: absolute;
-    left: 300px;
-    top: 300px;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+}
+.table{
+    background: #fff;
+    color: #212529;
+}
+.thead-primary{
+    background: #1089ff;
+}
+thead{
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
 }
