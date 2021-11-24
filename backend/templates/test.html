@@ -7,19 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    <select id="patientSelect"  onchange="showPatientDiet(this.value)">
+    <select id="se"  onchange="showPatientDiet(this.value)">
         <option value="" selected disabled hidden>선택해주세요</option>
-        <option value="고태희">고태희</option>
-        <option value="신현호">산현호</option>
+        <option value="ko">ko</option>
+        <option value="shin">shin</option>
     </select>
     
     <div>
-        <table id="patientTable">
+        <table id="pt">
             <tr>
                 <th>이름</th>
                 <th>날짜</th>
             </tr>
-            <tbody id="patientTableContent">
+            <tbody id="ptc">
 
             </tbody>
         </table>
@@ -27,36 +27,24 @@
 
     <script>
         function showPatientDiet(patientName){
-            const arr = [
-                {
-                    '고태희' : 
-                    [
-                        ['아침','1119'],
-                        ['점심','1119']
-                    ]
-                },
-                {
-                    '신현호' : 
-                    [
-                        ['아침','564'],
-                        ['점심','23']
-                    ]
-                }
-            ];
-            const table = document.querySelector('#patientTableContent');
-            for(name in arr){
-                console.log(name);
-                // if(name === patientName){
-                //     console.log(name)
-                //     var row = `
-                //                 <tr>
-                //                     <td>${name[0]}</td>
-                //                     <td>${name[1]}</td>
-                //                 </tr>
-                //                 `;
-                // }
+            const table = document.querySelector('#ptc');
+            while(table.hasChildNodes()){
+                table.removeChild(table.firstChild);
             }
-            // table.innerHTML = row;
+            const k = [['ko','아침','1115'],['ko','점심','1115'],['ko','저녁','1115']];
+            const s = [['shin','아침', '1115'], ['shin','점심', '1115']];
+            const arr = [...k,...s];
+            arr.map((item) =>{
+                if(item[0] === patientName){
+                    var row = `
+                                <tr>
+                                    <td>${item[1]}</td>
+                                    <td>${item[2]}</td>
+                                </tr>
+                                `;
+                    table.innerHTML += row;
+                }
+            });
         }
     </script>
 </body>

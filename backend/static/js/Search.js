@@ -1,5 +1,5 @@
+import axios from 'axios';
 const dietItems = document.querySelector('.diet-items');
-const dietItem = document.querySelector('.diet-item');
 const breakfast = document.querySelector('.breakfast');
 const lunch = document.querySelector('.lunch');
 const dinner = document.querySelector('.dinner');
@@ -281,12 +281,15 @@ function solutionSearch() {
             tableArea.style.display = 'block';
         });
 }
-
-function showPatientDiet(patientName){
-    const getPatientDiet = () => {
-        return fetch(`${patientName}/dietList`, config).then((res) => res.json());
+const getPatientDiet = async (pname) =>{
+    try{
+        return await axios.get(`/${pname}/dietList`);
+    }catch(error){
+        console.log(error);
     }
-    getPatientDiet().then((diets) => {
+}
+function showPatientDiet(patientName){
+    getPatientDiet(patientName).then((diets) => {
         diets.map((diet) => {
             console.log(diet);
         })

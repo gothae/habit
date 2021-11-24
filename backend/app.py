@@ -58,7 +58,6 @@ def main():
         info = cursor.fetchall()
         for i in info:
             patientList.append(i[1]) # name
-        print(patientList)
 
         return render_template('index.html',error=error, name=name, user_id=user_id, birth_date=birth_date,
         phone_number=phone_number, age=age, height=height, weight=weight, illness=illness, medicine=medicine, gender=gender, is_patient=is_patient, patientList=patientList)
