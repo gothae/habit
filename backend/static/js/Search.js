@@ -276,15 +276,14 @@ function solutionSearch() {
                         </tr>`;
                 tableContent.innerHTML += data;
             }
-            console.log(tableContent);
             tableArea.style.display = 'block';
         });
 }
 
 function showPatientDiet(patientName) {
-    const getPatientDiet = async (pname) => {
+    const getPatientDiet = (pname) => {
         try {
-            return fetch(`${pname}/dietList`, config).then((res) => {console.log(res); res.json();});
+            return fetch(`${pname}/dietList`, config).then((res) => res.json());
         } catch (error) {
             console.log(error);
         }

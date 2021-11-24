@@ -191,7 +191,7 @@ def getUserDiets(username):
         cursor = conn.cursor()
         sql = "select * from Diet where user_id = (select user_id from User where user_name = '%s')"%(username)
         cursor.execute(sql)
-        diets = cursor.fetchall()
+        diets = json.dumps(cursor.fetchall())
         return diets
 
 
