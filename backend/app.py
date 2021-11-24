@@ -44,8 +44,8 @@ def main():
     illness=user[0][7]
     medicine=user[0][8]
     phone_number = user[0][9]
-    cursor.close()
-    conn.close()
+    # cursor.close()
+    # conn.close()
 
     if is_patient == 1: #환자일때
         return render_template('index.html',error=error, name=name, user_id=user_id, birth_date=birth_date,
