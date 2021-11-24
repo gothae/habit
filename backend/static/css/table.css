@@ -14,6 +14,7 @@ table{
 }
 .thead-primary{
     background: #1089ff;
+    color: white;
 }
 thead{
     display: table-header-group;

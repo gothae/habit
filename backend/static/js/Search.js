@@ -281,6 +281,7 @@ function solutionSearch() {
 }
 
 function showPatientDiet(patientName) {
+    const container = document.querySelector('#patientListTable');
     const table = document.querySelector('#patientTable');
     while (table.hasChildNodes()) {
         table.removeChild(table.firstChild);
@@ -303,6 +304,6 @@ function showPatientDiet(patientName) {
                         `;
             table.innerHTML += row;
         });
-        table.style.display = 'block';
+        container.style.display = 'block';
     });
 }
