@@ -22,7 +22,7 @@ thead{
     vertical-align: middle;
     border-color: inherit;
 }
-tr:hover{
+tbody tr:hover{
     cursor: pointer;
     background-color: #abd4fd;
 }
