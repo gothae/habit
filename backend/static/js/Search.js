@@ -282,7 +282,7 @@ function solutionSearch() {
 
 function showPatientDiet(patientName) {
     const container = document.querySelector('#patientListTable');
-    const table = document.querySelector('#patientTable');
+    const table = document.querySelector('#patientTableContent');
     while (table.hasChildNodes()) {
         table.removeChild(table.firstChild);
     }
