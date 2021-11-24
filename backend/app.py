@@ -173,38 +173,6 @@ def show_solution_day(date):
     else:
         return None
 
-@app.route('/<doctor_id>/patientList')
-def showPatients(doctor_id):
-    conn = mysql.connect
-    cursor = conn.cursor()
-
-    sql = "select * from User where doctor_in_charge = '%s';"%(doctor_id)
-    cursor.execute(sql)
-    pList = cursor.fetchall()
-    return render_template('table.html',pList=pList)
-
-@app.route('/<doctor_id>/patientList/<patient_id>')
-def showPatientCalendar(doctor_id, patient_id):
-    conn = mysql.connect
-    cursor = conn.cursor()
-
-    sql = "select * from Diet where user_id = '%s';"%(patient_id)
-    cursor.execute(sql)
-    dietList = cursor.fetchall()
-    return render_template('patientDietCalendar.html',dietList = dietList)
-
-@app.route('/patientList/<patient_id>', methods=['GET','POST'])
-def showPatient(patient_id):
-    if request.method == "GET":
-        conn = mysql.connect
-        cursor = conn.cursor()
-        sql = "select * from Diet where user_id = '%s';"%(patient_id)
-        cursor.execute(sql)
-        dietList = cursor.fetchall()
-        return dietList
-    else:
-        return 'nothing'
-
 @app.route('/locsearch', methods=['POST'])
 def locsearch():
     req = request.get_json()
