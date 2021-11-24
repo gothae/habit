@@ -281,18 +281,18 @@ function solutionSearch() {
             tableArea.style.display = 'block';
         });
 }
-const getPatientDiet = async (pname) => {
-    try {
-        return await axios.get(`/${pname}/dietList`);
-    } catch (error) {
-        console.log(error);
-    }
-}
 
 function showPatientDiet(patientName) {
+    const getPatientDiet = async (pname) => {
+        try {
+            return await axios.get(`/${pname}/dietList`);
+        } catch (error) {
+            console.log(error);
+        }
+    };
     getPatientDiet(patientName).then((diets) => {
         diets.map((diet) => {
             console.log(diet);
-        })
-    })
+        });
+    });
 }
