@@ -1,4 +1,5 @@
 table{
+    margin-top: 10px;
     border-collapse: collapse;
     box-sizing: border-box;
     text-indent: initial;
@@ -20,4 +21,8 @@ thead{
     display: table-header-group;
     vertical-align: middle;
     border-color: inherit;
+}
+tr:hover{
+    cursor: pointer;
+    background-color: #abd4fd;
 }
