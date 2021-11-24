@@ -281,6 +281,10 @@ function solutionSearch() {
 }
 
 function showPatientDiet(patientName) {
+    const table = document.querySelector('#patientTable');
+    while (table.hasChildNodes()) {
+        table.removeChild(table.firstChild);
+    }
     const getPatientDiet = (pname) => {
         try {
             return fetch(`${pname}/dietList`, config).then((res) => res.json());
@@ -290,7 +294,15 @@ function showPatientDiet(patientName) {
     };
     getPatientDiet(patientName).then((diets) => {
         diets.map((diet) => {
-            console.log(diet);
+            var row = `
+                        <tr>
+                            <td>${diet[3]}</td>
+                            <td>${diet[4]}</td>
+                            <td>${diet[1]}</td>
+                        </tr>
+                        `;
+            table.innerHTML += row;
         });
+        table.style.display = 'block';
     });
 }
