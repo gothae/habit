@@ -259,6 +259,9 @@ function solutionSearch() {
             area.style.display = 'block';
             const tableArea = document.querySelector('#diet_analyze_table');
             const tableContent = document.querySelector('#table_content');
+            while(tableContent.hasChildNodes()){
+                tableContent.removeChild(tableContent.firstChild);
+            }
             var arr = [
                 { "name": '칼로리 (kcal)', 'amount': calorie },
                 { "name": '탄수화물 (g)', 'amount': chydrate },
