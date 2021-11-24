@@ -244,7 +244,7 @@
           <h2>환자 목록</h2>
         </div>
 
-        <select id="patientSelect" onchange="showPatientDiet(this.value)">
+        <select id="patientSelect" onchange="js:showPatientDiet(this.value)">
           <option value="" selected disabled hidden>선택해주세요</option>
           {% for patient in patientList %}
             <option value={{patient}}>{{patient}}</option>
@@ -353,6 +353,7 @@
 
   <!-- event listener -->
   <script src="../static/js/Search.js"></script>
+  <script src="../static/js/patient.js"></script>
 
   <!-- Template Main JS File -->
   <script src="static/js/main.js"></script>
