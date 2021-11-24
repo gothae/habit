@@ -281,3 +281,14 @@ function solutionSearch() {
             tableArea.style.display = 'block';
         });
 }
+
+function showPatientDiet(patientName){
+    const getPatientDiet = () => {
+        return fetch(`${patientName}/dietList`, config).then((res) => res.json());
+    }
+    getPatientDiet().then((diets) => {
+        diets.map((diet) => {
+            console.log(diet);
+        })
+    })
+}

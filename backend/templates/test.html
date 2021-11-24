@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="patientSelect"  onchange="showPatientDiet(this.value)">
+        <option value="" selected disabled hidden>선택해주세요</option>
+        <option value="고태희">고태희</option>
+        <option value="신현호">산현호</option>
+    </select>
+    
+    <div>
+        <table id="patientTable">
+            <tr>
+                <th>이름</th>
+                <th>날짜</th>
+            </tr>
+            <tbody id="patientTableContent">
+
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function showPatientDiet(patientName){
+            const arr = [
+                {
+                    '고태희' : 
+                    [
+                        ['아침','1119'],
+                        ['점심','1119']
+                    ]
+                },
+                {
+                    '신현호' : 
+                    [
+                        ['아침','564'],
+                        ['점심','23']
+                    ]
+                }
+            ];
+            const table = document.querySelector('#patientTableContent');
+            for(name in arr){
+                console.log(name);
+                // if(name === patientName){
+                //     console.log(name)
+                //     var row = `
+                //                 <tr>
+                //                     <td>${name[0]}</td>
+                //                     <td>${name[1]}</td>
+                //                 </tr>
+                //                 `;
+                // }
+            }
+            // table.innerHTML = row;
+        }
+    </script>
+</body>
+</html>

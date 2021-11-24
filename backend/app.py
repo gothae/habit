@@ -33,9 +33,9 @@ def main():
     
     cursor.execute(sql)
     user = cursor.fetchall()
-    
-    name=user[0][0]
+    is_patient = user[0][10]
     user_id=user[0][1]
+    name=user[0][0]
     age =user[0][2]
     weight=user[0][3]
     height=user[0][4]
@@ -44,13 +44,21 @@ def main():
     illness=user[0][7]
     medicine=user[0][8]
     phone_number = user[0][9]
-    is_patient = user[0][10]
-    
     cursor.close()
     conn.close()
-    return render_template('index.html',error=error, name=name, user_id=user_id, birth_date=birth_date,
-    phone_number=phone_number, age=age, height=height, weight=weight, illness=illness, medicine=medicine, gender=gender, is_patient=is_patient)
 
+    if is_patient == 1: #환자일때
+        return render_template('index.html',error=error, name=name, user_id=user_id, birth_date=birth_date,
+        phone_number=phone_number, age=age, height=height, weight=weight, illness=illness, medicine=medicine, gender=gender, is_patient=is_patient)
+
+    else: #의사일때
+        sql = "select user_name from User where doctor_in_charge = '%s';"%(user_id)
+        cursor.execute(sql)
+        patientList = cursor.fetchall()
+
+        return render_template('index.html',error=error, name=name, user_id=user_id, birth_date=birth_date,
+        phone_number=phone_number, age=age, height=height, weight=weight, illness=illness, medicine=medicine, gender=gender, is_patient=is_patient, patientList=patientList)
+        
 @app.route('/',methods = ['GET','POST'])
 def login():
     form = LoginForm()
@@ -172,6 +180,17 @@ def show_solution_day(date):
         return daydiets
     else:
         return None
+
+@app.route('/<username>/dietList',methods=['GET','POST'])
+def getUserDiets(username):
+    if request.method == 'GET':
+        conn = mysql.connect
+        cursor = conn.cursor()
+        sql = "select * from Diet where user_id = (select user_id from User where user_name = '%s')"%(username)
+        cursor.execute(sql)
+        diets = cursor.fetchall()
+        return diets
+
 
 @app.route('/locsearch', methods=['POST'])
 def locsearch():
