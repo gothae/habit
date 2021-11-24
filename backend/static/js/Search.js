@@ -1,4 +1,3 @@
-import axios from 'axios';
 const dietItems = document.querySelector('.diet-items');
 const breakfast = document.querySelector('.breakfast');
 const lunch = document.querySelector('.lunch');
@@ -285,7 +284,7 @@ function solutionSearch() {
 function showPatientDiet(patientName) {
     const getPatientDiet = async (pname) => {
         try {
-            return await axios.get(`/${pname}/dietList`);
+            return fetch(`${pname}/dietList`, config).then((res) => {console.log(res); res.json();});
         } catch (error) {
             console.log(error);
         }
