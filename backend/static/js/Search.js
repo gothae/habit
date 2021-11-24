@@ -301,7 +301,7 @@ function showPatientDiet(patientName) {
     getPatientDiet(patientName).then((diets) => {
         diets.map((diet) => {
             var row = `
-                        <tr>
+                        <tr onclick="location.href='/patientDiet/${diet[0]}'">
                             <td>${diet[3]}</td>
                             <td>${diet[4]}</td>
                             <td>${diet[1]}</td>
