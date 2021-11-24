@@ -40,112 +40,114 @@ function dietSearch() {
         })
         var meals = new Array(b,l,d);
         meals.map((meal) => {
-            const bkgr = document.createElement('div');
-            bkgr.classList.add('hover_bkgr_fricc');
-            const helper = document.createElement('span');
-            helper.classList.add('helper');
-            const blank = document.createElement('div');
-            const clostBtn = document.createElement('div');
-            clostBtn.classList.add('popupCloseButton');
+            if(meal.length != 0){
+                const bkgr = document.createElement('div');
+                bkgr.classList.add('hover_bkgr_fricc');
+                const helper = document.createElement('span');
+                helper.classList.add('helper');
+                const blank = document.createElement('div');
+                const clostBtn = document.createElement('div');
+                clostBtn.classList.add('popupCloseButton');
 
-            clostBtn.innerHTML = '&times;';
+                clostBtn.innerHTML = '&times;';
 
-            const div = document.createElement('div')
-            div.classList.add('container');
-            const h = document.createElement('h2');
-            const img = document.createElement('img');
-            const button = document.createElement('button');
-            button.classList.add('trigger_popup_fricc');
-            h.innerHTML = meal[4];
-            img.src = meal[2];
-            img.width = '380';
-            img.height = '320';
-            img.style.marginBottom = '20px';
-            button.innerHTML = "솔루션";
+                const div = document.createElement('div')
+                div.classList.add('container');
+                const h = document.createElement('h2');
+                const img = document.createElement('img');
+                const button = document.createElement('button');
+                button.classList.add('trigger_popup_fricc');
+                h.innerHTML = meal[4];
+                img.src = meal[2];
+                img.width = '380';
+                img.height = '320';
+                img.style.marginBottom = '20px';
+                button.innerHTML = "솔루션";
 
-            const popupImg = document.createElement('img');
-            popupImg.src = meal[2];
-            popupImg.width = '300';
-            popupImg.height = '300';
-            const title = document.createElement('div');
-            title.classList.add('title');
-            const mealtime = document.createElement('h3');
-            const calorie = document.createElement('h3');
-            calorie.style.color = 'red';
-            calorie.innerHTML = ` ${meal[7]}kcal`;
-            title.appendChild(mealtime);
-            title.appendChild(calorie);
-            const nutrient = document.createElement('div');
-            nutrient.classList.add('nutrient')
+                const popupImg = document.createElement('img');
+                popupImg.src = meal[2];
+                popupImg.width = '300';
+                popupImg.height = '300';
+                const title = document.createElement('div');
+                title.classList.add('title');
+                const mealtime = document.createElement('h3');
+                const calorie = document.createElement('h3');
+                calorie.style.color = 'red';
+                calorie.innerHTML = ` ${meal[7]}kcal`;
+                title.appendChild(mealtime);
+                title.appendChild(calorie);
+                const nutrient = document.createElement('div');
+                nutrient.classList.add('nutrient')
 
-            const carbo = document.createElement('div');
-            const ch = document.createElement('h5');
-            ch.style.backgroundColor = '#215cf3';
-            ch.style.color = 'white';
-            ch.innerHTML = '탄';
-            const cc = document.createElement('h5');
-            cc.innerHTML = `${meal[8]}g `;
-            cc.style.marginLeft = '5px';
-            carbo.appendChild(ch);
-            carbo.appendChild(cc);
+                const carbo = document.createElement('div');
+                const ch = document.createElement('h5');
+                ch.style.backgroundColor = '#215cf3';
+                ch.style.color = 'white';
+                ch.innerHTML = '탄';
+                const cc = document.createElement('h5');
+                cc.innerHTML = `${meal[8]}g `;
+                cc.style.marginLeft = '5px';
+                carbo.appendChild(ch);
+                carbo.appendChild(cc);
 
-            const protein = document.createElement('div');
-            const ph = document.createElement('h5');
-            ph.style.backgroundColor = '#0eeb24';
-            ph.style.color = 'white';
-            ph.innerHTML = '단 ';
-            const pc = document.createElement('h5');
-            pc.innerHTML = `${meal[9]}g `;
-            pc.style.marginLeft = '5px';
-            protein.appendChild(ph);
-            protein.appendChild(pc);
+                const protein = document.createElement('div');
+                const ph = document.createElement('h5');
+                ph.style.backgroundColor = '#0eeb24';
+                ph.style.color = 'white';
+                ph.innerHTML = '단 ';
+                const pc = document.createElement('h5');
+                pc.innerHTML = `${meal[9]}g `;
+                pc.style.marginLeft = '5px';
+                protein.appendChild(ph);
+                protein.appendChild(pc);
 
-            const fat = document.createElement('div');
-            const fh = document.createElement('h5');
-            fh.style.backgroundColor = '#f9e41f';
-            fh.style.color = 'white';
-            fh.innerHTML = '지';
-            const fc = document.createElement('h5');
-            fc.innerHTML = `${meal[10]}g `;
-            fc.style.marginLeft = '5px';
-            fat.appendChild(fh);
-            fat.appendChild(fc);
+                const fat = document.createElement('div');
+                const fh = document.createElement('h5');
+                fh.style.backgroundColor = '#f9e41f';
+                fh.style.color = 'white';
+                fh.innerHTML = '지';
+                const fc = document.createElement('h5');
+                fc.innerHTML = `${meal[10]}g `;
+                fc.style.marginLeft = '5px';
+                fat.appendChild(fh);
+                fat.appendChild(fc);
 
-            nutrient.appendChild(carbo);
-            nutrient.appendChild(protein);
-            nutrient.appendChild(fat);
+                nutrient.appendChild(carbo);
+                nutrient.appendChild(protein);
+                nutrient.appendChild(fat);
 
-            blank.appendChild(title);
-            blank.appendChild(nutrient);
-            blank.appendChild(popupImg);
-            blank.appendChild(clostBtn);
-            bkgr.appendChild(helper);
-            bkgr.appendChild(blank);
+                blank.appendChild(title);
+                blank.appendChild(nutrient);
+                blank.appendChild(popupImg);
+                blank.appendChild(clostBtn);
+                bkgr.appendChild(helper);
+                bkgr.appendChild(blank);
 
-            div.appendChild(h);
-            div.appendChild(img);
-            div.appendChild(button);
-            div.appendChild(bkgr);
-            if(meal[4] === '아침'){
-                breakfast.appendChild(div);
-                mealtime.innerHTML = '아침';
-                button.addEventListener('click', function () {
-                    popup('breakfast');
-                });
-            }
-            else if(meal[4] ==='점심'){
-                mealtime.innerHTML = '점심';
-                lunch.appendChild(div);
-                button.addEventListener('click', function () {
-                    popup('lunch');
-                });
-            }
-            else{
-                mealtime.innerHTML = '저녁';
-                dinner.appendChild(div);
-                button.addEventListener('click', function () {
-                    popup('dinner');
-                });
+                div.appendChild(h);
+                div.appendChild(img);
+                div.appendChild(button);
+                div.appendChild(bkgr);
+                if(meal[4] === '아침'){
+                    breakfast.appendChild(div);
+                    mealtime.innerHTML = '아침';
+                    button.addEventListener('click', function () {
+                        popup('breakfast');
+                    });
+                }
+                else if(meal[4] ==='점심'){
+                    mealtime.innerHTML = '점심';
+                    lunch.appendChild(div);
+                    button.addEventListener('click', function () {
+                        popup('lunch');
+                    });
+                }
+                else{
+                    mealtime.innerHTML = '저녁';
+                    dinner.appendChild(div);
+                    button.addEventListener('click', function () {
+                        popup('dinner');
+                    });
+                }
             }
         });
 
