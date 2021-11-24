@@ -52,9 +52,12 @@ def main():
         phone_number=phone_number, age=age, height=height, weight=weight, illness=illness, medicine=medicine, gender=gender, is_patient=is_patient)
 
     else: #의사일때
-        sql = "select user_name from User where doctor_in_charge = '%s';"%(user_id)
+        sql = "select * from User where doctor_in_charge = '%s';"%(user_id)
         cursor.execute(sql)
-        patientList = cursor.fetchall()
+        patientList = []
+        info = cursor.fetchall()
+        for i in info:
+            patientList.append(i[1]) # name
         print(patientList)
 
         return render_template('index.html',error=error, name=name, user_id=user_id, birth_date=birth_date,
