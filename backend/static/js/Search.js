@@ -305,7 +305,6 @@ function showPatientDiet(patientName) {
                             <td>${diet[3]}</td>
                             <td>${diet[4]}</td>
                             <td>${diet[1]}</td>
-                            <td><a href="downloadDiet/${diet[0]}">다운로드</a></td>
                         </tr>
                         `;
             table.innerHTML += row;

@@ -202,22 +202,6 @@ def showPatientDiet(dietId):
     diet = cursor.fetchone()
     return render_template('showPatientDiet.html',diet = diet)
 
-@app.route('/downloadDiet/<dietId>')
-def downloadDiet(dietId):
-    output = StringIO()
-    temp_df = pd.DataFrame({
-        'col1' : [1,2,3],
-        'col2' : [4,5,6]
-    })
-    temp_df.to_csv(output)
-    response = Response(
-        output.getvalue(),
-        mimetype='text/csv',
-        content_type='application/octet-stream'
-    )
-    response.headers["Content-Dispostion"] = "attachment; filename=post_export.csv"
-    return response
-
 if __name__ == '__main__':
     
     app.run(host="0.0.0.0", port = "5000", debug = True)
