@@ -9,8 +9,48 @@
     <!-- favicon -->
     <link rel="shortcut icon" href="../static/img/survey/favicon.ico">
     <link rel="apple-touch-icon-precomposed" href="../static/img/survey/favicon.ico">
+
+    <link href="../static/css/table.css" rel="stylesheet">
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <p>{{diet}}</p>
+    <div class="row">
+        <div class="col-lg-6">
+            <img src="{{diet[2]}}">
+        </div>
+        <div class="col-lg-6">
+            <h2>날짜 : {{diet[3]}}</h2>
+            <h3>식사시간 : {{diet[4]}}</h3>
+        </div>
+    </div>
+    <table class="table" style="width: 100%;">
+        <thead class="thead-primary">
+            <tr>
+                <th>음식명</th>
+                <th>칼로리 (kcal)</th>
+                <th>탄수화물 (g)</th>
+                <th>단백질 (g)</th>
+                <th>지방 (g)</th>
+                <th>포화지방 (g)</th>
+                <th>나트륨 (mg)</th>
+                <th>칼슘 (mg)</th>
+                <th>비타민 C (mg)</th>
+            </tr>
+        </thead>
+    
+        <tbody>
+            <tr>
+                <td>{{ diet[1] }}</td>
+                <td>{{ diet[7] }}</td>
+                <td>{{ diet[8] }}</td>
+                <td>{{ diet[9] }}</td>
+                <td>{{ diet[10] }}</td>
+                <td>{{ diet[14] }}</td>
+                <td>{{ diet[11] }}</td>
+                <td>{{ diet[12] }}</td>
+                <td>{{ diet[13] }}</td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>

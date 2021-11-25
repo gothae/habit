@@ -196,7 +196,7 @@ def showPatientDiet(dietId):
     cursor = conn.cursor()
     sql = "select * from Diet where diet_id = '%s';"%(dietId)
     cursor.execute(sql)
-    diet = json.dumps(cursor.fetchall())
+    diet = json.dumps(cursor.fetchall())[0]
     return render_template('showPatientDiet.html',diet = diet)
 
 if __name__ == '__main__':
