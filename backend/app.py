@@ -1,5 +1,6 @@
-from flask import Flask, session, jsonify, request, render_template, redirect
+from flask import Flask, session, jsonify, request, render_template, redirect, Response
 from flask.helpers import flash, url_for
+from werkzeug.wrappers import response
 from forms import LoginForm
 from flask_wtf.csrf import CSRFProtect
 # from flaskext.mysql import MySQL
@@ -7,6 +8,8 @@ from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import json
 import mysql.connector
+from io import StringIO
+import pandas as pd
 
 app = Flask(__name__)
 mysql = MySQL(app)
@@ -198,6 +201,22 @@ def showPatientDiet(dietId):
     cursor.execute(sql)
     diet = cursor.fetchone()
     return render_template('showPatientDiet.html',diet = diet)
+
+@app.route('/downloadDiet/<dietId>')
+def downloadDiet(dietId):
+    output = StringIO()
+    temp_df = pd.DataFrame({
+        'col1' : [1,2,3],
+        'col2' : [4,5,6]
+    })
+    temp_df.to_csv(output)
+    response = Response(
+        output.getvalue(),
+        mimetype='text/csv',
+        content_type='application/octet-stream'
+    )
+    response.headers["Content-Dispostion"] = "attachment; filename=post_export.csv"
+    return response
 
 if __name__ == '__main__':
     
