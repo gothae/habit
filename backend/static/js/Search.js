@@ -278,7 +278,7 @@ function solutionSearch() {
                 var data = `<tr>
                             <td>${arr[i].name}</td>
                             <td>${arr[i].amount}</td>
-                            <td></td>
+                            <td>${arr[i].solution}</td>
                         </tr>`;
                 tableContent.innerHTML += data;
             }
