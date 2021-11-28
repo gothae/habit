@@ -265,19 +265,20 @@ function solutionSearch() {
                 tableContent.removeChild(tableContent.firstChild);
             }
             var arr = [
-                { "name": '칼로리 (kcal)', 'amount': calorie },
-                { "name": '탄수화물 (g)', 'amount': chydrate },
-                { "name": '단백질 (g)', 'amount': protein },
-                { "name": '지방 (g)', 'amount': fat },
-                { "name": '포화지방 (g)', 'amount': saturated_fat },
-                { "name": '나트륨 (mg)', 'amount': sodium },
-                { "name": '칼슘 (mg)', 'amount': calcium },
-                { "name": '비타민C (mg)', 'amount': vitamin_c }
+                { "name": '칼로리 (kcal)', 'amount': calorie , "solution": "평균 칼로리 필요량(2,400 kcal)에 부족하게 섭취하였습니다."},
+                { "name": '탄수화물 (g)', 'amount': chydrate, "solution": "권장 섭취량 (324 g)에 매우 부족하게 섭취하였습니다."},
+                { "name": '단백질 (g)', 'amount': protein, "solution": "권장 섭취량 (55 g)을 초과하여 섭취하였습니다"},
+                { "name": '지방 (g)', 'amount': fat, "solution": "권장 섭취량 (54 g)을 초과하여 섭취하였습니다."},
+                { "name": '포화지방 (g)', 'amount': saturated_fat, "solution": "권장 섭취량 (15 g)의 58% 수준으로 섭취하였습니다."},
+                { "name": '나트륨 (mg)', 'amount': sodium, "solution": "권장 섭취량 (2,000 mg)에 매우 부족하게 섭취하였습니다."},
+                { "name": '칼슘 (mg)', 'amount': calcium, "solution": "권장 섭취량 (750 mg)에 매우 부족하게 섭취하였습니다."},
+                { "name": '비타민C (mg)', 'amount': vitamin_c, "solution": "권장 섭취량 (100 mg)을 초과하여 섭취하였습니다."}
             ];
             for (var i = 0; i < arr.length; i++) {
                 var data = `<tr>
                             <td>${arr[i].name}</td>
                             <td>${arr[i].amount}</td>
+                            <td></td>
                         </tr>`;
                 tableContent.innerHTML += data;
             }
