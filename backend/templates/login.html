@@ -77,10 +77,14 @@
               url: '/v2/user/me',
               success: function (response) {
                 var userEmail = response.kakao_account.email;
-                var userGender = response.kakao_account.gender;
+                var userName = response.kakao_account.name;
                 var userBirthDay = response.kakao_account.birthday;
-
-                console.log('kakao', userBirthDay,userEmail,userGender);
+                var userBirthYear = response.kakao_account.birthyear;
+                var userBirthDate = `${userBirthYear}-${userBirthDay.substr(0,2)}-${userBirthDay.substr(2,4)}`;
+                var userGender = response.kakao_account.gender;
+                var userPhoneNum = response.kakao_account.phone_number;
+                
+                console.log(userPhoneNum);
               },
               fail: function (error) {
                 console.log(error)
