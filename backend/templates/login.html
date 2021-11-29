@@ -77,8 +77,8 @@
               url: '/v2/user/me',
               success: function (response) {
                 var userEmail = response.kakao_account.email;
-                var userGender = response.properties.gender;
-                var userBirthDay = response.properties.birthday;
+                var userGender = response.kakao_account.gender;
+                var userBirthDay = response.kakao_account.birthday;
 
                 console.log('kakao', userBirthDay,userEmail,userGender);
               },
