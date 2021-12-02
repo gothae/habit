@@ -3,13 +3,11 @@ from flask.helpers import flash, url_for
 from werkzeug.wrappers import response
 from forms import LoginForm
 from flask_wtf.csrf import CSRFProtect
-# from flaskext.mysql import MySQL
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import json
 import mysql.connector
-from io import StringIO
-import pandas as pd
+from config import CLIENT_ID, REDIRECT_URI
 
 app = Flask(__name__)
 mysql = MySQL(app)
@@ -201,6 +199,13 @@ def showPatientDiet(dietId):
     cursor.execute(sql)
     diet = cursor.fetchone()
     return render_template('showPatientDiet.html',diet = diet)
+
+@app.route('/oauth/url')
+def oauth_url_api():
+    return jsonify(
+        kakao_oauth_url="https://kauth.kakao.com/oauth/authorize?client_id=%s&redirect_uri=%s&response_type=code" \
+        % (CLIENT_ID, REDIRECT_URI)
+    )
 
 if __name__ == '__main__':
     
