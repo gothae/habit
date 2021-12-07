@@ -124,6 +124,8 @@ function dietSearch() {
                 blank.appendChild(title);
                 blank.appendChild(nutrient);
                 blank.appendChild(popupImg);
+                blank.appendChild(solutionHead);
+                blank.appendChild(solutionContent);
                 blank.appendChild(clostBtn);
                 bkgr.appendChild(helper);
                 bkgr.appendChild(blank);
