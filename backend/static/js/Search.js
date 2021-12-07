@@ -273,14 +273,14 @@ function solutionSearch() {
                 tableContent.removeChild(tableContent.firstChild);
             }
             var arr = [
-                { "name": '칼로리 (kcal)', 'amount': calorie, "solution": `평균 칼로리 필요량(2,400 kcal)의 ${Math.round(calorie / 15 *10000) / 100}% 수준으로 섭취하였습니다.`},
-                { "name": '탄수화물 (g)', 'amount': chydrate, "solution": `권장 섭취량 (324 g)의 ${Math.round(chydrate / 15 * 10000) / 100}% 수준으로 섭취하였습니다.`},
-                { "name": '단백질 (g)', 'amount': protein, "solution": `권장 섭취량 (55 g)의 ${Math.round(protein / 15 * 10000) / 100}% 수준으로 섭취하였습니다`},
-                { "name": '지방 (g)', 'amount': fat, "solution": `권장 섭취량 (54 g)의 ${Math.round(fat / 15 * 10000) / 100}% 수준으로 섭취하였습니다.`},
+                { "name": '칼로리 (kcal)', 'amount': calorie, "solution": `평균 칼로리 필요량(2,400 kcal)의 ${Math.round(calorie / 2400 *10000) / 100}% 수준으로 섭취하였습니다.`},
+                { "name": '탄수화물 (g)', 'amount': chydrate, "solution": `권장 섭취량 (324 g)의 ${Math.round(chydrate / 324 * 10000) / 100}% 수준으로 섭취하였습니다.`},
+                { "name": '단백질 (g)', 'amount': protein, "solution": `권장 섭취량 (55 g)의 ${Math.round(protein / 55 * 10000) / 100}% 수준으로 섭취하였습니다`},
+                { "name": '지방 (g)', 'amount': fat, "solution": `권장 섭취량 (54 g)의 ${Math.round(fat / 54 * 10000) / 100}% 수준으로 섭취하였습니다.`},
                 { "name": '포화지방 (g)', 'amount': saturated_fat, "solution": `권장 섭취량 (15 g)의 ${Math.round(saturated_fat / 15 *10000) / 100}% 수준으로 섭취하였습니다.`},
-                { "name": '나트륨 (mg)', 'amount': sodium, "solution": `권장 섭취량 (2,000 mg)의 ${Math.round(sodium / 15 * 10000) / 100}% 수준으로 섭취하였습니다.`},
-                { "name": '칼슘 (mg)', 'amount': calcium, "solution": `권장 섭취량 (750 mg)의 ${Math.round(calcium / 15 * 10000) / 100}% 수준으로 섭취하였습니다.`},
-                { "name": '비타민C (mg)', 'amount': vitamin_c, "solution": `권장 섭취량 (100 mg)의 ${Math.round(vitamin_c / 15 * 10000) / 100}% 수준으로 섭취하였습니다.`}
+                { "name": '나트륨 (mg)', 'amount': sodium, "solution": `권장 섭취량 (2,000 mg)의 ${Math.round(sodium / 2000 * 10000) / 100}% 수준으로 섭취하였습니다.`},
+                { "name": '칼슘 (mg)', 'amount': calcium, "solution": `권장 섭취량 (750 mg)의 ${Math.round(calcium / 750 * 10000) / 100}% 수준으로 섭취하였습니다.`},
+                { "name": '비타민C (mg)', 'amount': vitamin_c, "solution": `권장 섭취량 (100 mg)의 ${Math.round(vitamin_c / 100 * 10000) / 100}% 수준으로 섭취하였습니다.`}
             ];
             for (var i = 0; i < arr.length; i++) {
                 var data = `<tr>
