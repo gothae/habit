@@ -113,6 +113,7 @@ function dietSearch() {
                 fat.appendChild(fc);
 
                 const solutionHead = document.createElement('h3');
+                solutionHead.style.display = 'block';
                 solutionHead.innerHTML = "<영양성분 분석>";
                 const solutionContent = document.createElement('p');
                 solutionContent.innerHTML ="튀기지 않은 면으로 가급적 드시기 바랍니다.술은 피하세요 <br> 한끼섭취량 대비 탄수화물 과다이며, 단백질 적정, 지방 과다입니다.";
@@ -272,14 +273,14 @@ function solutionSearch() {
                 tableContent.removeChild(tableContent.firstChild);
             }
             var arr = [
-                { "name": '칼로리 (kcal)', 'amount': calorie , "solution": "평균 칼로리 필요량(2,400 kcal)에 부족하게 섭취하였습니다."},
-                { "name": '탄수화물 (g)', 'amount': chydrate, "solution": "권장 섭취량 (324 g)에 매우 부족하게 섭취하였습니다."},
-                { "name": '단백질 (g)', 'amount': protein, "solution": "권장 섭취량 (55 g)을 초과하여 섭취하였습니다"},
-                { "name": '지방 (g)', 'amount': fat, "solution": "권장 섭취량 (54 g)을 초과하여 섭취하였습니다."},
+                { "name": '칼로리 (kcal)', 'amount': calorie, "solution": `평균 칼로리 필요량(2,400 kcal)의 ${Math.round(calorie / 15 *10000) / 100}% 수준으로 섭취하였습니다.`},
+                { "name": '탄수화물 (g)', 'amount': chydrate, "solution": `권장 섭취량 (324 g)의 ${Math.round(chydrate / 15 * 10000) / 100}% 수준으로 섭취하였습니다.`},
+                { "name": '단백질 (g)', 'amount': protein, "solution": `권장 섭취량 (55 g)의 ${Math.round(protein / 15 * 10000) / 100}% 수준으로 섭취하였습니다`},
+                { "name": '지방 (g)', 'amount': fat, "solution": `권장 섭취량 (54 g)의 ${Math.round(fat / 15 * 10000) / 100}% 수준으로 섭취하였습니다.`},
                 { "name": '포화지방 (g)', 'amount': saturated_fat, "solution": `권장 섭취량 (15 g)의 ${Math.round(saturated_fat / 15 *10000) / 100}% 수준으로 섭취하였습니다.`},
-                { "name": '나트륨 (mg)', 'amount': sodium, "solution": "권장 섭취량 (2,000 mg)에 매우 부족하게 섭취하였습니다."},
-                { "name": '칼슘 (mg)', 'amount': calcium, "solution": "권장 섭취량 (750 mg)에 매우 부족하게 섭취하였습니다."},
-                { "name": '비타민C (mg)', 'amount': vitamin_c, "solution": "권장 섭취량 (100 mg)을 초과하여 섭취하였습니다."}
+                { "name": '나트륨 (mg)', 'amount': sodium, "solution": `권장 섭취량 (2,000 mg)의 ${Math.round(sodium / 15 * 10000) / 100}% 수준으로 섭취하였습니다.`},
+                { "name": '칼슘 (mg)', 'amount': calcium, "solution": `권장 섭취량 (750 mg)의 ${Math.round(calcium / 15 * 10000) / 100}% 수준으로 섭취하였습니다.`},
+                { "name": '비타민C (mg)', 'amount': vitamin_c, "solution": `권장 섭취량 (100 mg)의 ${Math.round(vitamin_c / 15 * 10000) / 100}% 수준으로 섭취하였습니다.`}
             ];
             for (var i = 0; i < arr.length; i++) {
                 var data = `<tr>
