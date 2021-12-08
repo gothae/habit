@@ -179,6 +179,8 @@ function popup(mealtime) {
 }
 
 function solutionSearch() {
+    const diet_recommend = document.querySelector('#diet_recommend');
+    diet_recommend.style.display = 'block';
     const area = document.querySelector('#day_diet_container');
     const date = document.querySelector('#datepicker_solution').value;
     const getDaySolution = () => {
